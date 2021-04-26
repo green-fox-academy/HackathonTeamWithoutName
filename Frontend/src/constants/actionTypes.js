@@ -1,0 +1,6 @@
+export const SET_PREZI_VISIBILITY = 'SET_PREZI_VISIBILITY';
+export const SET_ACTUAL_SLIDE = 'SET_ACTUAL_SLIDE';
+export const LOAD_USER_DATA = 'LOAD_USER_DATA';
+export const LOAD_ERROR = 'LOAD_ERROR';
+export const UNLOAD_ERROR = 'UNLOAD_ERROR';
+export const UNLOAD_STORE = 'UNLOAD_STORE';

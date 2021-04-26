@@ -1,0 +1,50 @@
+html {
+  font-size: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Public Sans', sans-serif;
+  line-height: 1.3;
+  background: whitesmoke;
+}
+
+.errormessage {
+  margin-top: 20px;
+  color: #ba3939;
+  background: #ffe0e0;
+  border: 1px solid #a33a3a;
+  padding: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.successmessage {
+  color: #2b7515;
+  background: #ecffd6;
+  padding: 5px;
+  border: 1px solid #617c42;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.warningmessage {
+  color: #756e15;
+  background: #fffbd1;
+  padding: 5px;
+  border: 1px solid #87803e;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+/*# sourceMappingURL=App.css.map */
