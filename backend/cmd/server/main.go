@@ -1,0 +1,36 @@
+package main
+
+import (
+	"log"
+
+	"coffeeShop/cmd/forgottenPass"
+	"coffeeShop/cmd/login"
+	"coffeeShop/cmd/register"
+	"coffeeShop/cmd/verify"
+	"coffeeShop/internal/corsMiddle"
+
+	"github.com/gin-gonic/contrib/static"
+	"github.com/gin-gonic/gin"
+)
+
+func main() {
+	router := gin.New()
+	router.Use(corsMiddle.CORSMiddleware())
+	router.Use(static.Serve("/", static.LocalFile("../../../Frontend/public", true)))
+	router.GET("/verify", verify.VerifyUserByEmail)
+	router.POST("/forgottenpass", forgottenPass.ForgottenPass)
+
+	router.POST("/user/register", register.RegisterTheUser)
+	router.POST("/user/login", login.LoginFunction)
+	// router.POST("/user/address", )
+	// router.PUT("/user/address", )
+	// router.PUT("/user/pass", )
+
+	// router.GET("/product",)
+	// router.POST("/product/review",)
+
+	// router.PUT("/order",)
+	// router.PUT("/order/quantity",)
+	// router.DELETE("/order", deleteOrder.DeleteOrder)
+	log.Fatal(router.Run(":8080"))
+}
