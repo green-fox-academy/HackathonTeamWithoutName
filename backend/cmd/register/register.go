@@ -75,19 +75,19 @@ func RegisterTheUser(c *gin.Context) {
 	var isEmailExists int
 	db := dbConn.DbConn()
 	if err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM users WHERE username = (?));", user.Username).Scan(&isUsernameExists); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "database error11"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "database error at username-check"})
 		return
 	}
 
 	if err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM users WHERE email = (?));", user.Email).Scan(&isEmailExists); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "database error12"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "database error at email-check"})
 		return
 	}
 
 	if isUsernameExists == 0 && isEmailExists == 0 {
 		insData, err := db.Prepare("INSERT INTO users (username, password, email) VALUES (?,?,?);")
 		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": "database error2"})
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "database error at new user insertion"})
 			return
 		}
 
@@ -96,7 +96,7 @@ func RegisterTheUser(c *gin.Context) {
 
 		var userResult UserForResult
 		if err := db.QueryRow("SELECT id, username FROM users WHERE id = LAST_INSERT_ID();").Scan(&userResult.Id, &userResult.Username); err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": "database error3"})
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "database error at userForResult"})
 			return
 		}
 		token, err := jwt.CreateToken(userResult.Id)
@@ -106,7 +106,7 @@ func RegisterTheUser(c *gin.Context) {
 		}
 
 		email.SendVerifyEmail(user.Username, token, user.Email)
-		c.JSON(http.StatusOK, gin.H{"id": userResult.Id, "username": userResult.Username})
+		c.JSON(http.StatusOK, gin.H{"message": "ok", "id": userResult.Id, "username": userResult.Username})
 		return
 
 	} else if isUsernameExists != 0 {
