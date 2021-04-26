@@ -17,8 +17,8 @@ func main() {
 	router := gin.New()
 	router.Use(corsMiddle.CORSMiddleware())
 	router.Use(static.Serve("/", static.LocalFile("../../../Frontend/public", true)))
-	router.GET("/verify", verify.VerifyUserByEmail)
-	router.POST("/forgottenpass", forgottenPass.ForgottenPass)
+	router.GET("/user/verify", verify.VerifyUserByEmail)
+	router.POST("/user/forgottenpass", forgottenPass.ForgottenPass)
 
 	router.POST("/user/register", register.RegisterTheUser)
 	router.POST("/user/login", login.LoginFunction)

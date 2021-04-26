@@ -19,7 +19,7 @@ func SendNewPasswordEmail(name string, password string, toEmail string) {
 
 	mg := mailgun.NewMailgun(os.Getenv("mailgunDomain"), os.Getenv("mailgunApiKey"))
 	m := mg.NewMessage(
-		name+` <noreply@coffeeonthego.com>`,
+		name+` <noreply@coffeetogo.com>`,
 		"Your new credentials are ready",
 		"",
 		toEmail,
