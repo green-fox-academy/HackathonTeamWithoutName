@@ -1,0 +1,131 @@
+#cart {
+  padding: 20px;
+  background-color: white;
+}
+
+#cart_main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+#cart_inner_main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
+#cart_header {
+  width: 900px;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#cart_header h4:nth-child(1) {
+  width: 450px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#cart_header h4:nth-child(2) {
+  width: 90px;
+}
+
+#cart_header h4:nth-child(3) {
+  width: 80px;
+}
+
+#cart_header h4:nth-child(4) {
+  width: 150px;
+}
+
+#cart_inner_main_empty {
+  margin: 0;
+  width: 900px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
+}
+
+#cart_checkout {
+  padding: 20px;
+  min-width: 300px;
+  height: 200px;
+  background: #d6d6d6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#cart_checkout div:nth-child(1) {
+  font-weight: bold;
+  padding-bottom: 20px;
+  border-bottom: black solid 1px;
+}
+
+#cart_checkout div:nth-child(2) {
+  font-weight: bold;
+  font-size: 20px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+#cart_checkout button {
+  height: 40px;
+}
+
+@media screen and (max-width: 1270px) {
+  #cart_main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #cart_checkout {
+    max-width: 900px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  #cart_header {
+    display: none;
+  }
+  #cart_inner_main_empty {
+    width: 700px;
+  }
+  #cart_checkout {
+    max-width: 700px;
+    min-width: 350px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  #cart_inner_main_empty {
+    width: unset;
+    min-width: 350px;
+  }
+}
+/*# sourceMappingURL=Cart.css.map */
