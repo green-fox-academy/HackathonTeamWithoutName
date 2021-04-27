@@ -5,6 +5,7 @@ import (
 
 	"coffeeShop/cmd/forgottenPass"
 	"coffeeShop/cmd/login"
+	"coffeeShop/cmd/postReview"
 	"coffeeShop/cmd/productFeed"
 	"coffeeShop/cmd/register"
 	"coffeeShop/cmd/verify"
@@ -28,7 +29,7 @@ func main() {
 	// router.PUT("/user/pass", )
 
 	router.GET("/product", productFeed.GetAllProducts)
-	// router.POST("/product/review",)
+	router.POST("/product/review", postReview.PostReview)
 
 	// router.PUT("/order",)
 	// router.PUT("/order/quantity",)
