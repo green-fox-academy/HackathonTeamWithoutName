@@ -39,7 +39,7 @@ CREATE TABLE `orders` (
 products:
 CREATE TABLE `products` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`user_id` INT NOT NULL,
+    `title` VARCHAR(50) NOT NULL,
 	`price` DECIMAL(10,2) NOT NULL,
 	`category` VARCHAR(60) NOT NULL,
 	`description` VARCHAR(1024) NOT NULL DEFAULT 'description',

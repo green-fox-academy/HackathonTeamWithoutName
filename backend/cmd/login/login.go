@@ -12,8 +12,12 @@ import (
 type Address struct {
 	ID          uint64 `json:"id"`
 	UserID      uint64 `json:"user_id"`
-	Address     string `json:"address"`
-	PhoneNumber uint64 `json:"phone_number"`
+	Country     string `json:"country"`
+	ZipCode     string `json:"zip_code"`
+	City        string `json:"city"`
+	Street      string `json:"street"`
+	HouseNumber uint64 `json:"house_number"`
+	Phone       uint64 `json:"phone"`
 	FirstName   string `json:"first_name"`
 	LastName    string `json:"last_name"`
 }
@@ -96,7 +100,7 @@ func LoginFunction(c *gin.Context) {
 
 	}
 
-	rowsForOrders, err := db.Query(`SELECT id, user_id, product_id, quantity, status FROM orders WHERE status = "in_cart"`)
+	rowsForOrders, err := db.Query(`SELECT id, user_id, product_id, quantity, status FROM orders WHERE status = "in_cart" AND user_id = ?`, userFromDB.ID)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"orders query error": err})
 		return
@@ -109,7 +113,7 @@ func LoginFunction(c *gin.Context) {
 		var orderData Order
 		err2 := rowsForOrders.Scan(&orderData.ID, &orderData.UserID, &orderData.ProductID, &orderData.Quantity, &orderData.Status)
 		if err2 != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"errorScan2": err2})
+			c.JSON(http.StatusInternalServerError, gin.H{"errorScan2orders": err2})
 			return
 		}
 
@@ -118,11 +122,11 @@ func LoginFunction(c *gin.Context) {
 	}
 	err = rowsForOrders.Err()
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error3": err})
+		c.JSON(http.StatusInternalServerError, gin.H{"error3orders": err})
 		return
 	}
 
-	rowsForAddresses, err := db.Query(`SELECT * FROM orders WHERE status = "in_cart"`)
+	rowsForAddresses, err := db.Query(`SELECT * FROM addresses WHERE user_id = ?`, userFromDB.ID)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"addresses query error": err})
 		return
@@ -130,12 +134,15 @@ func LoginFunction(c *gin.Context) {
 	defer rowsForAddresses.Close()
 
 	var addressesDataArray []Address
+	// if rowsForAddresses != nil {
 	for rowsForAddresses.Next() {
 
 		var addressesData Address
-		err2 := rowsForAddresses.Scan(&addressesData.ID, &addressesData.UserID, &addressesData.Address, &addressesData.PhoneNumber, &addressesData.FirstName, &addressesData.LastName)
+		err2 := rowsForAddresses.Scan(&addressesData.ID, &addressesData.UserID, &addressesData.Country,
+			&addressesData.ZipCode, &addressesData.City, &addressesData.Street, &addressesData.HouseNumber,
+			&addressesData.Phone, &addressesData.FirstName, &addressesData.LastName)
 		if err2 != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"errorScan2": err2})
+			c.JSON(http.StatusInternalServerError, gin.H{"errorScan2addresses": err2})
 			return
 		}
 
@@ -144,10 +151,10 @@ func LoginFunction(c *gin.Context) {
 	}
 	err = rowsForAddresses.Err()
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error3": err})
+		c.JSON(http.StatusInternalServerError, gin.H{"error3addresses": err})
 		return
 	}
-
+	// }
 	token, err := jwt.CreateToken(userFromDB.ID)
 	if err != nil {
 		c.JSON(http.StatusUnprocessableEntity, err.Error())
