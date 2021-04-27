@@ -122,6 +122,11 @@
 }
 
 @media screen and (max-width: 1270px) {
+  #cart {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
   #cart_main {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
