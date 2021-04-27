@@ -90,6 +90,9 @@
 }
 
 @media screen and (max-width: 1270px) {
+  #cart{
+    height:fit-content;
+  }
   #cart_main {
     flex-direction: column;
   }
