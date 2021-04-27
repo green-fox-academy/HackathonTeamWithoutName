@@ -1,0 +1,49 @@
+@import './presets';
+@import './variables';
+@import './globals';
+
+
+.loginBox{
+  display:flex;
+margin-left:auto;
+margin-right:auto;
+margin-top:50px;
+width:850px;
+justify-content: flex-start;
+background-color: $light-brown;
+box-shadow:$box-shadow-light;
+}
+
+.loginForm {
+  display:flex;
+  gap:15px;
+  min-width:370px;
+  margin-left:50px;
+    justify-content: center;
+    flex-direction:column;
+    height:400px;
+    .input {
+    background-color: $light-brown-hover;
+  width:350px;
+}
+button {
+  align-self:center;
+  margin-top:30px;
+  width:100px;
+  font-size: 120%;
+  font-weight:500;
+  background-color: $background-brown;
+  border:3px solid $dark-brown;
+}
+
+button:hover{
+  background-color: $light-brown-hover;
+  border:3px solid $dark-brown-hover;
+}
+}
+
+.formImgBox {
+  margin-left:50px;
+  width:400px;
+border:3px solid $dark-brown;
+}

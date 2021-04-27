@@ -60,10 +60,20 @@
           clip-path: polygon(20% 50%, 50% 0, 0 50%, 50% 100%);
 }
 
+#prezi_background #prezi_left_arrow:hover {
+  background-color: #be0303;
+}
+
 #prezi_background #prezi_right_arrow {
   min-width: 70px;
   height: 15%;
   background-color: black;
+  -webkit-clip-path: polygon(80% 50%, 50% 0, 100% 50%, 50% 100%);
+          clip-path: polygon(80% 50%, 50% 0, 100% 50%, 50% 100%);
+}
+
+#prezi_background #prezi_right_arrow:hover {
+  background-color: #3fb810;
   -webkit-clip-path: polygon(80% 50%, 50% 0, 100% 50%, 50% 100%);
           clip-path: polygon(80% 50%, 50% 0, 100% 50%, 50% 100%);
 }

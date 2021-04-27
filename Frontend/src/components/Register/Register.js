@@ -8,6 +8,7 @@ import { loadErrorAction, unloadErrorAction } from '../../actions';
 export const Register = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const { isError, errorMessage } = useSelector(state => state.error.register);
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ export const Register = () => {
     submitEvent.preventDefault();
     try {
       await validateUserInput();
-      await fetchService.fetchData('register', 'POST', { userName, password }, null);
+      await fetchService.fetchData('register', 'POST', { userName, password, email }, null);
       history.push('/login');
     } catch (error) {
       console.log(error.message);
@@ -55,6 +56,16 @@ export const Register = () => {
             value={userName}
             onChange={changeEvent => {
               setUserName(changeEvent.target.value);
+              dispatch(unloadErrorAction());
+            }}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            minLength="3"
+            value={email}
+            onChange={changeEvent => {
+              setEmail(changeEvent.target.value);
               dispatch(unloadErrorAction());
             }}
           />

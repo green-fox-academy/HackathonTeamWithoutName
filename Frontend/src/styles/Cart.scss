@@ -11,6 +11,7 @@
     filter: drop-shadow(0px 1px 0.5px rgb(180, 180, 180));
   }
 
+}
   #cart_header{
     width: 900px;
   padding: 0 20px;
@@ -21,8 +22,6 @@
   box-shadow:$box-shadow-strong;
   border-radius:8px;
   }
-}
-
 #cart_main {
   display: flex;
   gap: 20px;
@@ -100,6 +99,9 @@
 }
 
 @media screen and (max-width: 940px) {
+#cart{
+  height:fit-content;
+}
   #cart_header {
     display: none;
   }
@@ -113,6 +115,9 @@
 }
 
 @media screen and (max-width: 740px) {
+  #cart{
+    height:fit-content;
+  } 
   #cart_inner_main_empty {
     width: unset;
     min-width: 350px;
