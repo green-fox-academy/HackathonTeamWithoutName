@@ -38,4 +38,4 @@ const sampleOrder2 = {
 }
 
 export const sampleCoffeeList = [ sampleCoffee1, sampleCoffee2 ];
-export const sampleOrderList = [ sampleOrder1, sampleOrder2 ]
+export const sampleOrderList = [ sampleOrder1, sampleOrder2 ];

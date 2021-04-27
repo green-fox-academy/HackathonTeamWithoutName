@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { Main1, Upload, Cart } from '../';
+import { Main1, Upload, Cart, OrderReview } from '../';
 
 export const Main = () => {
 
@@ -10,6 +10,7 @@ export const Main = () => {
         <Redirect exact from="/main" to="/main/main1" />
         <Route path="/main/main1" component={Main1} />
         <Route path="/main/cart" component={Cart} />
+        <Route path="/main/orderreview" component={OrderReview} />
         <Route path="/main/upload" component={Upload} />
       </Switch>
     </div>

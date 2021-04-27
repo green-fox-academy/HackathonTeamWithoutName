@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // import { fetchService } from '../../services';
 import {
@@ -17,6 +17,7 @@ export const Login = () => {
   const { isError, errorMessage } = useSelector((state) => state.error.login);
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
 
   const handleChangePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
@@ -42,10 +43,9 @@ export const Login = () => {
     try {
       await validateUserInput();
       // const response = await fetchService.fetchData('login', 'POST', { userName, password }, null);
-      dispatch(
-        loadUserDataAction({ accessToken: true, id: 1, userName: 'viktor' })
-      );
       history.push('/main');
+      dispatch(loadUserDataAction({ accessToken: true, id: 1, userName: 'viktor' }));
+      location.state === '/main/cart' ? history.push('/main/cart') : history.push('/main');
     } catch (error) {
       console.log(error.message);
       dispatch(loadErrorAction({ type: 'login', message: error.message }));

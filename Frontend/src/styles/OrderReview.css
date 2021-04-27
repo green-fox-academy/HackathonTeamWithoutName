@@ -1,0 +1,97 @@
+#order_review {
+  padding: 20px;
+  background-color: #9c795c;
+  height: 100vh;
+}
+
+#order_review h1 {
+  text-shadow: 1px 1px 0px #424242;
+  color: black;
+  -webkit-filter: drop-shadow(0px 1px 0.5px #b4b4b4);
+          filter: drop-shadow(0px 1px 0.5px #b4b4b4);
+}
+
+#order_review #order_review_main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+#order_review #order_review_main #order_review_inner_main {
+  min-width: 900px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
+#order_review #order_review_main #order_review_inner_main #order_review_settings {
+  height: 300px;
+  background: #dbc1ac;
+}
+
+#order_review #order_review_main #order_review_inner_main #order_review_items {
+  height: 300px;
+  background: #dbc1ac;
+}
+
+#order_review #order_review_main #order_review_aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
+#order_review #order_review_main #order_review_aside #order_review_checkout {
+  padding: 20px;
+  min-width: 300px;
+  height: 200px;
+  background: #dbc1ac;
+  color: #4e3928;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+#order_review #order_review_main #order_review_aside #order_review_checkout #order_review_checkout div:nth-child(1) {
+  font-weight: bold;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #4e3928;
+}
+
+#order_review #order_review_main #order_review_aside #order_review_checkout #order_review_checkout div:nth-child(2) {
+  font-weight: bold;
+  font-size: 20px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+#order_review #order_review_main #order_review_aside #order_review_checkout button {
+  height: 40px;
+  color: #dbc1ac;
+  font-weight: 600;
+  background-color: #4e3928;
+}
+
+#order_review #order_review_main #order_review_aside #order_review_checkout button:hover {
+  background-color: #805d41;
+}
+/*# sourceMappingURL=OrderReview.css.map */

@@ -26,7 +26,7 @@ export const CartItem = ({ order: { title, price, image, quantity } }) => {
           <div>
             {(price * quantity).toLocaleString().split(',').join(' ')} Ft
           </div>
-          <button>törlés</button>
+          <button><i className="fa fa-trash"/></button>
         </div>
       </div>
     </div>
