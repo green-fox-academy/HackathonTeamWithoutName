@@ -10,3 +10,5 @@ export * from './Main/Main';
 export * from './Main1/Main1';
 export * from './Upload/Upload';
 export * from './Prezi/Prezi';
+export * from './Cart/Cart';
+export * from './CartItem/CartItem';
