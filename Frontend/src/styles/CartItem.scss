@@ -5,10 +5,27 @@
   height: 140px;
   width: 900px;
   padding: 20px;
-  background: rgb(214, 214, 214);
+  background: $light-brown;
+  border-radius:8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color:$dark-brown;
+  font-weight:700;
+  box-shadow:$box-shadow-strong;
+
+  button{
+    color:$light-brown;
+    font-weight:600;
+    background-color: $dark-brown;
+    border-radius:2px;
+    box-shadow:$box-shadow-light;
+    border-color:$dark-brown-hover;
+  }
+  button:hover{
+    background-color: $dark-brown-hover;
+    color:$light-brown-hover;
+  }
 }
 
 .cart_item h4 {
@@ -24,11 +41,14 @@
 
 .cart_item_image_box {
   height: 100%;
+  border:3px solid $dark-brown;
 }
 
 .cart_item_title_box {
   height: 100%;
   width: 100%;
+  display:flex;
+  align-items:center;
 }
 
 .cart_item_image_box img {

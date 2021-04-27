@@ -1,6 +1,30 @@
 #cart {
   padding: 20px;
-  background-color: white;
+  background-color: #9c795c;
+  height: 100vh;
+}
+
+#cart h1 {
+  text-shadow: 1px 1px 0px #424242;
+  color: black;
+  -webkit-filter: drop-shadow(0px 1px 0.5px #b4b4b4);
+          filter: drop-shadow(0px 1px 0.5px #b4b4b4);
+}
+
+#cart #cart_header {
+  width: 900px;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: black;
+  background: #dbc1ac;
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
 }
 
 #cart_main {
@@ -19,17 +43,6 @@
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 20px;
-}
-
-#cart_header {
-  width: 900px;
-  padding: 0 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 #cart_header h4:nth-child(1) {
@@ -65,9 +78,11 @@
 
 #cart_checkout {
   padding: 20px;
+  margin-top: 83px;
   min-width: 300px;
   height: 200px;
-  background: #d6d6d6;
+  background: #dbc1ac;
+  color: #4e3928;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,12 +93,25 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+#cart_checkout button {
+  height: 40px;
+  color: #dbc1ac;
+  font-weight: 600;
+  background-color: #4e3928;
+}
+
+#cart_checkout button:hover {
+  background-color: #805d41;
 }
 
 #cart_checkout div:nth-child(1) {
   font-weight: bold;
   padding-bottom: 20px;
-  border-bottom: black solid 1px;
+  border-bottom: 2px solid #4e3928;
 }
 
 #cart_checkout div:nth-child(2) {
@@ -91,10 +119,6 @@
   font-size: 20px;
   -ms-flex-item-align: end;
       align-self: flex-end;
-}
-
-#cart_checkout button {
-  height: 40px;
 }
 
 @media screen and (max-width: 1270px) {
