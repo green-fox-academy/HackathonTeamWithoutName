@@ -28,7 +28,7 @@ func SendVerifyEmail(name string, token string, toEmail string) {
     <html>
     <h3>Welcome, ` + name + `!</h3>
     <h4>Account Verification</h4>
-    <a href="` + os.Getenv("actualIP") + `:8080/verify?token=` + token + `"><button >Verify your email address</button></a>
+    <a href="` + os.Getenv("actualIP") + `:8080/user/verify?token=` + token + `"><button >Verify your email address</button></a>
     </html>`)
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)

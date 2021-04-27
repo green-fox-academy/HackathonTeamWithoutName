@@ -30,7 +30,7 @@ func SendNewPasswordEmail(name string, password string, toEmail string) {
     <h4>Your new login credentials are the following:</h4>
 	<p><strong>Username: </strong>` + name + `</p>
 	<p><strong>Password: </strong>` + password + `</p>
-    <a href="` + os.Getenv("actualIP") + `:8080/login">Click here to login!</a>
+    <a href="` + os.Getenv("actualIP") + `:8080/user/login">Click here to login!</a>
 	<p> This password can be changed in the User Profile after you logged in. </p>
     </html>`)
 
