@@ -47,15 +47,21 @@ func PostReview(c *gin.Context) {
 			return
 		}
 
-		if reviewData.Rating%1 != 0 {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "Rating must be an integer"})
+		db := dbConn.DbConn()
+
+		var isReviewExists uint8
+		if err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM reviews WHERE user_id = (?) AND product_id = (?));", payload.User_id, reviewData.ProductId).Scan(&isReviewExists); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 			return
 		}
 
-		db := dbConn.DbConn()
+		if isReviewExists == 1 {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "You have already written a comment for this product."})
+			return
+		}
 
 		var isProductExists int
-		if err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM product WHERE id = (?));", reviewData.ProductId).Scan(&isProductExists); err != nil {
+		if err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM products WHERE id = (?));", reviewData.ProductId).Scan(&isProductExists); err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 			return
 		}
