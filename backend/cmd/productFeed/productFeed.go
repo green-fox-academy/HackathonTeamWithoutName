@@ -29,9 +29,9 @@ type ProductData struct {
 func GetAllProducts(c *gin.Context) {
 	db := dbConn.DbConn()
 
-	rowsForReviews, err := db.Query("SELECT id, product_id, rating, text, users.username FROM reviews JOIN users ON reviews.user_id=users.id;")
+	rowsForReviews, err := db.Query("SELECT reviews.id, product_id, rating, text, users.username FROM reviews JOIN users ON reviews.user_id=users.id;")
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err})
+		c.JSON(http.StatusInternalServerError, gin.H{"errorQuerry1": err})
 		return
 	}
 	defer rowsForReviews.Close()
@@ -57,7 +57,7 @@ func GetAllProducts(c *gin.Context) {
 
 	rowsForProducts, err := db.Query("SELECT id, title, price, category, description, image, in_stock FROM products;")
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err})
+		c.JSON(http.StatusInternalServerError, gin.H{"errorQuerry2": err})
 		return
 	}
 	defer rowsForProducts.Close()
