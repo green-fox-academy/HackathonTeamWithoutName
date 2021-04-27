@@ -13,7 +13,7 @@ type Address struct {
 	ID          uint64 `json:"id"`
 	UserID      uint64 `json:"user_id"`
 	Country     string `json:"country"`
-	ZipCode     string `json:"zip_code"`
+	ZipCode     uint64 `json:"zip_code"`
 	City        string `json:"city"`
 	Street      string `json:"street"`
 	HouseNumber uint64 `json:"house_number"`
