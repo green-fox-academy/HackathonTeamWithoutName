@@ -38,7 +38,7 @@ func PostReview(c *gin.Context) {
 		}
 
 		if len(reviewData.Text) > 512 {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "Your text is too long. Max: 140 charaters."})
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Your text is too long. Max: 512 charaters."})
 			return
 		}
 
