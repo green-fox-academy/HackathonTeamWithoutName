@@ -12,7 +12,7 @@ type ReviewData struct {
 	ProductId uint64 `json:"productId"`
 	Username  string `json:"userName"`
 	Rating    int    `json:"rating"`
-	Text      string `json:"Text"`
+	Text      string `json:"text"`
 }
 
 type ProductData struct {
@@ -31,7 +31,7 @@ func GetAllProducts(c *gin.Context) {
 
 	rowsForReviews, err := db.Query("SELECT reviews.id, product_id, rating, text, users.username FROM reviews JOIN users ON reviews.user_id=users.id;")
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"errorQuerry1": err})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 		return
 	}
 	defer rowsForReviews.Close()
@@ -40,9 +40,9 @@ func GetAllProducts(c *gin.Context) {
 	for rowsForReviews.Next() {
 
 		var reviewData ReviewData
-		err2 := rowsForReviews.Scan(&reviewData.Id, reviewData.ProductId, &reviewData.Rating, &reviewData.Text, &reviewData.Username)
-		if err2 != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"errorScan2": err2})
+		err = rowsForReviews.Scan(&reviewData.Id, &reviewData.ProductId, &reviewData.Rating, &reviewData.Text, &reviewData.Username)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 			return
 		}
 
@@ -51,13 +51,13 @@ func GetAllProducts(c *gin.Context) {
 	}
 	err = rowsForReviews.Err()
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error3": err})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 		return
 	}
 
 	rowsForProducts, err := db.Query("SELECT id, title, price, category, description, image, in_stock FROM products;")
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"errorQuerry2": err})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 		return
 	}
 	defer rowsForProducts.Close()
@@ -68,7 +68,7 @@ func GetAllProducts(c *gin.Context) {
 		var productData ProductData
 		err := rowsForProducts.Scan(&productData.Id, &productData.Title, &productData.Price, &productData.Category, &productData.Descriptoin, &productData.Image, &productData.InStock)
 		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"errorScan1": err})
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 			return
 		}
 
@@ -83,7 +83,7 @@ func GetAllProducts(c *gin.Context) {
 	}
 	err = rowsForProducts.Err()
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error3": err})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 		return
 	}
 
