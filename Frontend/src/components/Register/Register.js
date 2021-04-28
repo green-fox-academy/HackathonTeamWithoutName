@@ -3,7 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchService } from '../../services';
 import { loadErrorAction, unloadErrorAction } from '../../actions';
-
+import '../../styles/RegisterForm.css';
+import formImg from '../../assets/images/registerFormImg.jpg'
 
 export const Register = () => {
   const [userName, setUserName] = useState('');
@@ -46,8 +47,9 @@ export const Register = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="registerBox">
+      <div className="registerFormImgBox"><img src={formImg} alt="coffee"/></div>
+      <form className="registerForm" onSubmit={handleSubmit}>
         <h1>SIGN UP</h1>
           <input
             type="text"
@@ -69,6 +71,7 @@ export const Register = () => {
               dispatch(unloadErrorAction());
             }}
           />
+          <div>
           <input
             type={isPasswordVisible ? "text" : "password"}
             placeholder="Password"
@@ -83,6 +86,7 @@ export const Register = () => {
             ? (<i className="fa fa-eye" aria-hidden="true" onClick={handleChangePasswordVisibility}/>) 
             : (<i className="fa fa-eye-slash" aria-hidden="true" onClick={handleChangePasswordVisibility}/>)
           }
+          </div>
           {isError && (<div className="errormessage">{errorMessage}</div>)}
           <button type="submit">SIGN UP</button>
         </form>

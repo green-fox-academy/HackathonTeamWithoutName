@@ -25,6 +25,7 @@
   font-weight: 500;
   background-color: #dbc1ac;
   border: 3px solid #4e3928;
+  text-transform: uppercase;
 }
 
 .header .navbarholder button:hover {

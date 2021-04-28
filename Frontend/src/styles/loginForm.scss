@@ -8,7 +8,8 @@
 margin-left:auto;
 margin-right:auto;
 margin-top:50px;
-width:850px;
+width:800px;
+height:400px;
 justify-content: flex-start;
 background-color: $light-brown;
 box-shadow:$box-shadow-light;
@@ -17,23 +18,28 @@ box-shadow:$box-shadow-light;
 .loginForm {
   display:flex;
   gap:15px;
-  min-width:370px;
+  min-width:270px;
+  margin-right:80px;
   margin-left:50px;
     justify-content: center;
     flex-direction:column;
     height:400px;
-    .input {
+    -webkit-animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+	        animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+    input {
+      border:2px solid $dark-brown;
     background-color: $light-brown-hover;
-  width:350px;
+  width:250px;
 }
 button {
   align-self:center;
-  margin-top:30px;
+  margin-top:20px;
   width:100px;
   font-size: 120%;
   font-weight:500;
   background-color: $background-brown;
   border:3px solid $dark-brown;
+  margin-right:20px;
 }
 
 button:hover{
@@ -43,7 +49,60 @@ button:hover{
 }
 
 .formImgBox {
-  margin-left:50px;
-  width:400px;
-border:3px solid $dark-brown;
+  width:fit-content;
+  height:fit-content;
+  -webkit-animation: slide-in-left 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-left 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+//Animations
+
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-450px);
+            transform: translateX(-450px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-450px);
+            transform: translateX(-450px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes flip-in-hor-bottom {
+  0% {
+    -webkit-transform: rotateX(80deg);
+            transform: rotateX(80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+  }
+}
+@keyframes flip-in-hor-bottom {
+  0% {
+    -webkit-transform: rotateX(80deg);
+            transform: rotateX(80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+  }
 }
