@@ -4,7 +4,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 import { combineReducers } from 'redux';
-import { userReducer, errorReducer, preziReducer, orderReducer, addressReducer } from './reducers';
+import { userReducer, errorReducer, preziReducer, orderReducer, addressReducer, productReducer } from './reducers';
 
 export const rootReducer = combineReducers({
   userData: userReducer,
@@ -12,6 +12,7 @@ export const rootReducer = combineReducers({
   addressData: addressReducer,
   error: errorReducer,
   prezi: preziReducer,
+  productData: productReducer,
 });
 
 export const persistConfig = {
