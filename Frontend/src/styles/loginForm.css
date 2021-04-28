@@ -14,11 +14,10 @@ body {
   padding: 0;
   font-family: 'Public Sans', sans-serif;
   line-height: 1.3;
-  background: whitesmoke;
+  background: #e2dbdb;
 }
 
 .errormessage {
-  margin-top: 20px;
   color: #ba3939;
   background: #ffe0e0;
   border: 1px solid #a33a3a;
@@ -46,6 +45,20 @@ body {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #dbc1ac;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #4e3928;
+  border-radius: 3px;
+  border: 2px solid #9c795c;
 }
 
 .loginBox {
@@ -102,11 +115,14 @@ body {
   background-color: #9c795c;
   border: 3px solid #4e3928;
   margin-right: 20px;
+  color: #eed8c7;
+  font-weight: 600;
 }
 
 .loginForm button:hover {
   background-color: #eed8c7;
   border: 3px solid #805d41;
+  color: #805d41;
 }
 
 .formImgBox {
@@ -116,8 +132,88 @@ body {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  -webkit-box-shadow: -8px 0px 6px -5px rgba(0, 0, 0, 0.99);
+  box-shadow: -8px 0px 6px -5px rgba(0, 0, 0, 0.99);
   -webkit-animation: slide-in-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-in-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.forgottenPassword {
+  font-size: 70%;
+  margin-left: 140px;
+  font-weight: 500;
+  color: #4e3928;
+}
+
+@media screen and (max-width: 940px) {
+  .loginBox {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 90vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    height: 400px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .loginBox h1 {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .loginFormImgBox {
+    display: none;
+  }
+  .loginForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 15px;
+    min-width: 50%;
+    width: 80%;
+    margin-right: 0px;
+    margin-left: 0px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 400px;
+  }
+  .loginForm input {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-right: 0px;
+  }
+  .loginForm button {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    width: 150px;
+    color: #eed8c7;
+    font-size: 120%;
+    font-weight: 500;
+    background-color: #9c795c;
+    border: 3px solid #4e3928;
+    margin-right: 10px;
+    font-weight: 600;
+  }
+  .formImgBox {
+    display: none;
+  }
+  .passworddiv {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-left: 17px;
+  }
+  .forgottenPassword {
+    font-size: 70%;
+    margin-left: 60%;
+  }
 }
 
 @-webkit-keyframes slide-in-left {

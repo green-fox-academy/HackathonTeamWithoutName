@@ -1,7 +1,10 @@
 #cart {
   padding: 20px;
-  background-color: #9c795c;
-  height: 100vh;
+  background-color: #D2A970;
+  min-height: 100vh;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
 }
 
 #cart h1 {
@@ -76,9 +79,20 @@
   padding: 10px;
 }
 
+#cart_aside {
+  margin-top: 83px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
 #cart_checkout {
   padding: 20px;
-  margin-top: 83px;
   min-width: 300px;
   height: 200px;
   background: #dbc1ac;
@@ -102,9 +116,38 @@
   color: #dbc1ac;
   font-weight: 600;
   background-color: #4e3928;
+  text-transform: uppercase;
 }
 
 #cart_checkout button:hover {
+  background-color: #805d41;
+}
+
+#cart_continue_shopping {
+  padding: 20px;
+  min-width: 300px;
+  height: 80px;
+  background: #dbc1ac;
+  color: #4e3928;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+#cart_continue_shopping button {
+  height: 100%;
+  color: #dbc1ac;
+  font-weight: 600;
+  background-color: #4e3928;
+}
+
+#cart_continue_shopping button:hover {
   background-color: #805d41;
 }
 
@@ -133,35 +176,25 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  #cart_checkout {
+  #cart_checkout, #cart_continue_shopping {
     max-width: 900px;
   }
 }
 
 @media screen and (max-width: 940px) {
-  #cart {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
   #cart_header {
     display: none;
   }
   #cart_inner_main_empty {
     width: 700px;
   }
-  #cart_checkout {
+  #cart_checkout, #cart_continue_shopping {
     max-width: 700px;
     min-width: 350px;
   }
 }
 
 @media screen and (max-width: 740px) {
-  #cart {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
   #cart_inner_main_empty {
     width: unset;
     min-width: 350px;

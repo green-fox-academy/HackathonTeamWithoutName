@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import { fetchService } from '../../services';
+import { fetchService } from '../../services';
 import {
   loadUserDataAction,
+  loadAddressDataAction,
+  loadOrderDataAction,
   loadErrorAction,
   unloadErrorAction,
 } from '../../actions';
@@ -17,6 +19,7 @@ export const Login = () => {
   const { isError, errorMessage } = useSelector((state) => state.error.login);
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
 
   const handleChangePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
@@ -41,17 +44,18 @@ export const Login = () => {
     submitEvent.preventDefault();
     try {
       await validateUserInput();
-      // const response = await fetchService.fetchData('login', 'POST', { userName, password }, null);
-      dispatch(
-        loadUserDataAction({ accessToken: true, id: 1, userName: 'viktor' })
-      );
+      const { accessToken, addresses, orders} = await fetchService.fetchData('user/login', 'POST', { userName, password }, null);
       history.push('/main');
+      dispatch(loadUserDataAction({ accessToken, userName }));
+      dispatch(loadAddressDataAction(addresses));
+      dispatch(loadOrderDataAction(orders));
+      location.state === '/main/cart' ? history.push('/main/cart') : history.push('/main');
     } catch (error) {
       console.log(error.message);
       dispatch(loadErrorAction({ type: 'login', message: error.message }));
     }
   };
-  //<img className="loginFormImg" src={formImage} alt="Login Form" height="400px"></img>
+  
   return (
     <div className="loginBox">
       <form className="loginForm" onSubmit={handleSubmit}>
@@ -67,7 +71,7 @@ export const Login = () => {
             dispatch(unloadErrorAction());
           }}
         />
-        <div className="passwordholder">
+        <div className="passworddiv">
           <input
             className="input"
             type={isPasswordVisible ? 'text' : 'password'}
@@ -95,6 +99,7 @@ export const Login = () => {
         </div>
         {isError && <div className="errormessage">{errorMessage}</div>}
         <button type="submit">SIGN IN</button>
+        <Link to="/forgottenpass"><p className="forgottenPassword">Forgot your password?</p></Link>
       </form>
       <div className="formImgBox"><img src={formImg} alt="login"/></div>
     </div>

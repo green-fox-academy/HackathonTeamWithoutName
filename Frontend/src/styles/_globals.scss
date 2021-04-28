@@ -12,11 +12,10 @@ html {
     padding: 0;
     font-family: 'Public Sans', sans-serif;
     line-height: 1.3;
-    background:whitesmoke;
+    background:rgb(226, 219, 219);
   }
 
 .errormessage {
-  margin-top:20px;
   color: #ba3939;
   background: #ffe0e0;
   border: 1px solid #a33a3a;
@@ -37,4 +36,18 @@ html {
   padding:5px;
   border: 1px solid #87803e;
   width:fit-content;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: $light-brown;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $dark-brown;
+  border-radius: 3px;
+  border: 2px solid $background-brown;
 }
