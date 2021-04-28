@@ -47,7 +47,7 @@ body {
   width: fit-content;
 }
 
-.registerBox {
+.forgottenBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -64,7 +64,7 @@ body {
           box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.registerForm {
+.forgottenForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -84,34 +84,33 @@ body {
   animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
 }
 
-.registerForm input {
+.forgottenForm input {
   border: 2px solid #4e3928;
   background-color: #eed8c7;
   width: 250px;
 }
 
-.registerForm button {
+.forgottenForm button {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  margin-top: 20px;
-  width: 100px;
+  width: 150px;
+  color: #eed8c7;
   font-size: 120%;
   font-weight: 500;
   background-color: #9c795c;
   border: 3px solid #4e3928;
   margin-right: 10px;
-  color: #eed8c7;
   font-weight: 600;
 }
 
-.registerForm button:hover {
+.forgottenForm button:hover {
   background-color: #eed8c7;
   border: 3px solid #805d41;
   color: #805d41;
 }
 
-.registerFormImgBox {
+.forgottenFormImgBox {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -120,14 +119,6 @@ body {
   height: fit-content;
   -webkit-animation: slide-in-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-in-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-i.fa.fa-eye {
-  margin-left: 3px;
-}
-
-i.fa.fa-eye-slash {
-  margin-left: 3px;
 }
 
 @-webkit-keyframes slide-in-right {
@@ -181,4 +172,4 @@ i.fa.fa-eye-slash {
     opacity: 1;
   }
 }
-/*# sourceMappingURL=RegisterForm.css.map */
+/*# sourceMappingURL=ForgottenPass.css.map */
