@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchService } from '../../services';
 import {
@@ -71,7 +71,7 @@ export const Login = () => {
             dispatch(unloadErrorAction());
           }}
         />
-        <div className="passwordholder">
+        <div className="passworddiv">
           <input
             className="input"
             type={isPasswordVisible ? 'text' : 'password'}
@@ -99,6 +99,7 @@ export const Login = () => {
         </div>
         {isError && <div className="errormessage">{errorMessage}</div>}
         <button type="submit">SIGN IN</button>
+        <Link to="/forgottenpass"><p className="forgottenPassword">Forgot your password?</p></Link>
       </form>
       <div className="formImgBox"><img src={formImg} alt="login"/></div>
     </div>

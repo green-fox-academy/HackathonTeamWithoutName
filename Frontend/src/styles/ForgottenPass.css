@@ -121,6 +121,61 @@ body {
   animation: slide-in-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
+@media screen and (max-width: 940px) {
+  .forgottenBox {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 90vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    height: 400px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .forgottenBox h1 {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .forgottenFormImgBox {
+    display: none;
+  }
+  .forgottenForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 15px;
+    min-width: 50%;
+    width: 80%;
+    margin-right: 0px;
+    margin-left: 0px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 400px;
+  }
+  .forgottenForm input {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-right: 0px;
+  }
+  .forgottenForm button {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    width: 150px;
+    color: #eed8c7;
+    font-size: 120%;
+    font-weight: 500;
+    background-color: #9c795c;
+    border: 3px solid #4e3928;
+    margin-right: 10px;
+    font-weight: 600;
+  }
+}
+
 @-webkit-keyframes slide-in-right {
   0% {
     -webkit-transform: translateX(450px);

@@ -130,6 +130,73 @@ i.fa.fa-eye-slash {
   margin-left: 3px;
 }
 
+@media screen and (max-width: 940px) {
+  .registerBox {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 90vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    height: 400px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .registerBox h1 {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .registerFormImgBox {
+    display: none;
+  }
+  .registerForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 15px;
+    min-width: 50%;
+    width: 80%;
+    margin-right: 0px;
+    margin-left: 0px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 400px;
+  }
+  .registerForm input {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-right: 0px;
+  }
+  .registerForm button {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    width: 150px;
+    color: #eed8c7;
+    font-size: 120%;
+    font-weight: 500;
+    background-color: #9c795c;
+    border: 3px solid #4e3928;
+    margin-right: 10px;
+    font-weight: 600;
+  }
+  .formImgBox {
+    display: none;
+  }
+  .passworddiv {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-left: 17px;
+  }
+}
+
 @-webkit-keyframes slide-in-right {
   0% {
     -webkit-transform: translateX(450px);
