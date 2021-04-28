@@ -35,7 +35,7 @@ func CreateAddress(c *gin.Context) {
 		}
 
 		if len(requestBody.Country) == 0 || len(requestBody.City) == 0 || len(requestBody.Street) == 0 ||
-			len(requestBody.ZipCode) == 0 || len(requestBody.HouseNumber) == 0 {
+			len(requestBody.ZipCode) == 0 || len(requestBody.HouseNumber) == 0 || requestBody.Phone == 0 {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Missing address field."})
 			return
 		}
@@ -47,6 +47,12 @@ func CreateAddress(c *gin.Context) {
 		phoneCheck := fmt.Sprintf(`%T`, requestBody.Phone)
 		if phoneCheck != "uint64" {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Wrong phone number format", "format": phoneCheck})
+			return
+		}
+
+		var a string = fmt.Sprint(requestBody.Phone)
+		if len(a) > 18 {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Too many phone number digits", "Max. num. of digits": 18, "Digits given": len(a)})
 			return
 		}
 

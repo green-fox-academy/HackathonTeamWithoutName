@@ -9,6 +9,7 @@ import (
 	"coffeeShop/cmd/postReview"
 	"coffeeShop/cmd/productFeed"
 	"coffeeShop/cmd/register"
+	"coffeeShop/cmd/updateAddress"
 	"coffeeShop/cmd/verify"
 	"coffeeShop/internal/corsMiddle"
 
@@ -26,7 +27,7 @@ func main() {
 	router.POST("/user/register", register.RegisterTheUser)
 	router.POST("/user/login", login.LoginFunction)
 	router.POST("/user/address", createAddress.CreateAddress)
-	// router.PUT("/user/address", )
+	router.PUT("/user/address", updateAddress.UpdateAddress)
 	// router.PUT("/user/pass", )
 
 	router.GET("/product", productFeed.GetAllProducts)

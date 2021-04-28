@@ -10,7 +10,7 @@ import (
 )
 
 type NewAddress struct {
-	AddressID   uint64 `json:"id"`
+	AddressID   uint64 `json:"address_id"`
 	Country     string `json:"country"`
 	ZipCode     string `json:"zip_code"`
 	City        string `json:"city"`
@@ -41,7 +41,7 @@ func UpdateAddress(c *gin.Context) {
 		}
 
 		if len(requestBody.Country) == 0 || len(requestBody.City) == 0 || len(requestBody.Street) == 0 ||
-			len(requestBody.ZipCode) == 0 || len(requestBody.HouseNumber) == 0 {
+			len(requestBody.ZipCode) == 0 || len(requestBody.HouseNumber) == 0 || requestBody.Phone == 0 {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Missing address field."})
 			return
 		}
@@ -56,11 +56,16 @@ func UpdateAddress(c *gin.Context) {
 			return
 		}
 
+		var a string = fmt.Sprint(requestBody.Phone)
+		if len(a) > 18 {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Too many phone number digits", "Max. num. of digits": 18, "Digits given": len(a)})
+			return
+		}
+
 		db := dbConn.DbConn()
 
-		updateData, err := db.Prepare(`UPDATE addresses SET , country=(?), zip_code=(?), 
-		city=(?), street=(?), house_number=(?), phone=(?), first_name=(?), last_name=(?)) 
-		WHERE id = (?) AND user_id = (?));`)
+		updateData, err := db.Prepare(`UPDATE addresses SET country=(?), zip_code=(?), city=(?), street=(?), 
+		house_number=(?), phone=(?), first_name=(?), last_name=(?) WHERE id = (?) AND user_id = (?);`)
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"address update error": err})
 			return

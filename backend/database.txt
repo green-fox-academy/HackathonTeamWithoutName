@@ -16,14 +16,14 @@ CREATE TABLE `addresses` (
 	`city` VARCHAR(120) NOT NULL, 
 	`street` VARCHAR(120) NOT NULL, 
 	`house_number` VARCHAR(12) NOT NULL, 
-	`phone` INT(20) NOT NULL, 
+	`phone` BIGINT NOT NULL, 
 	`first_name` VARCHAR(60) NOT NULL, 
 	`last_name` VARCHAR(60) NOT NULL, 
 	PRIMARY KEY (`id`) );
 
 
 orders:
-CREATE TABLE `orders` (
+CREATE TABLE `orders` (  "address_id": 3,
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`user_id` INT NOT NULL,
 	`product_id` INT NOT NULL,
