@@ -9,6 +9,7 @@ import (
 	"coffeeShop/cmd/productFeed"
 	"coffeeShop/cmd/register"
 	"coffeeShop/cmd/verify"
+	"coffeeShop/cmd/changePass"
 	"coffeeShop/internal/corsMiddle"
 
 	"github.com/gin-gonic/contrib/static"
@@ -26,7 +27,7 @@ func main() {
 	router.POST("/user/login", login.LoginFunction)
 	// router.POST("/user/address", )
 	// router.PUT("/user/address", )
-	// router.PUT("/user/pass", )
+	router.PUT("/user/pass", changePass.ChangePass)
 
 	router.GET("/product", productFeed.GetAllProducts)
 	router.POST("/product/review", postReview.PostReview)
