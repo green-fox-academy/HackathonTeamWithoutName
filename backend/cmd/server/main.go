@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 
+	"coffeeShop/cmd/addOrder"
+	"coffeeShop/cmd/sendOrder"
 	"coffeeShop/cmd/changePass"
 	"coffeeShop/cmd/createAddress"
 	"coffeeShop/cmd/deleteOrder"
@@ -35,7 +37,8 @@ func main() {
 	router.GET("/product", productFeed.GetAllProducts)
 	router.POST("/product/review", postReview.PostReview)
 
-	// router.PUT("/order",)
+	router.POST("/order", addOrder.AddOrder)
+	router.PUT("/order", sendOrder.SendOrder)
 	router.PUT("/order/quantity", updateQuantity.UpdateQuantity)
 	router.DELETE("/order", deleteOrder.DeleteOrder)
 	log.Fatal(router.Run(":8080"))
