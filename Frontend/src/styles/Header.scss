@@ -14,13 +14,15 @@
     button {
       font-size: 150%;
       font-weight: 500;
-      background-color: $light-brown;
       border: 3px solid $dark-brown;
       text-transform:uppercase;
+      color:$light-brown-hover;
+        background-color: $background-brown;
     }
     button:hover {
       background-color: $light-brown-hover;
       border: 3px solid $dark-brown-hover;
+      color:$dark-brown-hover;
     }
     .showprezibutton {
       display: none;
@@ -45,4 +47,79 @@
   top: 0px;
   left: 0px;
   margin-left: 50px;
+}
+
+@media screen and (max-width: 940px) {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    align-items: center;
+    height: 160px;
+    .navbarholder {
+      margin-right: 30px;
+      display: flex;
+      gap: 10px;
+      button {
+        font-size: 110%;
+        font-weight: 500;
+        color:$light-brown-hover;
+        background-color: $background-brown;
+        border: 3px solid $dark-brown;
+        text-transform:uppercase;
+      }
+      button:hover {
+        background-color: $light-brown-hover;
+        border: 3px solid $dark-brown-hover;
+      }
+      .showprezibutton {
+        display: none;
+      }
+    }
+    .navbarholder:hover {
+      .showprezibutton {
+        display: block;
+      }
+    }
+    button {
+      border: none;
+    }
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    align-items: center;
+    height: 160px;
+    .navbarholder {
+      margin-right: 10px;
+      display: flex;
+      gap: 10px;
+      button {
+        font-size: 80%;
+        font-weight: 500;
+        border: 3px solid $dark-brown;
+        text-transform:uppercase;
+      }
+      button:hover {
+        background-color: $light-brown-hover;
+        border: 3px solid $dark-brown-hover;
+        color:$dark-brown-hover;
+      }
+      .showprezibutton {
+        display: none;
+      }
+    }
+    .navbarholder:hover {
+      .showprezibutton {
+        display: block;
+      }
+    }
+    button {
+      border: none;
+    }
+  }
 }
