@@ -71,8 +71,9 @@ export const Register = () => {
               dispatch(unloadErrorAction());
             }}
           />
-          <div>
+          <div className="passworddiv">
           <input
+            className="passwordinput"
             type={isPasswordVisible ? "text" : "password"}
             placeholder="Password"
             minLength="6"
