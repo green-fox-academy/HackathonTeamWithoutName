@@ -3,7 +3,7 @@
 @import './globals';
 
 
-.registerBox{
+.forgottenBox{
   display:flex;
 margin-left:auto;
 margin-right:auto;
@@ -15,7 +15,7 @@ background-color: $light-brown;
 box-shadow:$box-shadow-light;
 }
 
-.registerForm {
+.forgottenForm {
   display:flex;
   gap:15px;
   min-width:270px;
@@ -33,14 +33,13 @@ box-shadow:$box-shadow-light;
 }
 button {
   align-self:center;
-  margin-top:20px;
-  width:100px;
+  width:150px;
+  color:$light-brown-hover;
   font-size: 120%;
   font-weight:500;
   background-color: $background-brown;
   border:3px solid $dark-brown;
   margin-right:10px;
-  color:$light-brown-hover;
   font-weight:600;
 }
 
@@ -51,19 +50,13 @@ button:hover{
 }
 }
 
-.registerFormImgBox {
+.forgottenFormImgBox {
     width:fit-content;
     height:fit-content;
     -webkit-animation: slide-in-right 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: slide-in-right 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
-  i.fa.fa-eye {
-    margin-left:3px;
-  }
 
-  i.fa.fa-eye-slash {
-    margin-left:3px;
-  }
 
   //Animations
 
