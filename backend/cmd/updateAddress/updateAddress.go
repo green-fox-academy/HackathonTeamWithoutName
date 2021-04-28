@@ -3,18 +3,19 @@ package updateAddress
 import (
 	"coffeeShop/cmd/dbConn"
 	"coffeeShop/internal/jwt"
-
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
-type Address struct {
+type NewAddress struct {
+	AddressID   uint64 `json:"id"`
 	Country     string `json:"country"`
-	ZipCode     uint64 `json:"zip_code"`
+	ZipCode     string `json:"zip_code"`
 	City        string `json:"city"`
 	Street      string `json:"street"`
-	HouseNumber uint64 `json:"house_number"`
+	HouseNumber string `json:"house_number"`
 	Phone       uint64 `json:"phone"`
 	FirstName   string `json:"first_name"`
 	LastName    string `json:"last_name"`
@@ -28,16 +29,19 @@ func UpdateAddress(c *gin.Context) {
 		return
 	} else {
 
-		var requestBody Address
+		var requestBody NewAddress
 		if err := c.ShouldBindJSON(&requestBody); err != nil {
-			c.JSON(http.StatusUnauthorized, gin.H{"message": "Invalid JSON provided."})
+			c.JSON(http.StatusUnauthorized, gin.H{"message": "Invalid JSON provided.", "error": err})
 			return
 		}
 
-		var codePointer *uint64 = &requestBody.ZipCode
-		var numPointer *uint64 = &requestBody.HouseNumber
+		if requestBody.AddressID == 0 {
+			c.JSON(http.StatusUnauthorized, gin.H{"message": "Unknown address - cannot update"})
+			return
+		}
+
 		if len(requestBody.Country) == 0 || len(requestBody.City) == 0 || len(requestBody.Street) == 0 ||
-			codePointer == nil || numPointer == nil {
+			len(requestBody.ZipCode) == 0 || len(requestBody.HouseNumber) == 0 {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Missing address field."})
 			return
 		}
@@ -46,33 +50,25 @@ func UpdateAddress(c *gin.Context) {
 			return
 		}
 
-		// phone validation
+		phoneCheck := fmt.Sprintf(`%T`, requestBody.Phone)
+		if phoneCheck != "uint64" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Wrong phone number format", "format": phoneCheck})
+			return
+		}
 
 		db := dbConn.DbConn()
 
-		var isAddressExists uint8
-		if err := db.QueryRow(`SELECT EXISTS(SELECT 1 FROM reviews WHERE user_id=(?)AND country=(?) 
-	AND city = (?) AND street=(?) AND house_number = (?) AND first_name =(?) AND last_name (?));`,
-			payload.User_id, requestBody.Country, requestBody.ZipCode, requestBody.City, requestBody.Street,
-			requestBody.HouseNumber, requestBody.FirstName, requestBody.LastName).Scan(&isAddressExists); err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": err})
-			return
-		}
-
-		if isAddressExists == 1 {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "You already have this address."})
-			return
-		}
-
-		updateData, err := db.Prepare(`INSERT INTO addresses (user_id, country, zip_code, city, street, 
-		house_number, phone, first_name, last_name) VALUES (?,?,?,?,?,?,?,?,?,?));`)
+		updateData, err := db.Prepare(`UPDATE addresses SET , country=(?), zip_code=(?), 
+		city=(?), street=(?), house_number=(?), phone=(?), first_name=(?), last_name=(?)) 
+		WHERE id = (?) AND user_id = (?));`)
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"address update error": err})
 			return
 		}
 
-		updateData.Exec(payload.User_id, requestBody.Country, requestBody.ZipCode, requestBody.City,
-			requestBody.Street, requestBody.HouseNumber, requestBody.Phone, requestBody.FirstName, requestBody.LastName)
+		updateData.Exec(requestBody.Country, requestBody.ZipCode, requestBody.City,
+			requestBody.Street, requestBody.HouseNumber, requestBody.Phone, requestBody.FirstName,
+			requestBody.LastName, requestBody.AddressID, payload.User_id)
 
 		c.JSON(http.StatusOK, gin.H{"message": "ok"})
 		return

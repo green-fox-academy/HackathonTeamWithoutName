@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 
+	"coffeeShop/cmd/createAddress"
 	"coffeeShop/cmd/forgottenPass"
 	"coffeeShop/cmd/login"
 	"coffeeShop/cmd/postReview"
@@ -24,7 +25,7 @@ func main() {
 
 	router.POST("/user/register", register.RegisterTheUser)
 	router.POST("/user/login", login.LoginFunction)
-	// router.POST("/user/address", )
+	router.POST("/user/address", createAddress.CreateAddress)
 	// router.PUT("/user/address", )
 	// router.PUT("/user/pass", )
 
