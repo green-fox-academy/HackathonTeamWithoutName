@@ -13,7 +13,6 @@ import (
 func SendOrder(c *gin.Context) {
 
 	payload, err := jwt.VerifyToken(c)
-
 	
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "You are not authorized!"})
@@ -32,7 +31,6 @@ func SendOrder(c *gin.Context) {
 			updateData.Exec(order_code, payload.User_id)
 			defer updateData.Close()
             
-			// send email
 			var username string
 			var email string
 
