@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 
+	"coffeeShop/cmd/changePass"
 	"coffeeShop/cmd/createAddress"
 	"coffeeShop/cmd/forgottenPass"
 	"coffeeShop/cmd/login"
@@ -10,8 +11,8 @@ import (
 	"coffeeShop/cmd/productFeed"
 	"coffeeShop/cmd/register"
 	"coffeeShop/cmd/updateAddress"
+	"coffeeShop/cmd/updateQuantity"
 	"coffeeShop/cmd/verify"
-	"coffeeShop/cmd/changePass"
 	"coffeeShop/internal/corsMiddle"
 
 	"github.com/gin-gonic/contrib/static"
@@ -34,7 +35,7 @@ func main() {
 	router.POST("/product/review", postReview.PostReview)
 
 	// router.PUT("/order",)
-	// router.PUT("/order/quantity",)
+	router.PUT("/order/quantity", updateQuantity.UpdateQuantity)
 	// router.DELETE("/order", deleteOrder.DeleteOrder)
 	log.Fatal(router.Run(":8080"))
 }
