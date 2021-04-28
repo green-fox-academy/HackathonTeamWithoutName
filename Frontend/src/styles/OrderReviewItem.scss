@@ -59,3 +59,47 @@
     font-weight: bold;
   }
 }
+input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: $dark-brown;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+.reviewtext{
+  font-weight:600;
+}
+
+div#order_review_shipping_address{
+  input{
+    border-radius:6px;
+    background:rgb(255, 255, 255);
+  }
+}
+div#order_review_billing_address{
+  input{
+    border-radius:6px;
+    background:rgb(255, 255, 255);
+  }
+}

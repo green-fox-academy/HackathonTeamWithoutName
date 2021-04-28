@@ -92,8 +92,8 @@ export const OrderReview = () => {
               <div id="order_review_payment">
                 <div>Payment method:</div>
                 <div>
-                  <input type="radio" name="payment" value="by_cash" onChange={handleChangeOnPayment}/>
-                  <label htmlFor="by_cash">Payment by cash on delivery</label>
+                  <input className="checkbox" type="radio" name="payment" value="by_cash" onChange={handleChangeOnPayment}/>
+                  <label className="reviewtext" htmlFor="by_cash">Payment by cash on delivery</label>
                 </div>
               </div>
             </div>
@@ -110,7 +110,7 @@ export const OrderReview = () => {
                 <div id="order_review_delivery_option_title">Choose a delivery option:</div>
                 <div>
                   <input type="radio" name="delivery" value="standard" onChange={handleChangeOnDelivery}/>
-                  <label htmlFor="standard">FREE Standard Shipping</label>
+                  <label className="reviewtext" htmlFor="standard">FREE Standard Shipping</label>
                 </div>
               </div>
             </div>
