@@ -23,14 +23,16 @@
 .header .navbarholder button {
   font-size: 150%;
   font-weight: 500;
-  background-color: #dbc1ac;
   border: 3px solid #4e3928;
   text-transform: uppercase;
+  color: #eed8c7;
+  background-color: #9c795c;
 }
 
 .header .navbarholder button:hover {
   background-color: #eed8c7;
   border: 3px solid #805d41;
+  color: #805d41;
 }
 
 .header .navbarholder .showprezibutton {
@@ -56,5 +58,92 @@
   top: 0px;
   left: 0px;
   margin-left: 50px;
+}
+
+@media screen and (max-width: 940px) {
+  .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    align-items: center;
+    height: 160px;
+  }
+  .header .navbarholder {
+    margin-right: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 10px;
+  }
+  .header .navbarholder button {
+    font-size: 110%;
+    font-weight: 500;
+    color: #eed8c7;
+    background-color: #9c795c;
+    border: 3px solid #4e3928;
+    text-transform: uppercase;
+  }
+  .header .navbarholder button:hover {
+    background-color: #eed8c7;
+    border: 3px solid #805d41;
+  }
+  .header .navbarholder .showprezibutton {
+    display: none;
+  }
+  .header .navbarholder:hover .showprezibutton {
+    display: block;
+  }
+  .header button {
+    border: none;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    align-items: center;
+    height: 160px;
+  }
+  .header .navbarholder {
+    margin-right: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 10px;
+  }
+  .header .navbarholder button {
+    font-size: 80%;
+    font-weight: 500;
+    border: 3px solid #4e3928;
+    text-transform: uppercase;
+  }
+  .header .navbarholder button:hover {
+    background-color: #eed8c7;
+    border: 3px solid #805d41;
+    color: #805d41;
+  }
+  .header .navbarholder .showprezibutton {
+    display: none;
+  }
+  .header .navbarholder:hover .showprezibutton {
+    display: block;
+  }
+  .header button {
+    border: none;
+  }
 }
 /*# sourceMappingURL=Header.css.map */
