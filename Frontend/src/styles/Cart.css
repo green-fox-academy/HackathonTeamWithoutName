@@ -1,7 +1,10 @@
 #cart {
   padding: 20px;
   background-color: #9c795c;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
 }
 
 #cart h1 {
@@ -178,11 +181,6 @@
 }
 
 @media screen and (max-width: 940px) {
-  #cart {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
   #cart_header {
     display: none;
   }
@@ -196,11 +194,6 @@
 }
 
 @media screen and (max-width: 740px) {
-  #cart {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
   #cart_inner_main_empty {
     width: unset;
     min-width: 350px;

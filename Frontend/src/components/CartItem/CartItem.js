@@ -11,7 +11,7 @@ export const CartItem = ({ order: { title, price, image, quantity } }) => {
         </div>
         <div className="cart_item_title_box">{title}</div>
       </div>
-      <div className="cart_item_price_box"><h4>Unit price</h4>{price.toLocaleString().split(',').join(' ')} Ft</div>
+      <div className="cart_item_price_box"><h4>Unit price</h4>{price.toLocaleString().split(',').join(' ')} HUF</div>
       <div className="cart_item_quantity_box">
         <h4>Quantity</h4>
         <div className="cart_item_quantity">
@@ -24,7 +24,7 @@ export const CartItem = ({ order: { title, price, image, quantity } }) => {
         <h4>Total price</h4>
         <div className="cart_item_total_price">
           <div>
-            {(price * quantity).toLocaleString().split(',').join(' ')} Ft
+            {(price * quantity).toLocaleString().split(',').join(' ')} HUF
           </div>
           <button><i className="fa fa-trash"/></button>
         </div>

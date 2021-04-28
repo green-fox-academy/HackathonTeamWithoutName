@@ -1,0 +1,61 @@
+@import './presets';
+@import './variables';
+
+.order_review_item {
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.order_review_item_image_box {
+  height: 70px;
+  border:3px solid $dark-brown;
+}
+
+.order_review_item_image_box img {
+  height: 100%;
+}
+
+.order_review_item_datas {
+  width: 100%;
+}
+
+.order_review_item_title {
+  height: 70px;
+  color:$dark-brown;
+  font-weight: bold;
+}
+
+.order_review_item_price {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div:nth-child(2) {
+    color:$dark-brown;
+    font-weight: bold;
+  }
+}
+
+.order_review_item_quantity {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div:nth-child(2) {
+    color:$dark-brown;
+    font-weight: bold;
+  }
+}
+
+.order_review_item_total_price {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div:nth-child(2) {
+    color:$dark-brown;
+    font-weight: bold;
+  }
+}

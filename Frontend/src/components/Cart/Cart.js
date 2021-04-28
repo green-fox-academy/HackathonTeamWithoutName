@@ -36,12 +36,12 @@ export const Cart = () => {
               })
             })}      
           </div>
-        : <div id="cart_inner_main_empty" className="errormessage">A kosarad még üres!<br/>Tekintsd meg teljes kínálatunkat <NavLink to='/main'>itt</NavLink>!</div>}
+        : <div id="cart_inner_main_empty" className="errormessage">Your cart is empty!<br/>Please, visit our shop <NavLink to='/main'>here</NavLink>!</div>}
         <div id="cart_aside">
           <div id="cart_checkout">
             <div>Gross total ({sampleOrderList.map(({ quantity }) => quantity).reduce((a, b) => a + b, 0)} items):</div>
             <div>
-              {sampleOrderList.map(({ product_id, quantity }) => sampleCoffeeList.filter(({ id }) => product_id === id)[0].price * quantity).reduce((a, b) => a + b, 0).toLocaleString().split(',').join(' ')} Ft
+              {sampleOrderList.map(({ product_id, quantity }) => sampleCoffeeList.filter(({ id }) => product_id === id)[0].price * quantity).reduce((a, b) => a + b, 0).toLocaleString().split(',').join(' ')} HUF
             </div>
             <button onClick={handleClickOnCheckout}>Proceed to checkout</button>
           </div>
