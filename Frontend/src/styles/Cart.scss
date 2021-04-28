@@ -3,7 +3,7 @@
 
 #cart {
   padding: 20px;
-  background-color:$background-brown;
+  background-color:#D2A970;
   min-height: 100vh;
   max-height: fit-content;
   h1{
@@ -79,6 +79,7 @@
     color:$light-brown;
     font-weight:600;
     background-color: $dark-brown;
+    text-transform: uppercase;
   }
   button:hover{
     background-color: $dark-brown-hover;
