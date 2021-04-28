@@ -5,7 +5,7 @@ import { Upload, Cart, OrderReview,LandingPage } from '../';
 export const Main = () => {
 
   return (
-    <div>
+    <div id="main">
       <Switch>
         <Redirect exact from="/main" to="/main/landingpage" />
         <Route path="/main/landingpage" component={LandingPage} />

@@ -2,7 +2,7 @@
 @import './variables';
 
 #order_review {
-  padding: 20px;
+  padding: 80px;
   background-color:#D2A970;
   min-height: 100vh;
   max-height: fit-content;
@@ -31,6 +31,7 @@
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 #order_review_shipping_address {
@@ -167,7 +168,7 @@
   }
 }
 
-@media screen and (max-width: 1270px) {
+@media screen and (max-width: 1390px) {
   #order_review_main {
     flex-direction: column;
     max-width: 900px;
@@ -180,7 +181,10 @@
   }
 }
 
-@media screen and (max-width: 940px) {
+@media screen and (max-width: 1060px) {
+  #order_review {
+    padding: 20px;
+  }
   #order_review_settings {
     min-width: 350px;
     flex-wrap: wrap;
@@ -191,13 +195,13 @@
     min-width: 350px;
   }
 }
-@media screen and (max-width: 846px) {
+@media screen and (max-width: 880px) {
   #order_review_payment {
     padding-top: 20px;
   }
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 845px) {
   #order_review_items {
     flex-direction: column;
   }

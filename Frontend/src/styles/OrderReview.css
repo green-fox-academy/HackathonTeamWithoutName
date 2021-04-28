@@ -1,5 +1,5 @@
 #order_review {
-  padding: 20px;
+  padding: 80px;
   background-color: #D2A970;
   min-height: 100vh;
   max-height: -webkit-fit-content;
@@ -43,6 +43,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  gap: 10px;
 }
 
 #order_review_shipping_address {
@@ -249,7 +250,7 @@
   color: #ee4b4b;
 }
 
-@media screen and (max-width: 1270px) {
+@media screen and (max-width: 1390px) {
   #order_review_main {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -265,7 +266,10 @@
   }
 }
 
-@media screen and (max-width: 940px) {
+@media screen and (max-width: 1060px) {
+  #order_review {
+    padding: 20px;
+  }
   #order_review_settings {
     min-width: 350px;
     -ms-flex-wrap: wrap;
@@ -282,13 +286,13 @@
   }
 }
 
-@media screen and (max-width: 846px) {
+@media screen and (max-width: 880px) {
   #order_review_payment {
     padding-top: 20px;
   }
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 845px) {
   #order_review_items {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
