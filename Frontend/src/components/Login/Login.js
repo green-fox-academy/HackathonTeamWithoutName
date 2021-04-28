@@ -8,6 +8,7 @@ import {
   unloadErrorAction,
 } from '../../actions';
 import '../../styles/loginForm.css';
+import formImg from '../../assets/images/loginFormImg.jpg'
 
 export const Login = () => {
   const [userName, setUserName] = useState('');
@@ -53,7 +54,6 @@ export const Login = () => {
   //<img className="loginFormImg" src={formImage} alt="Login Form" height="400px"></img>
   return (
     <div className="loginBox">
-      
       <form className="loginForm" onSubmit={handleSubmit}>
         <h1 className="loginTitle">SIGN IN</h1>
         <input
@@ -67,7 +67,7 @@ export const Login = () => {
             dispatch(unloadErrorAction());
           }}
         />
-        <div>
+        <div className="passwordholder">
           <input
             className="input"
             type={isPasswordVisible ? 'text' : 'password'}
@@ -92,12 +92,11 @@ export const Login = () => {
               onClick={handleChangePasswordVisibility}
             />
           )}
-          
         </div>
         {isError && <div className="errormessage">{errorMessage}</div>}
         <button type="submit">SIGN IN</button>
       </form>
-      <div className="formImgBox"></div>
+      <div className="formImgBox"><img src={formImg} alt="login"/></div>
     </div>
   );
 };

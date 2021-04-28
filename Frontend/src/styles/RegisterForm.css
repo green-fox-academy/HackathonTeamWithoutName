@@ -48,7 +48,7 @@ body {
   width: fit-content;
 }
 
-.loginBox {
+.registerBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,15 +57,15 @@ body {
   margin-top: 50px;
   width: 800px;
   height: 400px;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   background-color: #dbc1ac;
   -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.loginForm {
+.registerForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,13 +85,13 @@ body {
   animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
 }
 
-.loginForm input {
+.registerForm input {
   border: 2px solid #4e3928;
   background-color: #eed8c7;
   width: 250px;
 }
 
-.loginForm button {
+.registerForm button {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -101,29 +101,29 @@ body {
   font-weight: 500;
   background-color: #9c795c;
   border: 3px solid #4e3928;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
-.loginForm button:hover {
+.registerForm button:hover {
   background-color: #eed8c7;
   border: 3px solid #805d41;
 }
 
-.formImgBox {
+.registerFormImgBox {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  -webkit-animation: slide-in-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-in-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  -webkit-animation: slide-in-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-@-webkit-keyframes slide-in-left {
+@-webkit-keyframes slide-in-right {
   0% {
-    -webkit-transform: translateX(-450px);
-    transform: translateX(-450px);
+    -webkit-transform: translateX(450px);
+    transform: translateX(450px);
     opacity: 0;
   }
   100% {
@@ -133,10 +133,10 @@ body {
   }
 }
 
-@keyframes slide-in-left {
+@keyframes slide-in-right {
   0% {
-    -webkit-transform: translateX(-450px);
-    transform: translateX(-450px);
+    -webkit-transform: translateX(450px);
+    transform: translateX(450px);
     opacity: 0;
   }
   100% {
@@ -171,4 +171,4 @@ body {
     opacity: 1;
   }
 }
-/*# sourceMappingURL=loginForm.css.map */
+/*# sourceMappingURL=RegisterForm.css.map */
