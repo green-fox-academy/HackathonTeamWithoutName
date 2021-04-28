@@ -51,7 +51,7 @@ export const Login = () => {
       dispatch(loadErrorAction({ type: 'login', message: error.message }));
     }
   };
-  //<img className="loginFormImg" src={formImage} alt="Login Form" height="400px"></img>
+  
   return (
     <div className="loginBox">
       <form className="loginForm" onSubmit={handleSubmit}>
