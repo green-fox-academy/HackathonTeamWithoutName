@@ -2,7 +2,7 @@
 @import './variables';
 
 #cart {
-  padding: 20px;
+  padding: 80px;
   background-color:#D2A970;
   min-height: 100vh;
   max-height: fit-content;
@@ -118,7 +118,7 @@
   align-self: flex-end;
 }
 
-@media screen and (max-width: 1270px) {
+@media screen and (max-width: 1390px) {
   #cart{
     height:fit-content;
   }
@@ -130,7 +130,10 @@
   }
 }
 
-@media screen and (max-width: 940px) {
+@media screen and (max-width: 1060px) {
+  #cart{
+    padding: 20px;
+  }
   #cart_header {
     display: none;
   }
@@ -138,7 +141,7 @@
     width: 700px;
   }
   #cart_checkout, #cart_continue_shopping {
-    max-width: 700px;
+    max-width: 900px;
     min-width: 350px;
   }
 }
