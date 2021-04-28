@@ -3,11 +3,13 @@ package main
 import (
 	"log"
 
+	"coffeeShop/cmd/createAddress"
 	"coffeeShop/cmd/forgottenPass"
 	"coffeeShop/cmd/login"
 	"coffeeShop/cmd/postReview"
 	"coffeeShop/cmd/productFeed"
 	"coffeeShop/cmd/register"
+	"coffeeShop/cmd/updateAddress"
 	"coffeeShop/cmd/verify"
 	"coffeeShop/cmd/changePass"
 	"coffeeShop/internal/corsMiddle"
@@ -22,11 +24,10 @@ func main() {
 	router.Use(static.Serve("/", static.LocalFile("../../../Frontend/public", true)))
 	router.GET("/user/verify", verify.VerifyUserByEmail)
 	router.POST("/user/forgottenpass", forgottenPass.ForgottenPass)
-
 	router.POST("/user/register", register.RegisterTheUser)
 	router.POST("/user/login", login.LoginFunction)
-	// router.POST("/user/address", )
-	// router.PUT("/user/address", )
+	router.POST("/user/address", createAddress.CreateAddress)
+	router.PUT("/user/address", updateAddress.UpdateAddress)
 	router.PUT("/user/pass", changePass.ChangePass)
 
 	router.GET("/product", productFeed.GetAllProducts)

@@ -16,7 +16,7 @@ type Address struct {
 	ZipCode     string `json:"zip_code"`
 	City        string `json:"city"`
 	Street      string `json:"street"`
-	HouseNumber uint64 `json:"house_number"`
+	HouseNumber string `json:"house_number"`
 	Phone       uint64 `json:"phone"`
 	FirstName   string `json:"first_name"`
 	LastName    string `json:"last_name"`
@@ -42,7 +42,7 @@ func LoginFunction(c *gin.Context) {
 	var userFromWeb User
 
 	if err := c.ShouldBindJSON(&userFromWeb); err != nil {
-		c.JSON(http.StatusUnprocessableEntity, gin.H{"error": "Invalid json provided"})
+		c.JSON(http.StatusUnprocessableEntity, gin.H{"error - Invalid json provided": err})
 		return
 	}
 
@@ -100,7 +100,7 @@ func LoginFunction(c *gin.Context) {
 
 	}
 
-	rowsForOrders, err := db.Query(`SELECT id, user_id, product_id, quantity, status FROM orders WHERE status = "in_cart" AND user_id = ?`, userFromDB.ID)
+	rowsForOrders, err := db.Query(`SELECT id, user_id, product_id, quantity, status FROM orders WHERE status = "in_cart" AND user_id = (?)`, userFromDB.ID)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"orders query error": err})
 		return
@@ -126,7 +126,7 @@ func LoginFunction(c *gin.Context) {
 		return
 	}
 
-	rowsForAddresses, err := db.Query(`SELECT * FROM addresses WHERE user_id = ?`, userFromDB.ID)
+	rowsForAddresses, err := db.Query(`SELECT * FROM addresses WHERE user_id = (?)`, userFromDB.ID)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"addresses query error": err})
 		return
@@ -134,7 +134,7 @@ func LoginFunction(c *gin.Context) {
 	defer rowsForAddresses.Close()
 
 	var addressesDataArray []Address
-	// if rowsForAddresses != nil {
+
 	for rowsForAddresses.Next() {
 
 		var addressesData Address
@@ -154,7 +154,7 @@ func LoginFunction(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error3addresses": err})
 		return
 	}
-	// }
+
 	token, err := jwt.CreateToken(userFromDB.ID)
 	if err != nil {
 		c.JSON(http.StatusUnprocessableEntity, err.Error())
