@@ -1,6 +1,6 @@
 #cart {
   padding: 20px;
-  background-color: #9c795c;
+  background-color: #D2A970;
   min-height: 100vh;
   max-height: -webkit-fit-content;
   max-height: -moz-fit-content;
@@ -116,6 +116,7 @@
   color: #dbc1ac;
   font-weight: 600;
   background-color: #4e3928;
+  text-transform: uppercase;
 }
 
 #cart_checkout button:hover {

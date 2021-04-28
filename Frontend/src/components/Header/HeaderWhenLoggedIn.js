@@ -40,7 +40,7 @@ export const HeaderWhenLoggedIn = () => {
       <HeaderButton innerText="Log out" onClickEvent={handleLogOut}/>
       </div>
       </div>
-      <div className="logoholder"><img className="logo" src={imageUrl} height="160px"alt="logo"/></div>
+      <div className="logoholder"><img className="logo" src={imageUrl} height="160px"alt="logo"/><p>Coffee to Go</p></div>
     </div>
   )
 };

@@ -18,7 +18,8 @@
 #prezi_background #prezi_modal {
   width: 90%;
   height: 90%;
-  background-color: whitesmoke;
+  background-color: #dadada;
+  border-radius: 25px;
   padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;

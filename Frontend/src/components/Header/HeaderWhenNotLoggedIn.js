@@ -43,7 +43,7 @@ export const HeaderWhenNotLoggedIn = () => {
       <HeaderButton innerText="Cart" onClickEvent={handleCart}/>
       </div>
       </div>
-      <div className="logoholder"><img className="logo" src={imageUrl} height="160px"alt="logo"/></div>
+      <div className="logoholder"><img className="logo" src={imageUrl} height="160px"alt="logo"/><p className="logotext">Coffee to Go</p></div>
     </div>
   )
 };
