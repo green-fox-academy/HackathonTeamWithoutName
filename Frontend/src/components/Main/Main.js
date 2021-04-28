@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { Main1, Upload, Cart, OrderReview,LandingPage } from '../';
+import { Upload, Cart, OrderReview,LandingPage } from '../';
 
 export const Main = () => {
 
