@@ -5,6 +5,7 @@ import (
 
 	"coffeeShop/cmd/changePass"
 	"coffeeShop/cmd/createAddress"
+	"coffeeShop/cmd/deleteOrder"
 	"coffeeShop/cmd/forgottenPass"
 	"coffeeShop/cmd/login"
 	"coffeeShop/cmd/postReview"
@@ -36,6 +37,6 @@ func main() {
 
 	// router.PUT("/order",)
 	router.PUT("/order/quantity", updateQuantity.UpdateQuantity)
-	// router.DELETE("/order", deleteOrder.DeleteOrder)
+	router.DELETE("/order", deleteOrder.DeleteOrder)
 	log.Fatal(router.Run(":8080"))
 }
