@@ -25,17 +25,4 @@ const sampleCoffee2 = {
   image: imageUrl,
 };
 
-const sampleOrder1 = {
-  id: 1,
-  product_id: 1,
-  quantity: 100,
-}
-
-const sampleOrder2 = {
-  id: 2,
-  product_id: 2,
-  quantity: 6,
-}
-
 export const sampleCoffeeList = [ sampleCoffee1, sampleCoffee2 ];
-export const sampleOrderList = [ sampleOrder1, sampleOrder2 ]
