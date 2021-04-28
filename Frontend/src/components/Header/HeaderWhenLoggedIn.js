@@ -2,7 +2,8 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { HeaderButton } from '../';
-import { unloadStoreAction, setPreziVisibilityAction } from '../../actions';
+import { unloadStoreAction,unloadErrorAction, setPreziVisibilityAction } from '../../actions';
+
 
 export const HeaderWhenLoggedIn = () => {
   const dispatch = useDispatch();
@@ -10,22 +11,31 @@ export const HeaderWhenLoggedIn = () => {
 
   const handleLogOut = () => {
     dispatch(unloadStoreAction());
-    history.push('/login');
+    history.push('/');
   }
-
-  const handleLoadUploadImage = () => {
-    history.push('/main/upload');
+  const handleCart= () => {
+    dispatch(unloadErrorAction());
+    history.push('/main/cart');
   }
-
+  const handleShop = () => {
+    dispatch(unloadErrorAction());
+    history.push('/main/shop');
+  }
   const handleShowPrezi = () => {
     dispatch(setPreziVisibilityAction());
+  }
+  const handleUserProfile= () => {
+    dispatch(unloadErrorAction());
+    history.push('/main/userprofile');
   }
   
   return(
     <div>
-      <HeaderButton innerText="Upload image" onClickEvent={handleLoadUploadImage}/>
-      <HeaderButton innerText="Show Prezi" onClickEvent={handleShowPrezi}/>
-      <HeaderButton innerText="Log out!" onClickEvent={handleLogOut}/>
+      <div className="showprezibutton"><HeaderButton innerText="Show Prezi" onClickEvent={handleShowPrezi}/></div>
+      <HeaderButton innerText="My profile" onClickEvent={handleUserProfile}/>
+      <HeaderButton innerText="Shop" onClickEvent={handleShop}/>
+      <HeaderButton innerText="Cart" onClickEvent={handleCart}/>
+      <HeaderButton innerText="Log out" onClickEvent={handleLogOut}/>
     </div>
   )
 };

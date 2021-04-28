@@ -12,3 +12,6 @@ export * from './Upload/Upload';
 export * from './Prezi/Prezi';
 export * from './Cart/Cart';
 export * from './CartItem/CartItem';
+export * from './ForgottenPass/ForgottenPass';
+export * from './OrderReview/OrderReview';
+export * from './OrderReviewItem/OrderReviewItem';

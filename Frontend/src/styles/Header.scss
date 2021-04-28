@@ -1,0 +1,48 @@
+@import './presets';
+@import './variables';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-items: center;
+  height: 160px;
+  .navbarholder {
+    margin-right: 50px;
+    display: flex;
+    gap: 20px;
+    button {
+      font-size: 150%;
+      font-weight: 500;
+      background-color: $light-brown;
+      border: 3px solid $dark-brown;
+      text-transform:uppercase;
+    }
+    button:hover {
+      background-color: $light-brown-hover;
+      border: 3px solid $dark-brown-hover;
+    }
+    .showprezibutton {
+      display: none;
+    }
+  }
+  .navbarholder:hover {
+    .showprezibutton {
+      display: block;
+    }
+  }
+  button {
+    border: none;
+  }
+}
+
+.navbarholder {
+  align-self: center;
+}
+
+.logo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin-left: 50px;
+}

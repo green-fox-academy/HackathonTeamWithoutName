@@ -5,7 +5,6 @@ import {
 
 const initialState = {
   accessToken: '',
-  id: null,
   userName: '',
 };
 
@@ -14,7 +13,6 @@ export const userReducer = (state = initialState, action) => {
     return {
       ...state,
       accessToken: action.payload.accessToken,
-      id: action.payload.id,
       userName: action.payload.userName,
     };
   }
