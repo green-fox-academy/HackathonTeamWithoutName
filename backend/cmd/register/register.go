@@ -93,6 +93,7 @@ func RegisterTheUser(c *gin.Context) {
 
 		hashedPassword, _ := hash.Password(user.Password)
 		insData.Exec(user.Username, hashedPassword, user.Email)
+		defer insData.Close()
 
 		var userResult UserForResult
 		if err := db.QueryRow("SELECT id, username FROM users WHERE id = LAST_INSERT_ID();").Scan(&userResult.Id, &userResult.Username); err != nil {

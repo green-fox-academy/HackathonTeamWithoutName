@@ -78,6 +78,7 @@ func PostReview(c *gin.Context) {
 		}
 
 		insData.Exec(payload.User_id, reviewData.ProductId, reviewData.Rating, reviewData.Text)
+		defer insData.Close()
 
 		c.JSON(http.StatusOK, gin.H{"message": "ok"})
 		return

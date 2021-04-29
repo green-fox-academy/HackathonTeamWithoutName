@@ -49,6 +49,7 @@ func ForgottenPass(c *gin.Context) {
 		hashedPassword, _ := hash.Password(newPassword)
 
 		insData.Exec(hashedPassword, user.Email)
+		defer insData.Close()
 
 		if err := db.QueryRow("SELECT username FROM users WHERE email = (?);", user.Email).Scan(&user.Username); err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "database error"})

@@ -60,14 +60,18 @@ func DeleteOrder(c *gin.Context) {
 			c.JSON(http.StatusInternalServerError, gin.H{"database - delete error": err})
 			return
 		}
+
 		deleteData.Exec(requestBody.OrderID)
+		defer deleteData.Close()
 
 		updateData, err := db.Prepare("UPDATE products SET in_stock=in_stock+(?)  WHERE id=(?)")
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"database - quantity-update error": err})
 			return
 		}
+
 		updateData.Exec(quantity, productID)
+		defer updateData.Close()
 
 		c.JSON(http.StatusOK, gin.H{"message": "ok"})
 		return
