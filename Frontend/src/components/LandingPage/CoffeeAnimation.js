@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/LandingPage.css';
+import '../../styles/CoffeeAnimation.css';
 
 export const CoffeeAnimation =() => {
     return (
