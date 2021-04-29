@@ -31,6 +31,7 @@ func ChangePass(c *gin.Context) {
 		}
 
 		db := dbConn.DbConn()
+		defer db.Close()
 
 		if err := db.QueryRow("SELECT password FROM users WHERE id = (?);", payload.User_id).Scan(&user.DBPass); err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"database error at reading pass from db": err})

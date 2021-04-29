@@ -74,6 +74,8 @@ func RegisterTheUser(c *gin.Context) {
 	var isUsernameExists int
 	var isEmailExists int
 	db := dbConn.DbConn()
+	defer db.Close()
+
 	if err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM users WHERE username = (?));", user.Username).Scan(&isUsernameExists); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"database error at username-check": err})
 		return

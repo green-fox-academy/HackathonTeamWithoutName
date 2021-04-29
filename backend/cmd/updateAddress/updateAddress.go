@@ -63,6 +63,7 @@ func UpdateAddress(c *gin.Context) {
 		}
 
 		db := dbConn.DbConn()
+		defer db.Close()
 
 		updateData, err := db.Prepare(`UPDATE addresses SET country=(?), zip_code=(?), city=(?), street=(?), 
 		house_number=(?), phone=(?), first_name=(?), last_name=(?) WHERE id = (?) AND user_id = (?);`)
