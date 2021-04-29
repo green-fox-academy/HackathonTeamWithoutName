@@ -4,6 +4,7 @@ import (
 	"coffeeShop/cmd/dbConn"
 	"coffeeShop/internal/hash"
 	"coffeeShop/internal/jwt"
+
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -94,8 +95,26 @@ func LoginFunction(c *gin.Context) {
 			return
 		}
 
+		updateData, err := db.Prepare(`UPDATE products SET in_stock = in_stock-(?) WHERE id = ? ;`)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"UPDATE error": err})
+			return
+		}
+
 		for i := 0; i < len(userFromWeb.Orders); i++ {
-			insData.Exec(userFromDB.ID, userFromWeb.Orders[i].ProductID, userFromWeb.Orders[i].Quantity)
+			var stock uint64
+			if err := db.QueryRow(`SELECT in_stock FROM products WHERE id = ?`, userFromWeb.Orders[i].ProductID).Scan(&stock); err != nil {
+				c.JSON(http.StatusInternalServerError, gin.H{"database error: product not found": err})
+				return
+			}
+
+			if stock > userFromWeb.Orders[i].Quantity {
+				insData.Exec(userFromDB.ID, userFromWeb.Orders[i].ProductID, userFromWeb.Orders[i].Quantity)
+				defer insData.Close()
+				updateData.Exec(userFromWeb.Orders[i].Quantity, userFromWeb.Orders[i].ProductID)
+				defer updateData.Close()
+			}
+
 		}
 
 	}

@@ -69,6 +69,7 @@ func CreateAddress(c *gin.Context) {
 		insData.Exec(payload.User_id, requestBody.Country, requestBody.ZipCode, requestBody.City,
 			requestBody.Street, requestBody.HouseNumber, requestBody.Phone, requestBody.FirstName,
 			requestBody.LastName)
+		defer insData.Close()
 
 		c.JSON(http.StatusOK, gin.H{"message": "ok"})
 		return

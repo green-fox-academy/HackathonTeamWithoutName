@@ -11,9 +11,9 @@ import (
 )
 
 type User struct {
-	OldPass	string `json:"oldpass"`
+	OldPass string `json:"oldpass"`
 	NewPass string `json: "newpass"`
-	DBPass 	string `json: "dbpass"`
+	DBPass  string `json: "dbpass"`
 }
 
 func ChangePass(c *gin.Context) {
@@ -26,12 +26,12 @@ func ChangePass(c *gin.Context) {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "You are not authorized!"})
 	} else {
 		if err := c.ShouldBindJSON(&user); err != nil {
-		    c.JSON(http.StatusUnauthorized, gin.H{"message": "Invalid JSON provided."})
-		    return
-	    }
+			c.JSON(http.StatusUnauthorized, gin.H{"message": "Invalid JSON provided."})
+			return
+		}
 
 		db := dbConn.DbConn()
-		
+
 		if err := db.QueryRow("SELECT password FROM users WHERE id = (?);", payload.User_id).Scan(&user.DBPass); err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"database error at reading pass from db": err})
 			return
@@ -47,14 +47,15 @@ func ChangePass(c *gin.Context) {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "database error during UPDATE"})
 			return
 		}
-	    
-	    newPassword := user.NewPass
-	    hashedPassword, _ := hash.Password(newPassword)
-	    
-	    insData.Exec(hashedPassword, payload.User_id)
-	    	    
-	    c.JSON(http.StatusOK, gin.H{"message": "Your password has been changed"})
-	    return
-	    
-	    }
-    }
+
+		newPassword := user.NewPass
+		hashedPassword, _ := hash.Password(newPassword)
+
+		insData.Exec(hashedPassword, payload.User_id)
+		defer insData.Close()
+
+		c.JSON(http.StatusOK, gin.H{"message": "Your password has been changed"})
+		return
+
+	}
+}

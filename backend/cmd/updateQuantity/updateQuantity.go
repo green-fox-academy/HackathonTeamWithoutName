@@ -65,6 +65,7 @@ func UpdateQuantity(c *gin.Context) {
 		}
 
 		upDataForOrder.Exec(newQuantity.Quantity, newQuantity.OrderId)
+		defer upDataForOrder.Close()
 
 		upDataForProduct, err := db.Prepare(`UPDATE products SET in_stock=in_stock+(-?) WHERE id=(?);`)
 		if err != nil {
@@ -73,6 +74,7 @@ func UpdateQuantity(c *gin.Context) {
 		}
 
 		upDataForProduct.Exec(newQuantity.Quantity, productId)
+		defer upDataForOrder.Close()
 
 		c.JSON(http.StatusOK, gin.H{"message": "ok"})
 		return
