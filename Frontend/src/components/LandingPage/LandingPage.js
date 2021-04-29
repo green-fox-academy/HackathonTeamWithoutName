@@ -1,6 +1,10 @@
 import React from 'react';
 import '../../styles/LandingPage.css';
 import { CoffeeAnimation } from '../';
+import firstItem from '../../assets/images/firstitem.png';
+import secondItem from '../../assets/images/seconditem.png';
+import thirdItem from '../../assets/images/thirditem.png';
+import { Link } from 'react-router-dom';
 
 export const LandingPage = () => {
   return (
@@ -21,22 +25,39 @@ export const LandingPage = () => {
         </div>
         <div className="section2Text">
           <p>Visit our online store and check out our amazing products!</p>
+          <Link to="/main/shop">
+            <div className="goToShop">Visit the store</div>
+          </Link>
           <div className="landingImgHolder">
-            <div className="landImg1"><img src="../assets/images/firstitem.png" alt="coffee" width="250" height="250"/></div>
-          <div className="landImg2"><img src="../assets/images/seconditem.png" alt="coffee" width="250" height="250"/></div>
-          <div className="landImg3"><img src="../assets/images/thirditem.png" alt="coffee" width="250" height="250"/></div>
+            <Link to="/main/shop">
+              <div className="landImg1">
+                <img src={firstItem} alt="coffee" width="250" height="250" />
+              </div>
+            </Link>
+            <Link to="/main/shop">
+              <div className="landImg2">
+                <img src={secondItem} alt="coffee" width="250" height="250" />
+              </div>
+            </Link>
+            <Link to="/main/shop">
+              <div className="landImg3">
+                <img src={thirdItem} alt="coffee" width="250" height="250" />
+              </div>
+            </Link>
           </div>
         </div>
       </div>
 
       <div className="section3">
+        <div className="teamtitle"><p>Meet our team</p></div>
         <div className="teamholder">
+          
           <div className="teammate1"></div>
           <div className="teammate2"></div>
-            <div className="teammate3"></div>
-            <div className="teammate4"></div>
-            <div className="teammate5"></div>
-            <div className="teammate6"></div>
+          <div className="teammate3"></div>
+          <div className="teammate4"></div>
+          <div className="teammate5"></div>
+          <div className="teammate6"></div>
         </div>
       </div>
     </div>

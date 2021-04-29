@@ -82,11 +82,6 @@ body {
   margin-right: 1vw;
 }
 
-.section2 {
-  background: black;
-  height: 100vh;
-}
-
 .landingTitleBox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -147,11 +142,58 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 150px;
-  width: 700px;
+  margin-top: 120px;
+  width: 800px;
+  gap: 30px;
   height: 300px;
-  margin-left: 40px;
-  border: 3px solid white;
+}
+
+.section2 .goToShop {
+  margin-left: 250px;
+  font-size: 60%;
+  font-weight: 500;
+  border: 3px solid #9c795c;
+  border-radius: 6px;
+  text-transform: uppercase;
+  color: #eed8c7;
+  background-color: #4e3928;
+  text-decoration: none;
+  color: #dbc1ac;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+}
+
+.section2 .goToShop:hover {
+  background-color: #9c795c;
+  border: 3px solid #4e3928;
+  color: #4e3928;
+}
+
+.section2 a, .section2 a:hover, .section2 a:focus, .section2 a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+[class*='landImg'] {
+  -webkit-filter: drop-shadow(0px 8px 4px #000000);
+          filter: drop-shadow(0px 8px 4px #000000);
+}
+
+.landImg1:hover {
+  -webkit-animation: vibrate-1 0.3s linear infinite both;
+  animation: vibrate-1 0.3s linear infinite both;
+}
+
+.landImg2:hover {
+  -webkit-animation: vibrate-1 0.3s linear infinite both;
+  animation: vibrate-1 0.3s linear infinite both;
+}
+
+.landImg3:hover {
+  -webkit-animation: vibrate-1 0.3s linear infinite both;
+  animation: vibrate-1 0.3s linear infinite both;
 }
 
 .section3 {
@@ -173,7 +215,9 @@ body {
   display: -ms-flexbox;
   display: flex;
   width: 90vw;
-  height: 90vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   padding: 100px;
   border: 6px solid #4e3928;
   gap: 15px;
@@ -186,5 +230,98 @@ body {
   background: black;
   width: 200px;
   height: 100px;
+  -webkit-animation: swirl-in-fwd 0.6s ease-out both;
+  animation: swirl-in-fwd 0.6s ease-out both;
+}
+
+.teamtitle {
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  font-family: 'New Tegomin', serif;
+  color: #4e3928;
+  font-size: 55px;
+  margin-top: 50px;
+  text-shadow: 2px 2px 0px #9c795c;
+}
+
+@-webkit-keyframes swirl-in-fwd {
+  0% {
+    -webkit-transform: rotate(-540deg) scale(0);
+    transform: rotate(-540deg) scale(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0) scale(1);
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes swirl-in-fwd {
+  0% {
+    -webkit-transform: rotate(-540deg) scale(0);
+    transform: rotate(-540deg) scale(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0) scale(1);
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes vibrate-1 {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}
+
+@keyframes vibrate-1 {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
 }
 /*# sourceMappingURL=LandingPage.css.map */
