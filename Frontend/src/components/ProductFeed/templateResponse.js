@@ -6,7 +6,7 @@ response.productList.push({
   image: 'https://previews.123rf.com/images/arcady31/arcady311202/arcady31120200035/12414954-coffee-break-sign.jpg',
   inStock: 0,
   price: 77.66,
-  title: "Kotyogoos",
+  title: 'Kotyogoos',
   reviews: [],
 });
 response.productList[2].reviews.push({

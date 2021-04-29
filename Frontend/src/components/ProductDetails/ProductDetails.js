@@ -107,10 +107,10 @@ export const ProductDetails = () => {
               <div id="product_details_img_box">
                 <img src={image} alt="product"/>
                 { inStock > 10 
-                  ? <div id="product_details_stock_status_OK">On Stock</div> 
+                  ? <div id="product_details_stock_status_OK">In Stock</div> 
                   : inStock > 0 
                     ? <div id="product_details_stock_status_LOW">Only ${inStock} pieces left</div> 
-                    : <div id="product_details_stock_status_EMPTY">Not On Stock</div>}
+                    : <div id="product_details_stock_status_EMPTY">Out of stock</div>}
                 <div id="product_details_price">
                   $ {price}
                 </div>
