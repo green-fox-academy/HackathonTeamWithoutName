@@ -46,7 +46,17 @@ func AddOrder(c *gin.Context) {
 			return
 		}
 
-		insData.Exec(payload.User_id, order.ProductID)
+		sqlResult, err := insData.Exec(payload.User_id, order.ProductID)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"sqlResult error": err})
+			return
+		}
+		insertedID, err := sqlResult.LastInsertId()
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"insertedID error": err})
+			return
+		}
+
 		defer insData.Close()
 
 		updateData, err := db.Prepare(`UPDATE products SET in_stock = in_stock-1 WHERE id = ? ;`)
@@ -58,7 +68,7 @@ func AddOrder(c *gin.Context) {
 		updateData.Exec(order.ProductID)
 		defer updateData.Close()
 
-		c.JSON(http.StatusOK, gin.H{"message": "Item added to cart"})
+		c.JSON(http.StatusOK, gin.H{"message": "Item added to cart", "order_id": insertedID})
 
 	}
 
