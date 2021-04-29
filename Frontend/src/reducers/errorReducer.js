@@ -21,6 +21,10 @@ const initialState = {
     isError: false,
     errorMessage: '',
   },
+  address: {
+    isError: false,
+    errorMessage: '',
+  },
   product: {
     isError: false,
     errorMessage: '',

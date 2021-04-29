@@ -46,7 +46,7 @@ export const OrderReview = () => {
     try {
       await fetchService.fetchData('order', 'PUT', null, accessToken);
       dispatch(placeOrderAction());
-      history.push('/main/shop');
+      history.push('/main/landingpage');
     } catch (error) {
       console.log(error.message);
       dispatch(loadErrorAction({ type: 'order', message: error.message }));
