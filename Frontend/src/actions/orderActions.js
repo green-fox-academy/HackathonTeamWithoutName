@@ -3,10 +3,16 @@ import {
   UPDATE_ORDER_QUANTITY,
   REMOVE_ORDER,
   REMOVE_ALL_ORDER,
+  LOAD_ALL_ORDER_DATA,
 } from '../constants/actionTypes';
 
 export const loadOrderDataAction = (payload) => ({
   type: LOAD_ORDER_DATA,
+  payload,
+});
+
+export const loadAllOrderDataAction = (payload) => ({
+  type: LOAD_ALL_ORDER_DATA,
   payload,
 });
 

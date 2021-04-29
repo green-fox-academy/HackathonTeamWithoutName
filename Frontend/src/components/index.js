@@ -18,3 +18,4 @@ export * from './LandingPage/LandingPage';
 export * from './LandingPage/CoffeeAnimation';
 export * from './ProductFeed/ProductFeed';
 export * from './ProductCard/ProductCard';
+export * from './ProductDetails/ProductDetails';

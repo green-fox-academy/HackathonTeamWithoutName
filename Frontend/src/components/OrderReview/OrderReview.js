@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { OrderReviewItem } from '../';
-import { sampleCoffeeList } from '../Cart/sampleCoffee';
 import { fetchService } from '../../services';
 import { loadErrorAction, placeOrderAction } from '../../actions';
 import '../../styles/OrderReview.css';
@@ -11,6 +10,7 @@ export const OrderReview = () => {
   const { addresses } = useSelector(state => state.addressData);
   const { orders } = useSelector(state => state.orderData);
   const { accessToken } = useSelector(state => state.userData);
+  const { products } = useSelector(state => state.productData);
   const dispatch = useDispatch();
   const history = useHistory();
   const [shippingAddress, setShippingAddress] = useState('');
@@ -18,7 +18,7 @@ export const OrderReview = () => {
   const [payment, setPayment] = useState('');
   const [delivery, setDelivery] = useState('');
   const [deliveryCost, setDeliveryCost] = useState(0);
-  const orderTotal = deliveryCost + orders.map(({ product_id, quantity }) => sampleCoffeeList.filter(({ id }) => product_id === id)[0].price * quantity).reduce((a, b) => a + b, 0);
+  const orderTotal = deliveryCost + orders.map(({ product_id, quantity }) => products.filter(({ id }) => product_id === id)[0].price * quantity).reduce((a, b) => a + b, 0);
 
   const handleChangeOnDelivery = event => {
     const newDelivery = event.target.value;
@@ -115,7 +115,7 @@ export const OrderReview = () => {
               <div id="order_review_items_list">
                 <div id="order_review_items_list_title">Items:</div>
                 { orders.map(({ product_id, quantity }) => {
-                  return sampleCoffeeList.map(({ id, title, price, image }) => {
+                  return products.map(({ id, title, price, image }) => {
                     return product_id === id && <OrderReviewItem key={product_id} order={{title, price, image, quantity}}/>
                   })
                 })} 
@@ -137,7 +137,7 @@ export const OrderReview = () => {
                   Items ({orders.map(({ quantity }) => quantity).reduce((a, b) => a + b, 0)}):
                 </div>
                 <div>
-                  {orders.map(({ product_id, quantity }) => sampleCoffeeList.filter(({ id }) => product_id === id)[0].price * quantity).reduce((a, b) => a + b, 0).toLocaleString().split(',').join(' ')} HUF
+                  $ {orders.map(({ product_id, quantity }) => products.filter(({ id }) => product_id === id)[0].price * quantity).reduce((a, b) => a + b, 0).toLocaleString().split(',').join(' ')}
                 </div>
               </div>
               <div>
@@ -145,7 +145,7 @@ export const OrderReview = () => {
                   Shipping:
                 </div>
                 <div>
-                  {deliveryCost} HUF
+                  $ {deliveryCost}
                 </div>
               </div>
               <div id="order_review_checkout_total">
@@ -153,7 +153,7 @@ export const OrderReview = () => {
                   Order Total:
                 </div>
                 <div>
-                  {orderTotal.toLocaleString().split(',').join(' ')} HUF
+                  $ {orderTotal.toLocaleString().split(',').join(' ')}
                 </div>
               </div>
               { orders.length > 0 && shippingAddress && billingAddress && delivery && payment ? <button type="submit">Place your order</button> : <button type="submit" disabled>Place your order</button> }

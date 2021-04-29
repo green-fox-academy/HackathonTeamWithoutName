@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { HeaderButton } from '../';
-import { unloadStoreAction,unloadErrorAction, setPreziVisibilityAction } from '../../actions';
+import { unloadStoreAction, unloadErrorAction, setPreziVisibilityAction } from '../../actions';
 import imageUrl from '../../assets/images/coffeelogo.png';
 
 export const HeaderWhenLoggedIn = () => {

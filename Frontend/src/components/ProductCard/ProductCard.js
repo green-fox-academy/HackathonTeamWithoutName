@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadActualProductAction, loadErrorAction } from '../../actions';
+import { fetchService } from '../../services/';
+import { setProductDetailsVisibilityAction, loadActualProductDataAction } from '../../actions';
 
 //title, image, rating, price, raktáron van-e vagy sem, on card click for details
 
@@ -6,14 +10,31 @@ export const ProductCard = ({productData:{
   id,
   title,
   price,
+  category,
+  description,
   reviews,
   availability,
   image,
   inStock,
 }}) => {
+  const dispatch = useDispatch();
+
+  const handleShowProductDetails = () => {
+    dispatch(loadActualProductDataAction({
+      id,
+      title,
+      price,
+      category,
+      description,
+      image,
+      inStock,
+      reviews,
+    }));
+    dispatch(setProductDetailsVisibilityAction());
+  }
 
   return (
-    <div>
+    <div onClick={handleShowProductDetails}>
       <div>
         <img src={image} alt={title}/>
       </div>
