@@ -24,6 +24,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 40px 0;
 }
 
 .errormessage {
@@ -75,17 +76,14 @@ body {
   background-size: cover;
   border-radius: 12px 12px 0px 0px;
   height: 77vh;
-  width: 98vw;
+  width: 97vw;
   margin-top: 2vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
 
 .section2 {
   background: black;
-  height: 100vh;
-}
-
-.section3 {
-  background: red;
   height: 100vh;
 }
 
@@ -115,5 +113,78 @@ body {
   color: white;
   font-size: 20px;
   text-shadow: 1px 1px 0px #9c795c;
+}
+
+.section2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #dbc1ac;
+  max-width: 97vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.section2 .animationHolder {
+  width: 30%;
+  margin-left: 50px;
+  position: relative;
+  top: -70px;
+}
+
+.section2 .section2Text {
+  font-family: 'New Tegomin', serif;
+  color: #4e3928;
+  font-size: 50px;
+  width: 800px;
+  height: 250px;
+  margin-top: 50px;
+  margin-left: 30px;
+  text-shadow: 0.5px 0.5px 0px white;
+}
+
+.section2 .section2Text .landingImgHolder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 150px;
+  width: 700px;
+  height: 300px;
+  margin-left: 40px;
+  border: 3px solid white;
+}
+
+.section3 {
+  background: #D2A970;
+  height: 100vh;
+  margin-top: 0px;
+  width: 97vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  border-radius: 0px 0px 12px 12px;
+}
+
+.teamholder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90vw;
+  height: 90vh;
+  padding: 100px;
+  border: 6px solid #4e3928;
+  gap: 15px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+[class*='teammate'] {
+  background: black;
+  width: 200px;
+  height: 100px;
 }
 /*# sourceMappingURL=LandingPage.css.map */
