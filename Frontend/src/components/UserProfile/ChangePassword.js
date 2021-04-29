@@ -27,7 +27,7 @@ export const ChangePassword = () => {
         <div>Change password</div>
         <input
           type="password"
-          placeholder="oldpassword"
+          placeholder="Old password"
           minLength="6"
           value={oldPassword}
           onChange={changeEvent => {
@@ -36,7 +36,7 @@ export const ChangePassword = () => {
         />
         <input
           type="password"
-          placeholder="newpassword"
+          placeholder="New password"
           minLength="6"
           value={newPassword}
           onChange={changeEvent => {
