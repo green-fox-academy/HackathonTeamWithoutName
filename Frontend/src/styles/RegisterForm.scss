@@ -61,10 +61,14 @@ button:hover{
   }
   i.fa.fa-eye {
     margin-left:3px;
+    position:relative;
+    top:-13px;
   }
 
   i.fa.fa-eye-slash {
+    position:relative;
     margin-left:3px;
+    top:-13px;
   }
   @media screen and (max-width: 1270px) {
 
