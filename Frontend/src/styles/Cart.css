@@ -15,17 +15,6 @@
   margin: 0 0 20px 0;
 }
 
-.teamholder {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 90vw;
-  height: 90vh;
-  margin: 5vh;
-  border: 3px solid white;
-  gap: 15px;
-}
-
 #cart_header {
   width: 900px;
   padding: 0 20px;
