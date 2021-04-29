@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { OrderReviewItem } from '../';
 import { sampleCoffeeList } from '../Cart/sampleCoffee';
+import { fetchService } from '../../services';
+import { loadErrorAction, placeOrderAction } from '../../actions';
 import '../../styles/OrderReview.css';
 
 export const OrderReview = () => {
   const { addresses } = useSelector(state => state.addressData);
   const { orders } = useSelector(state => state.orderData);
+  const { accessToken } = useSelector(state => state.userData);
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [shippingAddress, setShippingAddress] = useState('');
   const [billingAddress, setBillingAddress] = useState('');
   const [payment, setPayment] = useState('');
@@ -35,20 +41,28 @@ export const OrderReview = () => {
     setShippingAddress(newShippingAddress);
   }
 
-  const handleSubmit = event => {
+  const handleSubmitOnPlaceOrder = async event => {
     event.preventDefault();
-    console.log({shippingAddress:addresses[shippingAddress], billingAddress:addresses[billingAddress], payment, delivery, orderTotal});
+    try {
+      await fetchService.fetchData('order', 'PUT', null, accessToken);
+      dispatch(placeOrderAction());
+      history.push('/main/shop');
+    } catch (error) {
+      console.log(error.message);
+      dispatch(loadErrorAction({ type: 'order', message: error.message }));
+    }
   }
 
   return (
     <div id="order_review">
       <h1>Review your order</h1>
-      <form onSubmit={handleSubmit}>
+      <div className="order_review_required">* required</div>
+      <form onSubmit={handleSubmitOnPlaceOrder}>
         <div id="order_review_main">
           <div id="order_review_inner_main">
             <div id="order_review_settings">
               <div id="order_review_shipping_address">
-                <div>Shipping address:</div>
+                <div>Shipping address:<span className="order_review_required">*</span></div>
                 <select id="myList" onChange={handleChangeOnShippingAddress}>
                   <option value="">Please select your shipping address</option>
                   { addresses.map((address, index) => <option key={address.id} value={index}>{address.street}</option>)}
@@ -69,7 +83,7 @@ export const OrderReview = () => {
                 </div>
               </div>
               <div id="order_review_billing_address">
-                <div>Billing address:</div>
+                <div>Billing address:<span className="order_review_required">*</span></div>
                 <select id="myList" onChange={handleChangeOnBillingAddress}>
                   <option value="">Please select your billing address</option>
                   { addresses.map((address, index) => <option key={address.id} value={index}>{address.street}</option>)}
@@ -90,7 +104,7 @@ export const OrderReview = () => {
                 </div>
               </div>
               <div id="order_review_payment">
-                <div>Payment method:</div>
+                <div>Payment method:<span className="order_review_required">*</span></div>
                 <div>
                   <input className="checkbox" type="radio" name="payment" value="by_cash" onChange={handleChangeOnPayment}/>
                   <label className="reviewtext" htmlFor="by_cash">Payment by cash on delivery</label>
@@ -107,7 +121,7 @@ export const OrderReview = () => {
                 })} 
               </div>
               <div id="order_review_delivery_option">
-                <div id="order_review_delivery_option_title">Choose a delivery option:</div>
+                <div id="order_review_delivery_option_title">Choose a delivery option:<span className="order_review_required">*</span></div>
                 <div>
                   <input type="radio" name="delivery" value="standard" onChange={handleChangeOnDelivery}/>
                   <label className="reviewtext" htmlFor="standard">FREE Standard Shipping</label>

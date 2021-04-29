@@ -12,6 +12,12 @@
   color: black;
   -webkit-filter: drop-shadow(0px 1px 0.5px #b4b4b4);
           filter: drop-shadow(0px 1px 0.5px #b4b4b4);
+  margin: 0 0 20px 0;
+}
+
+.order_review_required {
+  color: #ee4b4b;
+  font-weight: bold;
 }
 
 #order_review_main {

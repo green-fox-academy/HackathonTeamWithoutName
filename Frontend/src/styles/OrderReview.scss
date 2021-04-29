@@ -10,7 +10,13 @@
     text-shadow:$text-shadow-light;
     color:black;
     filter: drop-shadow(0px 1px 0.5px rgb(180, 180, 180));
+    margin: 0 0 20px 0;
   }
+}
+
+.order_review_required {
+  color: #ee4b4b;
+  font-weight: bold;
 }
 
 #order_review_main {

@@ -12,6 +12,7 @@
   color: black;
   -webkit-filter: drop-shadow(0px 1px 0.5px #b4b4b4);
           filter: drop-shadow(0px 1px 0.5px #b4b4b4);
+  margin: 0 0 20px 0;
 }
 
 #cart_header {
@@ -162,6 +163,10 @@
   font-size: 20px;
   -ms-flex-item-align: end;
       align-self: flex-end;
+}
+
+.errormessage {
+  min-width: 100%;
 }
 
 @media screen and (max-width: 1390px) {
