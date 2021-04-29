@@ -74,6 +74,7 @@ func UpdateAddress(c *gin.Context) {
 		updateData.Exec(requestBody.Country, requestBody.ZipCode, requestBody.City,
 			requestBody.Street, requestBody.HouseNumber, requestBody.Phone, requestBody.FirstName,
 			requestBody.LastName, requestBody.AddressID, payload.User_id)
+		defer updateData.Close()
 
 		c.JSON(http.StatusOK, gin.H{"message": "ok"})
 		return

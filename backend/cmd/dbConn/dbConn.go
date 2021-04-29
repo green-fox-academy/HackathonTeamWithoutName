@@ -25,5 +25,7 @@ func DbConn() (db *sql.DB) {
 		panic(err.Error())
 	}
 
+	db.SetMaxOpenConns(33)
+
 	return db
 }
