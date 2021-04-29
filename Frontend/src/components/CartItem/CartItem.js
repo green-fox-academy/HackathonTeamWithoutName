@@ -1,7 +1,37 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchService } from '../../services';
+import { 
+  updateOrderQuantityAction,
+  removeOrderAction,
+  loadErrorAction,
+} from '../../actions';
 import '../../styles/CartItem.css';
 
-export const CartItem = ({ order: { title, price, image, quantity } }) => {
+export const CartItem = ({ order: { order_id, title, price, image, quantity } }) => {
+  const { accessToken } = useSelector(state => state.userData);
+  const dispatch = useDispatch();
+
+  const handleClickOnChangeQuantity = async event => {
+    const quantityModifier = Number(event.target.innerHTML + 1);
+    try {
+      await fetchService.fetchData('order/quantity', 'PUT', { order_id, new_quantity: quantityModifier }, accessToken);
+      dispatch(updateOrderQuantityAction({ order_id, quantityModifier }));
+    } catch (error) {
+      console.log(error.message);
+      dispatch(loadErrorAction({ type: 'order', message: error.message }));
+    }
+  }
+
+  const handleClickOnRemoveOrder = async () => {
+    try {
+      await fetchService.fetchData('order', 'DELETE', { order_id }, accessToken);
+      dispatch(removeOrderAction({ order_id }));
+    } catch (error) {
+      console.log(error.message);
+      dispatch(loadErrorAction({ type: 'order', message: error.message }));
+    }
+  }
 
   return (
     <div className="cart_item">
@@ -15,9 +45,9 @@ export const CartItem = ({ order: { title, price, image, quantity } }) => {
       <div className="cart_item_quantity_box">
         <h4>Quantity</h4>
         <div className="cart_item_quantity">
-          <button>-</button>
+          <button onClick={handleClickOnChangeQuantity}>-</button>
           <div>{quantity}</div>
-          <button>+</button>
+          <button onClick={handleClickOnChangeQuantity}>+</button>
         </div>
       </div>
       <div className="cart_item_total_price_box">
@@ -26,7 +56,7 @@ export const CartItem = ({ order: { title, price, image, quantity } }) => {
           <div>
             {(price * quantity).toLocaleString().split(',').join(' ')} HUF
           </div>
-          <button><i className="fa fa-trash"/></button>
+          <button onClick={handleClickOnRemoveOrder}><i className="fa fa-trash"/></button>
         </div>
       </div>
     </div>

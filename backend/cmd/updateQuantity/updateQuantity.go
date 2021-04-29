@@ -36,13 +36,13 @@ func UpdateQuantity(c *gin.Context) {
 		db := dbConn.DbConn()
 
 		var isOrderExists uint8
-		if err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM orders WHERE user_id = (?) AND id= (?));", payload.User_id, newQuantity.OrderId).Scan(&isOrderExists); err != nil {
+		if err := db.QueryRow(`SELECT EXISTS(SELECT 1 FROM orders WHERE user_id = (?) AND id= (?) AND status = 'in_cart');`, payload.User_id, newQuantity.OrderId).Scan(&isOrderExists); err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 			return
 		}
 
 		if isOrderExists != 1 {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "There is no such order id under your name"})
+			c.JSON(http.StatusBadRequest, gin.H{"error": "There is no such item in your cart!"})
 			return
 		}
 
