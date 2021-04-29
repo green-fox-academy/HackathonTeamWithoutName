@@ -67,12 +67,24 @@ func CreateAddress(c *gin.Context) {
 			return
 		}
 
-		insData.Exec(payload.User_id, requestBody.Country, requestBody.ZipCode, requestBody.City,
+		sqlResult, err := insData.Exec(payload.User_id, requestBody.Country, requestBody.ZipCode, requestBody.City,
 			requestBody.Street, requestBody.HouseNumber, requestBody.Phone, requestBody.FirstName,
 			requestBody.LastName)
+
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"sqlResult error": err})
+			return
+		}
+
+		insertedID, err := sqlResult.LastInsertId()
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"insertedID error": err})
+			return
+		}
+
 		defer insData.Close()
 
-		c.JSON(http.StatusOK, gin.H{"message": "ok"})
+		c.JSON(http.StatusOK, gin.H{"message": "ok", "address_id": insertedID})
 		return
 	}
 }
