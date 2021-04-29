@@ -137,7 +137,7 @@ export const OrderReview = () => {
                   Items ({orders.map(({ quantity }) => quantity).reduce((a, b) => a + b, 0)}):
                 </div>
                 <div>
-                  $ {orders.map(({ product_id, quantity }) => products.filter(({ id }) => product_id === id)[0].price * quantity).reduce((a, b) => a + b, 0).toLocaleString().split(',').join(' ')}
+                  $ {orders.map(({ product_id, quantity }) => products.filter(({ id }) => product_id === id)[0].price * quantity).reduce((a, b) => a + b, 0).toLocaleString().split(',').join('.')}
                 </div>
               </div>
               <div>
@@ -153,7 +153,7 @@ export const OrderReview = () => {
                   Order Total:
                 </div>
                 <div>
-                  $ {orderTotal.toLocaleString().split(',').join(' ')}
+                  $ {orderTotal.toLocaleString().split(',').join('.')}
                 </div>
               </div>
               { orders.length > 0 && shippingAddress && billingAddress && delivery && payment ? <button type="submit">Place your order</button> : <button type="submit" disabled>Place your order</button> }

@@ -71,6 +71,15 @@ body {
   border: 2px solid #9c795c;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("../assets/images/downarrow.png");
+  background-repeat: no-repeat;
+  background-position: 98%;
+}
+
 .section1 {
   background: url("../assets/images/landingbackground4.jpg");
   background-size: cover;
