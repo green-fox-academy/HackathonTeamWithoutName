@@ -107,7 +107,7 @@
 
 .section3 {
     background:#D2A970;
-    height:100vh;
+    height:110vh;
     margin-top:0px;
     width:97vw;
     margin-left:1vw;
@@ -119,19 +119,25 @@
     border-radius:0px 0px 12px 12px;
 }
 .teamholder{
+    margin-top:0px;
     display:flex;
     width:90vw;
     height:fit-content;
-   padding:100px;
-    border:6px solid $dark-brown;
-    gap:15px;
+   padding:10px;
+    gap:120px;
     justify-content:center;
+    border:none;
   }
-
+.teamcard{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 [class*='teammate']{
     background:black;
     width:200px;
-    height:100px;
+    height:200px;
+    clip-path: circle(50% at 50% 50%);
     -webkit-animation: swirl-in-fwd 0.6s ease-out both;
 	        animation: swirl-in-fwd 0.6s ease-out both;
 }
@@ -142,10 +148,17 @@
     font-family: 'New Tegomin', serif;
         color:$dark-brown;
         font-size:55px;
-        margin-top:50px;
+        margin-top:0px;
         text-shadow: 2px 2px 0px $background-brown;
+        margin-bottom:0px;
 }
-
+.nameTag{
+    font-family: 'New Tegomin', serif;
+        color:white;
+        font-size:34px;
+        text-shadow: 2px 2px 0px $background-brown;
+        margin:0px;
+}
 //Animations
 
 @-webkit-keyframes swirl-in-fwd {

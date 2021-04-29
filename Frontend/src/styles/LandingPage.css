@@ -198,7 +198,7 @@ body {
 
 .section3 {
   background: #D2A970;
-  height: 100vh;
+  height: 110vh;
   margin-top: 0px;
   width: 97vw;
   margin-left: 1vw;
@@ -211,6 +211,7 @@ body {
 }
 
 .teamholder {
+  margin-top: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -218,18 +219,33 @@ body {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  padding: 100px;
-  border: 6px solid #4e3928;
-  gap: 15px;
+  padding: 10px;
+  gap: 120px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  border: none;
+}
+
+.teamcard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 [class*='teammate'] {
   background: black;
   width: 200px;
-  height: 100px;
+  height: 200px;
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
   -webkit-animation: swirl-in-fwd 0.6s ease-out both;
   animation: swirl-in-fwd 0.6s ease-out both;
 }
@@ -241,8 +257,17 @@ body {
   font-family: 'New Tegomin', serif;
   color: #4e3928;
   font-size: 55px;
-  margin-top: 50px;
+  margin-top: 0px;
   text-shadow: 2px 2px 0px #9c795c;
+  margin-bottom: 0px;
+}
+
+.nameTag {
+  font-family: 'New Tegomin', serif;
+  color: white;
+  font-size: 34px;
+  text-shadow: 2px 2px 0px #9c795c;
+  margin: 0px;
 }
 
 @-webkit-keyframes swirl-in-fwd {
