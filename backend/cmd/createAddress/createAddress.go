@@ -57,6 +57,7 @@ func CreateAddress(c *gin.Context) {
 		}
 
 		db := dbConn.DbConn()
+		defer db.Close()
 
 		insData, err := db.Prepare(`INSERT INTO addresses (user_id, country, zip_code, city, street, 
 			house_number, phone, first_name, last_name) 

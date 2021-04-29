@@ -28,6 +28,7 @@ func AddOrder(c *gin.Context) {
 		}
 
 		db := dbConn.DbConn()
+		defer db.Close()
 
 		var stock int
 		if err := db.QueryRow(`SELECT in_stock FROM products WHERE id = ?`, order.ProductID).Scan(&stock); err != nil {

@@ -63,6 +63,8 @@ func LoginFunction(c *gin.Context) {
 	}
 
 	db := dbConn.DbConn()
+	defer db.Close()
+
 	if err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM users WHERE username = (?));", userFromWeb.Username).Scan(&isUsernameExists); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"database error - user already exists check": err})
 		return

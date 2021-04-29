@@ -32,6 +32,7 @@ func ForgottenPass(c *gin.Context) {
 
 	var isEmailExists int
 	db := dbConn.DbConn()
+	defer db.Close()
 
 	if err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM users WHERE email = (?));", user.Email).Scan(&isEmailExists); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "database error"})

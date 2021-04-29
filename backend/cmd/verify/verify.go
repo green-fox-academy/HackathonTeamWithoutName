@@ -22,6 +22,7 @@ func VerifyUserByEmail(c *gin.Context) {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "You are not authorized!"})
 	} else {
 		db := dbConn.DbConn()
+		defer db.Close()
 
 		updData, err := db.Prepare("UPDATE users SET is_verified=1 WHERE id=(?);")
 		if err != nil {
