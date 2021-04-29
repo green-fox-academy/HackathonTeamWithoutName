@@ -1,13 +1,16 @@
 import React from 'react';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { CartItem } from '../';
 import { sampleCoffeeList } from './sampleCoffee';
+import { unloadErrorAction } from '../../actions';
 import '../../styles/Cart.css';
 
 export const Cart = () => {
   const { accessToken } = useSelector(state => state.userData);
   const { orders } = useSelector(state => state.orderData);
+  const { isError, errorMessage } = useSelector((state) => state.error.order);
+  const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
 
@@ -19,8 +22,18 @@ export const Cart = () => {
     history.push('/main');
   }
 
+  const handleClickOnRemoveError = () => {
+    dispatch(unloadErrorAction());
+  }
+
   return (
     <div id="cart">
+      {isError && 
+        <div className="errormessage">
+          {errorMessage}
+          <button onClick={handleClickOnRemoveError}>OK</button>
+        </div>
+      }
       <h1>Shopping Cart</h1>
       <div id="cart_main">
         { orders.length > 0 
@@ -31,9 +44,9 @@ export const Cart = () => {
               <h4>Quantity</h4>
               <h4>Total price</h4>
             </div>
-            { orders.map(({ product_id, quantity }) => {
+            { orders.map(({ id: order_id, product_id, quantity }) => {
               return sampleCoffeeList.map(({ id, title, price, image }) => {
-                return product_id === id && <CartItem key={product_id} order={{title, price, image, quantity}}/>
+                return product_id === id && <CartItem key={product_id} order={{order_id, title, price, image, quantity}}/>
               })
             })}      
           </div>
