@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/LandingPage.css';
-import { CoffeeAnimation } from '../';
+import { CoffeeAnimation,FetchProducts } from '../';
 import firstItem from '../../assets/images/firstitem.png';
 import secondItem from '../../assets/images/seconditem.png';
 import thirdItem from '../../assets/images/thirditem.png';
@@ -13,8 +13,10 @@ import sixthMember from '../../assets/images/mate.jpg';
 import { Link } from 'react-router-dom';
 
 export const LandingPage = () => {
+  FetchProducts()
   return (
     <div>
+      
       <div className="section1">
         <div className="landingTitleBox">
           <div className="landingTitle">
