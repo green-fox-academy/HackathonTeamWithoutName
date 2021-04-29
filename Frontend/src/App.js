@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { NotImplementedYet, Header, RootRedirect, Main, Login, Register, Prezi, ForgottenPass, ProductDetails } from './components';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { NotImplementedYet, Header, Main, Login, Register, Prezi, ForgottenPass, ProductDetails } from './components';
 import './styles/App.css';
 
 function App() {
@@ -8,8 +8,8 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Route exact path="/" component={RootRedirect} />
         <Switch>
+          <Redirect exact from="/" to="/main" />
           <Route path="/main" component={Main} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />

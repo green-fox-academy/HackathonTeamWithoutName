@@ -10,7 +10,7 @@ import (
 )
 
 type NewAddress struct {
-	AddressID   uint64 `json:"address_id"`
+	AddressID   uint64 `json:"id"`
 	Country     string `json:"country"`
 	ZipCode     string `json:"zip_code"`
 	City        string `json:"city"`

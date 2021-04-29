@@ -3,18 +3,18 @@ import '../../styles/CoffeeAnimation.css';
 
 export const CoffeeAnimation =() => {
     return (
-<div class="container">
-  <div class="row beans">
+<div className="container">
+  <div className="row beans">
   </div>
-  <div class="row grinder">
+  <div className="row grinder">
   </div>
-  <div class="row grinder_bottom">
+  <div className="row grinder_bottom">
   </div>
-  <div class="row v60">
+  <div className="row v60">
   </div>
-  <div class="row drip">
+  <div className="row drip">
   </div>
-  <div class="row cup">
+  <div className="row cup">
   </div>
 </div>
     )

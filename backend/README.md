@@ -42,7 +42,7 @@ It returns with the following JSON in the body:
 }
  ```
 
- ### GET /user/forgottenpass
+ ### POST /user/forgottenpass
 /user/forgottenPass creates a randomly generated string as a new password in case the user forgets the previous one. It needs the email address given at registration. It verifies, whether the email exists both in general and in the database. If the verification is successful, it sends an email to the user with the new password.
 
 It is waiting for the following JSON incorporated into the body:
@@ -154,7 +154,7 @@ This endpoint is waiting for a jwt token in the header and the following body:
 
  ```
 {
-    "address_id": 1
+    "id": 1
     "country": "Hungary",
     "zip_code": "1111",
     "city": "Budapest",
@@ -178,8 +178,8 @@ This endpoint is waiting for a jwt token in the header, the old password and the
 
  ```
 {
-    "oldpassword": "oldpass123",
-    "newpassword": "newpass123"
+    "oldpass": "oldpass123",
+    "newpass": "newpass123"
 }
  ```
 
