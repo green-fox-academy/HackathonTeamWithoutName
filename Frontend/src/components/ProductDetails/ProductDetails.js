@@ -30,6 +30,8 @@ export const ProductDetails = () => {
     if (productRef.current === event.target) {
       dispatch(setProductDetailsVisibilityAction());
       dispatch(unloadActualProductDataAction());
+      setReview('');
+      setRating('');
     }
   };
 
@@ -41,6 +43,8 @@ export const ProductDetails = () => {
   const handleClickOnGoIntoCart = () => {
     dispatch(setProductDetailsVisibilityAction());
     dispatch(unloadActualProductDataAction());
+    setReview('');
+    setRating('');
     history.push('/main/cart');
   }
 
@@ -65,7 +69,7 @@ export const ProductDetails = () => {
     if (accessToken) {
       try {
         const { order_id } = await fetchService.fetchData('order', 'POST', { productId: product_id }, accessToken);
-        dispatch(loadOrderDataAction([{ order_id, product_id, quantity: 1 }]));
+        dispatch(loadOrderDataAction([{ id: order_id, product_id, quantity: 1 }]));
       } catch (error) {
         console.log(error.message);
       };
