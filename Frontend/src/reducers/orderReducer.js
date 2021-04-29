@@ -4,6 +4,7 @@ import {
   REMOVE_ORDER,
   REMOVE_ALL_ORDER,
   UNLOAD_STORE,
+  LOAD_ALL_ORDER_DATA,
 } from '../constants/actionTypes';
 
 const initialState = {
@@ -16,6 +17,15 @@ export const orderReducer = (state = initialState, action) => {
       return {
         ...state,
         orders: [ ...state.orders ].concat(action.payload)
+      };
+    }
+    return state;
+  }
+  if (action.type === LOAD_ALL_ORDER_DATA) {
+    if (action.payload.length) {
+      return {
+        ...state,
+        orders: action.payload,
       };
     }
     return state;

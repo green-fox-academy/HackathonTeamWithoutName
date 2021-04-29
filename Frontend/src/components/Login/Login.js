@@ -5,7 +5,7 @@ import { fetchService } from '../../services';
 import {
   loadUserDataAction,
   loadAddressDataAction,
-  loadOrderDataAction,
+  loadAllOrderDataAction,
   loadErrorAction,
   unloadErrorAction,
 } from '../../actions';
@@ -17,6 +17,7 @@ export const Login = () => {
   const [password, setPassword] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const { isError, errorMessage } = useSelector((state) => state.error.login);
+  const { orders: ordersInStore } = useSelector((state) => state.orderData);
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
@@ -44,11 +45,11 @@ export const Login = () => {
     submitEvent.preventDefault();
     try {
       await validateUserInput();
-      const { accessToken, addresses, orders} = await fetchService.fetchData('user/login', 'POST', { userName, password }, null);
+      const { accessToken, addresses, orders} = await fetchService.fetchData('user/login', 'POST', { userName, password, orders: ordersInStore }, null);
       history.push('/main');
       dispatch(loadUserDataAction({ accessToken, userName }));
       dispatch(loadAddressDataAction(addresses));
-      dispatch(loadOrderDataAction(orders));
+      dispatch(loadAllOrderDataAction(orders));
       location.state === '/main/cart' ? history.push('/main/cart') : history.push('/main');
     } catch (error) {
       console.log(error.message);

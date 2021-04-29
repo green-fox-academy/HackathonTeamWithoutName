@@ -1,9 +1,9 @@
-@import './presets';
+@import './variables';
 
-#memeDetails-background {
+#product_details_background {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: $modal-background;
   position: fixed;
   display: flex;
   justify-content: center;
@@ -11,73 +11,117 @@
   top: 0;
 }
 
-#memeDetails {
-  width: 1060px;
-  height: 660px;
-  background-color: rgb(0, 0, 0);
-  border: 10px solid rgb(255, 255, 255);
-  padding: 20px;
+#product_details_modal {
+  width: 1000px;
+  height: 600px;
+  min-height: 500px;
+  background-color: #D2A970;
+  border-radius:25px;
+  padding: 40px;
   display: flex;
   gap: 20px;
-  flex-shrink:0.5;
 }
 
-#memeDetails-left-side {
+#product_details_left_side {
   height: 100%;
+  min-height: 300px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  gap: 20px;
 }
 
-#memeDetails-img-box {
-  height: 500px;
+#product_details_img_box {
+  height: 300px;
   padding: 10px;
   background-color: white;
-  position:relative;
-  bottom:5px;
-}
-
-#reaction-box {
+  border-radius: 5px;
+  box-shadow: $box-shadow-strong;
+  position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   gap: 20px;
+  img {
+    height: 100%;
+  }
+  button{
+    color: $light-brown;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 10px;
+    background-color: $dark-brown;
+  }
+  button:hover{
+    background-color: $dark-brown-hover;
+  }
 }
 
-#memeDetails-img-box img {
-  height: 100%;
+#product_details_price {
+  font-size: 20px;
+  font-weight: bold;
 }
 
-#owner-text {
-  color: white;
-  font-weight:600;
-  font-size:150%;
+#product_details_stock_status_OK {
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
 }
 
-.reaction-text {
-  color:white;
+#product_details_stock_status_LOW {
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+}
+
+#product_details_stock_status_EMPTY {
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+}
+
+#product_details_text_box {
+  width: 100%;
+  background: white;
+  border-radius: 5px;
+  box-shadow: $box-shadow-strong;
+  padding: 20px;
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  gap: 30px;
+  overflow: scroll;
+  overflow-y:auto;
+  overflow-x:auto;
+  min-width:4px;
+  overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
-.memeDetails-reaction-icon {
-  height: 25px;
+#product_details_text_box_title {
+  font-size: 25px;
+  font-weight: bold;
 }
 
-#memeDetails-right-side {
+#product_details_text_box_description {
+  font-size: 20px;
+}
+
+#product_details_right_side {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-width:450px;
+  gap: 20px;
+  min-width:250px;
 }
 
-#number-of-comments {
-  color: white;
+#number_of_reviews {
+  font-weight: bold;
 }
 
-#comments-box {
-  height: 400px;
+#reviews_box {
+  height: 300px;
   background-color: rgb(255, 255, 255);
+  box-shadow:$box-shadow-strong;
   overflow: scroll;
   padding: 10px;
   overflow-y:auto;
@@ -87,9 +131,11 @@
   overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+    //display:flex;
+  //flex-direction: column-reverse;
 }
 
-#comment-text {
+#review_text {
   background-color: rgb(228, 228, 228);
   border: solid 1px rgb(179, 179, 179);
   padding: 5px;
@@ -99,149 +145,129 @@
     hyphens: auto;
 }
 
-#comment-form {
+#review_form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  button{
+    height: 30px;
+    color: $light-brown;
+    font-weight: 600;
+    background-color: $dark-brown;
+  }
+  button:hover{
+    background-color: $dark-brown-hover;
+  }
 }
 
-#commentinput {
+#reviewinput {
   height: 70px;
   resize: none;
   outline:none;
   position:relative;
-  top:3px;
-  border-radius:5px;
+  border-radius: 5px;
+  box-shadow: $box-shadow-strong;
 }
 
-#memeDetails button {
-  width: fit-content;
-  align-self: flex-end;
-  margin-bottom:0px;
-  position:relative;
-  top: 5px;
-  left: 10px;
-}
+$unchecked-star: '\2606';
+$unchecked-color: #888;
+$checked-star: '\2605';
+$checked-color: #e52;
 
-#myMemeDetails-button-box {
+#review_form_fieldset {
+  width: 100%;
+  padding: 0 10px;
+  margin: 0;
   display: flex;
-  justify-content: space-between;
-  padding: 35px;
+  justify-content: center;
+  background: white;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: $box-shadow-strong;
+  span {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
-@media screen and (max-width: 880px) {
-  #memeDetails-background {
-    width: 100;
-    height: 100;
-    background: rgba(0, 0, 0, 0.8);
-    position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    margin:0;
+.star-cb-group {
+  font-size: 0;
+  * {
+    font-size: 30px;
+  }
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  & > input {
+    display: none;
+    & + label {
+      display: inline-block;
+      overflow: hidden;
+      text-indent: 9999px;
+      width: 1em;
+      white-space: nowrap;
+      cursor: pointer;
+      &:before {
+        display: inline-block;
+        text-indent: -9999px;
+        content: $unchecked-star;
+        color: $unchecked-color;
+      }
+    }
+    &:checked ~ label:before,
+      & + label:hover ~ label:before,
+      & + label:hover:before {
+      content: $checked-star;
+      color: #e52;
+      text-shadow: 0 0 1px #333;
+    }
   }
   
-  #memeDetails {
-    width: 90vw;
-    height: 90vh;
-    background-color: rgb(0, 0, 0);
-    border: 10px solid rgb(255, 255, 255);
-    padding: 20px;
-    display: flex;
-    gap: 20px;
-    flex-shrink:0.5;
+  & > .star-cb-clear + label {
+    text-indent: -9999px;
+    width: .5em;
+    margin-left: -.5em;
   }
-  
-  #memeDetails-left-side {
-    display:flex;
-    width:0px;
+  & > .star-cb-clear + label:before {
+    width: .5em;
   }
-  
-  #memeDetails-img-box {
-    height: 500px;
-    padding: 10px;
-    background-color: white;
-    position:relative;
-    bottom:5px;
-    display:none;
+
+  &:hover > input + label:before {
+    content: $unchecked-star;
+    color: $unchecked-color;
+    text-shadow: none;
   }
-  
-  #reaction-box {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    position:relative;
-    left: 20vw;
-    height:30px;
+  &:hover > input + label:hover ~ label:before,
+  &:hover > input + label:hover:before {
+    content: $checked-star;
+    color: $checked-color;
+    text-shadow: 0 0 1px #333;
   }
-  
-  #memeDetails-left-side img {
-    height: 100%;
-    display:none;
-  }
-  
-  #owner-text {
-    color: white;
-    font-weight:600;
-    font-size:150%;
-  }
-  
-  .reaction-text {
-    color:white;
-  }
-  
-  #memeDetails-right-side {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-width:300px;
-  }
-  
-  #number-of-comments {
-    color: white;
-    position:relative;
-    left:45vw;
-  }
-  
-  #comments-box {
-    height: 55vh;
-    background-color: rgb(255, 255, 255);
-    overflow: scroll;
-    padding: 10px;
-    overflow-y:auto;
-    overflow-x:auto;
-    border-radius:5px;
-    min-width:300px;
-    position:relative;
-    left: -30px;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
-  }
-  
-  #comment-text {
-    background-color: rgb(228, 228, 228);
-    border: solid 1px rgb(179, 179, 179);
-    padding: 5px;
-    border-radius:8px;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
-  }
-  
-  #comment-form {
-    display: flex;
+}
+
+@media screen and (max-width: 1390px) {
+  #product_details_modal {
     flex-direction: column;
   }
-  
-  #commentinput {
-    height: 70px;
-    resize: none;
-    outline:none;
-    position:relative;
-    top:3px;
-    border-radius:5px;
-    position:relative;
-    left: -30px;
+  #product_details_img_box {
+    height: 150px;
+    gap: 10px;
+    button {
+      font-size: 15px;
+      padding: 2px;
+    }
+  }
+  #product_details_right_side {
+    flex-direction: row;
+  }
+  #number_of_reviews {
+    display: none;
+  }
+  #reviews_box {
+    width: 100%;
+    height: 200px;
+  }
+  #review_form {
+    width: 200px;
   }
 }

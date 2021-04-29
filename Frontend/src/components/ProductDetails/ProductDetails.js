@@ -1,95 +1,88 @@
-import React, { useRef, useEffect, useCallback, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { unloadActualMemeAction, loadPostedCommentAction, loadPostedReactionAction, setIsPublicOnMemeAction, loadMemeFeedAction, loadMyMemeAction } from '../../actions/memeActions';
-import { reactionIconDatabase } from '../../services'
-import '../../styles/ProductDetails.css';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchService } from '../../services';
+import { 
+  setProductDetailsVisibilityAction, 
+  unloadActualProductDataAction, 
+  loadPostedReviewAction, 
+  loadOrderDataAction 
+} from '../../actions';
+import '../../styles/ProductDetails.css'
 
 export const ProductDetails = () => {
-  const { accessToken } = useSelector(state => state.userData);
-  const [comment, setComment] = useState('');
-  const [error, setError] = useState(null);
-  const { showMemeDetails, owner, memeUrl, reactions, comments, isPublic, memeId } = useSelector(state => state.memeData.actualMeme);
-  const { myMeme, memeFeed } = useSelector(state => state.memeData)
+  const { isProductDetailsVisible, actualProduct: {
+    id: product_id,
+    title,
+    price,
+    description,
+    image,
+    inStock,
+    reviews,} } = useSelector(state => state.productData);
+  const { accessToken, userName } = useSelector(state => state.userData);
+  const [review, setReview] = useState('');
+  const [rating, setRating] = useState(null);
   const dispatch = useDispatch();
-  const location = useLocation();
+  const history = useHistory();
+  const productRef = useRef();
 
-  const memeDetailsRef = useRef();
-
-  const handleClick = event => {
-    if (memeDetailsRef.current === event.target) {
-      dispatch(unloadActualMemeAction());
+  const handleClickHideModal = event => {
+    if (productRef.current === event.target) {
+      dispatch(setProductDetailsVisibilityAction());
+      dispatch(unloadActualProductDataAction());
     }
   };
 
-  const handleSubmitOnPostComment = async submitEvent => {
+  const handleChangeOnReviewRating = event => {
+    const newRating = Number(event.target.value);
+    setRating(newRating);
+  }
+
+  const handleClickOnGoIntoCart = () => {
+    dispatch(setProductDetailsVisibilityAction());
+    dispatch(unloadActualProductDataAction());
+    history.push('/main/cart');
+  }
+
+  const handleSubmitOnPostReview = async submitEvent => {
     submitEvent.preventDefault();
-    try {
-      await fetchService.fetchData('comment', 'POST', { memeId, text: comment}, accessToken);
-      dispatch(loadPostedCommentAction({ memeId, comment: { username: userName, text: comment } }));
-      setComment('');
-    } catch (error) {
-      console.log(error.message);
-      setError(error.message);
+    if (review && rating) {
+      try {
+        console.log({product_id, rating, review, accessToken});
+        await fetchService.fetchData('product/review', 'POST', { productId: product_id, rating, text: review }, accessToken);
+        dispatch(loadPostedReviewAction({ product_id, review: { product_id, userName, rating, text: review } }));
+        setReview('');
+        setRating('');
+      } catch (error) {
+        console.log(error.message);
+      };
+    } else {
+      console.log('tölts ki mindent!');
     }
   };
 
-  const handleClickOnPostOnFeed = async () => {
-    try {
-      await fetchService.fetchData('switchfeedactivity', 'PUT', { memeId, trigger: 1 }, accessToken);
-      dispatch(setIsPublicOnMemeAction(memeId));
-      dispatch(unloadActualMemeAction());
-    } catch (error) {
-      console.log(error.message);
-      setError(error.message);
-    }
-  };
-
-  const handleClickOnRemoveFromFeed = async () => {
-    try {
-      await fetchService.fetchData('switchfeedactivity', 'PUT', { memeId, trigger: 0 }, accessToken);
-      dispatch(setIsPublicOnMemeAction(memeId));
-      dispatch(unloadActualMemeAction());
-    } catch (error) {
-      console.log(error.message);
-      setError(error.message);
-    }
-  };
-
-  const handleClickOnDeleteMeme = async () => {
-    try {
-      await fetchService.fetchData('meme', 'DELETE', { memeId }, accessToken);
-      const newMemeFeed = memeFeed.filter(meme => meme.id != memeId);
-      const newMyMeme = myMeme.filter(meme => meme.id != memeId);
-      dispatch(loadMemeFeedAction(newMemeFeed));
-      dispatch(loadMyMemeAction(newMyMeme));
-      dispatch(unloadActualMemeAction());
-    } catch (error) {
-      console.log(error.message);
-      setError(error.message);
-    }
-  };
-
-  const handleClickOnReaction = async clickEvent => {
-    try {
-      await fetchService.fetchData('modifyReactions', 'POST', { memeId, reactionId: Number(clickEvent.target.alt) }, accessToken);
-      dispatch(loadPostedReactionAction({ memeId, reactionId: Number(clickEvent.target.alt) }));
-      dispatch(unloadActualMemeAction());
-    } catch (error) {
-      console.log(error.message);
-      setError(error.message);
+  const handleClickOnTakeIntoCart = async () => {
+    if (accessToken) {
+      try {
+        const { order_id } = await fetchService.fetchData('order', 'POST', { productId: product_id }, accessToken);
+        dispatch(loadOrderDataAction([{ order_id, product_id, quantity: 1 }]));
+      } catch (error) {
+        console.log(error.message);
+      };
+    } else {
+      dispatch(loadOrderDataAction([{ product_id, quantity: 1 }]));
     }
   };
 
   const keyPress = useCallback(
     keyPressEvent => {
-      if (keyPressEvent.key === 'Escape' && showMemeDetails) {
-        dispatch(unloadActualMemeAction());
+      if (keyPressEvent.key === 'Escape' && isProductDetailsVisible) {
+        dispatch(setProductDetailsVisibilityAction());
+        dispatch(unloadActualProductDataAction());
       }
     },
     // eslint-disable-next-line
-    [showMemeDetails]
+    [isProductDetailsVisible]
   );
 
   useEffect(
@@ -102,77 +95,75 @@ export const ProductDetails = () => {
 
   return (
     <>
-      {showMemeDetails ? (
-        <div id="memeDetails-background" onClick={handleClick} ref={memeDetailsRef}>
-          <div id="memeDetails">
-            <div id="memeDetails-left-side">
-              <div id="owner-text">{owner ? owner : isPublic ? 'Status: Public' : 'Status: Private'}{error && (<div className="errormessage">{error}</div>)}</div>
-              <div id="memeDetails-img-box">
-                <img src={memeUrl} alt="meme"/>
+      {isProductDetailsVisible 
+        ? 
+          (<div id="product_details_background" onClick={handleClickHideModal} ref={productRef}>
+            <div id="product_details_modal">
+              <div id="product_details_left_side">
+              <div id="product_details_img_box">
+                <img src={image} alt="product"/>
+                { inStock > 10 
+                  ? <div id="product_details_stock_status_OK">On Stock</div> 
+                  : inStock > 0 
+                    ? <div id="product_details_stock_status_LOW">Only ${inStock} pieces left</div> 
+                    : <div id="product_details_stock_status_EMPTY">Not On Stock</div>}
+                <div id="product_details_price">
+                  $ {price}
+                </div>
+                <button onClick={handleClickOnTakeIntoCart}>Take into the cart</button>
+                <button onClick={handleClickOnGoIntoCart}>Go to my cart</button>
               </div>
-              <div id="reaction-box">
-                {Object.keys(reactionIconDatabase).map(reactionIconId => (
-                  <div className="reaction-text" key={reactionIconId}>
-                    <img className="memeDetails-reaction-icon" src={reactionIconDatabase[reactionIconId]['white']} alt={reactionIconId} onClick={handleClickOnReaction}/>
-                    {reactions.map(({ reactionId, reactionCount }) => reactionIconId == reactionId 
-                      && (<div>{reactionCount}</div>) 
-                    )}
-                  {!(reactions.filter(({ reactionId }) => reactionIconId == reactionId).length) && (<div>{0}</div>)}
-                  </div>
-                ))}
+              <div id="product_details_text_box">
+                <div id="product_details_text_box_title">
+                  {title}
+                </div>
+                <div id="product_details_text_box_description">
+                  {description}
+                </div>
               </div>
             </div>
-            <div id="memeDetails-right-side">
-              <div id="number-of-comments">{comments.length} Comments</div>
-              <div id="comments-box">
-                <div>Comments:</div>
+            <div id="product_details_right_side">
+              <div id="number_of_reviews">{reviews.length} Reviews</div>
+              <div id="reviews_box">
+                <div>Reviews:</div>
                 <br/>
-                {comments.map((comment, index) => (
+                {reviews.map((review, index) => (
                   <div key={index}>
-                    <div>{comment.username}</div>
-                    <div id="comment-text">{comment.text}</div>
+                    <div>{review.userName} {review.rating}</div>
+                    <div id="review_text">{review.text}</div>
                     <br/>
                   </div>
                 ))}
               </div>
-              { location.pathname === '/main/memefeed' 
-                ?
-                <form id="comment-form" onSubmit={handleSubmitOnPostComment}>
-                  <textarea
-                    id="commentinput"
-                    type="textbox"
-                    placeholder="Write a comment...(max 140 characters long)"
-                    maxLength="140"
-                    value={comment}
-                    onChange={changeEvent => {
-                      setComment(changeEvent.target.value);
-                    }}
-                  />
-                  <button type="submit">COMMENT</button> 
-                </form>
-                :
-                <div id="myMemeDetails-button-box">
-                  { isPublic 
-                    ? 
-                      <button type="button" onClick={handleClickOnRemoveFromFeed}>REMOVE MEME FROM FEED</button>
-                    :
-                      <button type="button" onClick={handleClickOnPostOnFeed}>POST MEME ON FEED</button>
-                  }
-                  <button type="button" onClick={handleClickOnDeleteMeme}>DELETE MEME</button>
-                </div>
-              }
+              <form id="review_form" onSubmit={handleSubmitOnPostReview}>
+                <fieldset id="review_form_fieldset">
+                  <span className="star-cb-group">
+                    <input type="radio" id="rating-5" name="rating" value="5" onClick={handleChangeOnReviewRating}/><label htmlFor="rating-5">5</label>
+                    <input type="radio" id="rating-4" name="rating" value="4" onClick={handleChangeOnReviewRating}/><label htmlFor="rating-4">4</label>
+                    <input type="radio" id="rating-3" name="rating" value="3" onClick={handleChangeOnReviewRating}/><label htmlFor="rating-3">3</label>
+                    <input type="radio" id="rating-2" name="rating" value="2" onClick={handleChangeOnReviewRating}/><label htmlFor="rating-2">2</label>
+                    <input type="radio" id="rating-1" name="rating" value="1" onClick={handleChangeOnReviewRating}/><label htmlFor="rating-1">1</label>
+                    <input type="radio" id="rating-0" name="rating" value="0" className="star-cb-clear"/><label htmlFor="rating-0">0</label>
+                  </span>
+                </fieldset>
+                <textarea
+                  id="reviewinput"
+                  type="textbox"
+                  placeholder="Write a review...(max 140 characters long)"
+                  maxLength="140"
+                  value={review}
+                  onChange={changeEvent => {
+                    setReview(changeEvent.target.value);
+                  }}
+                />
+                <button type="submit">Send review</button> 
+              </form>
             </div>
-          </div>
-        </div>
-      ) : null}
+            </div>
+          </div>) 
+        : 
+          null
+      }
     </>
   );
 };
-
-//<img className="memeDetails-reaction-icon" src={reactionIconDatabase[reactionId]['white']} alt={reactionId} onClick={handleClickOnReaction}/>
-// reactions.map(({ reactionId, reactionCount }) => (
-//   <div className="reaction-text" key={reactionId}>
-//     <div onClick={handleClickOnReaction}>{reactionId}</div>
-//     <div>{reactionCount}</div> 
-//   </div>
-// ))
