@@ -1,0 +1,119 @@
+html {
+  font-size: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Public Sans', sans-serif;
+  line-height: 1.3;
+  background: #e2dbdb;
+}
+
+#main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.errormessage {
+  color: #ba3939;
+  background: #ffe0e0;
+  border: 1px solid #a33a3a;
+  padding: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.successmessage {
+  color: #2b7515;
+  background: #ecffd6;
+  padding: 5px;
+  border: 1px solid #617c42;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.warningmessage {
+  color: #756e15;
+  background: #fffbd1;
+  padding: 5px;
+  border: 1px solid #87803e;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #dbc1ac;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #4e3928;
+  border-radius: 3px;
+  border: 2px solid #9c795c;
+}
+
+.section1 {
+  background: url("../assets/images/landingbackground4.jpg");
+  background-size: cover;
+  border-radius: 12px 12px 0px 0px;
+  height: 77vh;
+  width: 98vw;
+  margin-top: 2vh;
+}
+
+.section2 {
+  background: black;
+  height: 100vh;
+}
+
+.section3 {
+  background: red;
+  height: 100vh;
+}
+
+.landingTitleBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 500px;
+  margin-left: 50px;
+}
+
+.landingTitleBox .landingTitle {
+  font-family: 'New Tegomin', serif;
+  color: white;
+  font-size: 70px;
+  height: 250px;
+  margin-top: 50px;
+  text-shadow: 2px 2px 0px #9c795c;
+}
+
+.landingTitleBox .landingText {
+  font-family: 'New Tegomin', serif;
+  color: white;
+  font-size: 20px;
+  text-shadow: 1px 1px 0px #9c795c;
+}
+/*# sourceMappingURL=LandingPage.css.map */

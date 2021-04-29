@@ -1,0 +1,43 @@
+@import './presets';
+@import './variables';
+@import './globals';
+
+.section1 {
+    background: url('../assets/images/landingbackground4.jpg');
+    background-size:cover;
+    border-radius:12px 12px 0px 0px;
+    height:77vh;
+    width:98vw;
+    margin-top:2vh;
+}
+.section2 {
+    background:black;
+    height:100vh;
+}
+
+.section3 {
+    background:red;
+    height:100vh;
+}
+
+.landingTitleBox{
+    display:flex;
+    flex-direction:column;
+    width:500px;
+    margin-left:50px;
+
+    .landingTitle{
+        font-family: 'New Tegomin', serif;
+        color:white;
+        font-size:70px;
+        height:250px;
+        margin-top:50px;
+        text-shadow: 2px 2px 0px $background-brown;
+    }
+    .landingText{
+        font-family: 'New Tegomin', serif;
+        color:white;
+        font-size:20px;
+        text-shadow: 1px 1px 0px $background-brown;
+    }
+}
