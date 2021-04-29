@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { Upload, Cart, OrderReview,LandingPage, ProductFeed } from '../';
+import { Cart, OrderReview,LandingPage, ProductFeed } from '../';
 
 export const Main = () => {
 
@@ -12,7 +12,6 @@ export const Main = () => {
         <Route path="/main/shop" component={ProductFeed} />
         <Route path="/main/cart" component={Cart} />
         <Route path="/main/orderreview" component={OrderReview} />
-        <Route path="/main/upload" component={Upload} />
       </Switch>
     </div>
   );

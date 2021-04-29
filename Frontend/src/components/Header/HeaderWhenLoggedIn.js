@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { HeaderButton } from '../';
+import { Link } from 'react-router-dom';
 import { unloadStoreAction, unloadErrorAction, setPreziVisibilityAction } from '../../actions';
 import imageUrl from '../../assets/images/coffeelogo.png';
 
@@ -33,14 +34,15 @@ export const HeaderWhenLoggedIn = () => {
     <div>
       <div className="header">
       <div className="navbarholder">
-      <div className="showprezibutton"><HeaderButton innerText="Show Prezi" onClickEvent={handleShowPrezi}/></div>
+      <div className="showprezibutton">
+        <HeaderButton innerText="Show Prezi" onClickEvent={handleShowPrezi}/></div>
       <HeaderButton innerText="My profile" onClickEvent={handleUserProfile}/>
       <HeaderButton innerText="Shop" onClickEvent={handleShop}/>
       <HeaderButton innerText="Cart" onClickEvent={handleCart}/>
       <HeaderButton innerText="Log out" onClickEvent={handleLogOut}/>
       </div>
       </div>
-      <div className="logoholder"><img className="logo" src={imageUrl} height="160px"alt="logo"/><p className="logotext">Coffee to Go</p></div>
+      <div className="logoholder"><Link to="/main/landingpage"><img className="logo" src={imageUrl} height="160px"alt="logo"/></Link><p className="logotext">Coffee to Go</p></div>
     </div>
   )
 };

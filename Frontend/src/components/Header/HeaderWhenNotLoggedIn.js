@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { HeaderButton } from '../';
+import { Link } from 'react-router-dom';
 import { unloadErrorAction, setPreziVisibilityAction } from '../../actions';
 import imageUrl from '../../assets/images/coffeelogo.png';
 
@@ -43,7 +44,7 @@ export const HeaderWhenNotLoggedIn = () => {
       <HeaderButton innerText="Cart" onClickEvent={handleCart}/>
       </div>
       </div>
-      <div className="logoholder"><img className="logo" src={imageUrl} height="160px"alt="logo"/><p className="logotext">Coffee to Go</p></div>
+      <div className="logoholder"><Link to="/main/landingpage"><img className="logo" src={imageUrl} height="160px"alt="logo"/></Link><p className="logotext">Coffee to Go</p></div>
     </div>
   )
 };
