@@ -17,7 +17,6 @@ export const ProductFeed = () => {
   const getProductFeed = async () => {
     try {
       const response = await fetchService.fetchData('product', 'GET', null, null);
-      console.log(response)
       dispatch(loadProductDataAction(response.productList))
     } catch (error) {
       console.log(error.message);
