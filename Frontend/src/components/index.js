@@ -16,3 +16,5 @@ export * from './ForgottenPass/ForgottenPass';
 export * from './OrderReview/OrderReview';
 export * from './OrderReviewItem/OrderReviewItem';
 export * from './LandingPage/LandingPage';
+export * from './ProductFeed/ProductFeed';
+export * from './ProductCard/ProductCard';

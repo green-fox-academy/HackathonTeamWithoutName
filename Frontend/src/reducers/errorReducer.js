@@ -21,6 +21,10 @@ const initialState = {
     isError: false,
     errorMessage: '',
   },
+  product: {
+    isError: false,
+    errorMessage: '',
+  },
 };
 
 export const errorReducer = (state = initialState, action) => {
