@@ -16,5 +16,6 @@ export * from './OrderReview/OrderReview';
 export * from './OrderReviewItem/OrderReviewItem';
 export * from './LandingPage/LandingPage';
 export * from './LandingPage/CoffeeAnimation';
+export * from './LandingPage/FetchProducts';
 export * from './ProductFeed/ProductFeed';
 export * from './ProductCard/ProductCard';
