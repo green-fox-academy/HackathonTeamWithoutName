@@ -7,7 +7,7 @@ import '../../styles/ProductDetails.css';
 import { fetchService } from '../../services';
 
 export const ProductDetails = () => {
-  const { accessToken, userName } = useSelector(state => state.userData);
+  const { accessToken } = useSelector(state => state.userData);
   const [comment, setComment] = useState('');
   const [error, setError] = useState(null);
   const { showMemeDetails, owner, memeUrl, reactions, comments, isPublic, memeId } = useSelector(state => state.memeData.actualMeme);
