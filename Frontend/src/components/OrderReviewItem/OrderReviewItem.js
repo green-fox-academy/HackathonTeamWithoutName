@@ -14,7 +14,7 @@ export const OrderReviewItem = ({ order: { title, price, image, quantity } }) =>
         </div>
         <div className="order_review_item_price">
           <h4>Unit price</h4>
-          <div>$ {price.toLocaleString().split(',').join(' ')}</div>
+          <div>$ {price.toLocaleString().split(',').join('.')}</div>
         </div>
         <div className="order_review_item_quantity">
           <h4>Quantity</h4>
@@ -22,7 +22,7 @@ export const OrderReviewItem = ({ order: { title, price, image, quantity } }) =>
         </div>
         <div className="order_review_item_total_price">
           <h4>Total price</h4>
-          <div>$ {(price * quantity).toLocaleString().split(',').join(' ')}</div>
+          <div>$ {(price * quantity).toLocaleString().split(',').join('.')}</div>
         </div>
       </div>
     </div>
