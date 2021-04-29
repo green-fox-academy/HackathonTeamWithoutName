@@ -7,7 +7,6 @@ export * from './RootRedirect/RootRedirect';
 export * from './Login/Login';
 export * from './Register/Register';
 export * from './Main/Main';
-export * from './Upload/Upload';
 export * from './Prezi/Prezi';
 export * from './Cart/Cart';
 export * from './CartItem/CartItem';
