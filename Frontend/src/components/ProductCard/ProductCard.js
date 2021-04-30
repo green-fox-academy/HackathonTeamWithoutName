@@ -37,7 +37,7 @@ export const ProductCard = ({productData:{
         <img src={image} alt={title} height="200px"/>
       </div>
       <div>
-        <div>{title}</div>
+        <div className="cardtitle">{title}</div>
         <div className="detailsHolder">
         <div>Price: {price.toLocaleString().split(',').join('.')} HUF</div>
         <div>Rating: {reviews.map(review => review.rating).reduce((a, b) => a + b, 0) / reviews.length}</div>

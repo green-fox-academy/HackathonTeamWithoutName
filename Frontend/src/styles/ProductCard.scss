@@ -1,9 +1,16 @@
+
+@import './presets';
+@import './variables';
+
 .detailsHolder{
     display:flex;
     gap:15px;
-    background:brown;
+    background:#D2A970;
     align-items:center;
     justify-content:center;
+    border-radius:8px;
+    border:2px solid $dark-brown;
+    margin-bottom:15px;
 }
 
 .itemsHolder{
@@ -14,4 +21,14 @@
     display:flex;
     align-items: center;
     justify-content:center;
+}
+
+.holdingContainer{
+    display:flex;
+    flex-direction:column;
+    width:max-content;
+}
+
+.cardtitle{
+    font-size:150%;
 }

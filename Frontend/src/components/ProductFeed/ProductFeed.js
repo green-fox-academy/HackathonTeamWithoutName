@@ -88,7 +88,7 @@ export const ProductFeed = () => {
 
 
   return (
-    <div>
+    <div className="holdingContainer">
       <select onChange={e => setSortType(e.target.value)}>
         <option value="priceUp">Price ⯅</option>
         <option value="priceDown">Price ⯆</option>
