@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchService } from '../../services';
-import { loadErrorAction, unloadErrorAction } from '../../actions';
+import { loadMessageAction, setMessageVisibilityAction } from '../../actions';
 import '../../styles/ForgottenPass.css';
 import formImg from '../../assets/images/forgottenFormImg.jpg'
 
 export const ForgottenPass = () => {
   const [email, setEmail] = useState('');
-  const { isError, errorMessage } = useSelector(state => state.error.register);
   const dispatch = useDispatch();
   const history = useHistory();
  
@@ -21,11 +20,14 @@ export const ForgottenPass = () => {
     submitEvent.preventDefault();
     try {
       await validateUserInput();
-      await fetchService.fetchData('user/forgottenpass', 'POST', { email }, null);
+      const response = await fetchService.fetchData('user/forgottenpass', 'POST', { email }, null);
+      dispatch(loadMessageAction({ type: 'response', message: response.message}));
+      dispatch(setMessageVisibilityAction());
       history.push('/login');
     } catch (error) {
       console.log(error.message);
-      dispatch(loadErrorAction({ type: 'register', message: error.message}));
+      dispatch(loadMessageAction({ type: 'error', message: error.message}));
+      dispatch(setMessageVisibilityAction());
     }
   };
 
@@ -41,12 +43,10 @@ export const ForgottenPass = () => {
             value={email}
             onChange={changeEvent => {
               setEmail(changeEvent.target.value);
-              dispatch(unloadErrorAction());
             }}
           />
           <div>
           </div>
-          {isError && (<div className="errormessage">{errorMessage}</div>)}
           <button type="submit">RESET PASSWORD</button>
         </form>
     </div>

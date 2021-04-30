@@ -4,3 +4,4 @@ export * from './addressReducer';
 export * from './errorReducer';
 export * from './preziReducer';
 export * from './productReducer';
+export * from './messageReducer';

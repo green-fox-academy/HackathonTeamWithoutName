@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchService } from '../../services';
-import { loadErrorAction } from '../../actions';
+import { loadMessageAction, setMessageVisibilityAction } from '../../actions';
 import '../../styles/OrderReview.css';
 
 export const ChangePassword = () => {
@@ -12,12 +12,16 @@ export const ChangePassword = () => {
 
   const handleSubmitOnChangePassword = async event => {
     event.preventDefault();
-    console.log({ oldpassword: oldPassword, newpassword: newPassword})
     try {
-      await fetchService.fetchData('user/pass', 'PUT', { oldpass: oldPassword, newpass: newPassword}, accessToken);
+      const response = await fetchService.fetchData('user/pass', 'PUT', { oldpass: oldPassword, newpass: newPassword}, accessToken);
+      dispatch(loadMessageAction({ type: 'response', message: response.message}));
+      dispatch(setMessageVisibilityAction());
+      setOldPassword('')
+      setNewPassword('')
     } catch (error) {
       console.log(error.message);
-      dispatch(loadErrorAction({ type: 'register', message: error.message }));
+      dispatch(loadMessageAction({ type: 'error', message: error.message}));
+      dispatch(setMessageVisibilityAction());
     }
   }
 

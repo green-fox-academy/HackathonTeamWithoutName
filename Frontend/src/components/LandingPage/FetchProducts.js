@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchService } from '../../services/';
-import { loadProductDataAction, loadErrorAction } from '../../actions';
+import { loadProductDataAction, loadMessageAction, setMessageVisibilityAction } from '../../actions';
 
 export const FetchProducts = () => {
 
@@ -18,7 +18,8 @@ export const FetchProducts = () => {
       dispatch(loadProductDataAction(response.productList))
     } catch (error) {
       console.log(error.message);
-      dispatch(loadErrorAction({ type: 'product', message: error.message }));
+      dispatch(loadMessageAction({ type: 'error', message: error.message}));
+      dispatch(setMessageVisibilityAction());
     }
   };
 
