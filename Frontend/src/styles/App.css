@@ -70,13 +70,4 @@ body {
   border-radius: 3px;
   border: 2px solid #9c795c;
 }
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: url("../assets/images/downarrow.png");
-  background-repeat: no-repeat;
-  background-position: 98%;
-}
 /*# sourceMappingURL=App.css.map */

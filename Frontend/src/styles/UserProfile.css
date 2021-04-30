@@ -32,4 +32,29 @@
   height: 300px;
   padding: 20px;
 }
+
+button#full-width-tab-0.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.Mui-selected.MuiTab-fullWidth {
+  background: #4e3928;
+}
+
+button#full-width-tab-1.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.MuiTab-fullWidth {
+  background: #4e3928;
+}
+
+button#full-width-tab-2.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.MuiTab-fullWidth {
+  background: #4e3928;
+}
+
+span.MuiTab-wrapper {
+  color: #dbc1ac;
+  font-weight: 600;
+}
+
+button#full-width-tab-0.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.MuiTab-fullWidth {
+  background: #4e3928;
+}
+
+span.PrivateTabIndicator-root-2.PrivateTabIndicator-colorPrimary-3.MuiTabs-indicator {
+  background: #cc7e11;
+}
 /*# sourceMappingURL=UserProfile.css.map */
