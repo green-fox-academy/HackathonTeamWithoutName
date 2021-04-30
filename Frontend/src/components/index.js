@@ -22,3 +22,4 @@ export * from './LandingPage/FetchProducts';
 export * from './ProductFeed/ProductFeed';
 export * from './ProductCard/ProductCard';
 export * from './ProductDetails/ProductDetails';
+export * from './UserProfile/FullWidthTabs';
