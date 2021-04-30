@@ -11,6 +11,8 @@
     border-radius:8px;
     border:2px solid $dark-brown;
     margin-bottom:15px;
+    color:$dark-brown;
+    font-weight:500;
 }
 
 .itemsHolder{
@@ -31,6 +33,9 @@
 
 .cardtitle{
     font-size:150%;
+    font-family: 'New Tegomin', serif;
+    text-shadow: 1px 1px 0px $background-brown;
+    font-weight:500;
 }
 
 .itempicker{

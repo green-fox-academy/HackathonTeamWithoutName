@@ -18,24 +18,6 @@ export const ProductFeed = () => {
       const response = await fetchService.fetchData('product', 'GET', null, null);
       dispatch(loadProductDataAction(response.productList))
 
-      response.productList.push({
-        category: 'myFavourite',
-        description: 'myDescription',
-        id: 99,
-        image: 'https://previews.123rf.com/images/arcady31/arcady311202/arcady31120200035/12414954-coffee-break-sign.jpg',
-        inStock: 0,
-        price: 16,
-        title: 'Kotyogoos',
-        reviews: [],
-      });
-      response.productList[2].reviews.push({
-        id: 88,
-        productId: 3,
-        rating: 5,
-        text: 'cooool',
-        userName: 'admin',
-      });
-
     } catch (error) {
       console.log(error.message);
       dispatch(loadMessageAction({ type: 'error', message: error.message}));

@@ -39,7 +39,7 @@ export const ProductCard = ({productData:{
       <div>
         <div className="cardtitle">{title}</div>
         <div className="detailsHolder">
-        <div>Price: {price.toLocaleString().split(',').join('.')} HUF</div>
+        <div>Price: ${price.toLocaleString().split(',').join('.')}</div>
         <div>Rating: {reviews.map(review => review.rating).reduce((a, b) => a + b, 0) / reviews.length}</div>
         {inStock > 10 ? <div>In stock</div> : inStock > 0 ? <div>In stock: {inStock}</div> : <div>Out of stock</div>}
       </div>
