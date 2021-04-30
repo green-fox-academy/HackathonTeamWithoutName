@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setProductDetailsVisibilityAction, loadActualProductDataAction } from '../../actions';
-
+import '../../styles/ProductCard.css';
 //title, image, rating, price, raktáron van-e vagy sem, on card click for details
 
 export const ProductCard = ({productData:{
@@ -33,14 +33,16 @@ export const ProductCard = ({productData:{
 
   return (
     <div onClick={handleShowProductDetails}>
-      <div>
-        <img src={image} alt={title} height="90px"/>
+      <div className="cardHolder">
+        <img src={image} alt={title} height="200px"/>
       </div>
       <div>
         <div>{title}</div>
-        <div>Price: {price.toLocaleString().split(',').join(' ')} HUF</div>
+        <div className="detailsHolder">
+        <div>Price: {price.toLocaleString().split(',').join('.')} HUF</div>
         <div>Rating: {reviews.map(review => review.rating).reduce((a, b) => a + b, 0) / reviews.length}</div>
         {inStock > 10 ? <div>In stock</div> : inStock > 0 ? <div>In stock: {inStock}</div> : <div>Out of stock</div>}
+      </div>
       </div>
     </div>
   );

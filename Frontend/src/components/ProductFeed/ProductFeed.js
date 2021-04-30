@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ProductCard } from '../';
 import { fetchService } from '../../services/';
 import { loadProductDataAction, loadErrorAction } from '../../actions';
+import '../../styles/ProductCard.css';
 
 export const ProductFeed = () => {
   const { products } = useSelector(state => state.productData);
@@ -97,8 +98,10 @@ export const ProductFeed = () => {
         <option value="titleLeft">Title 🢂</option>
         <option value="titleRight">Title 🢀</option>
       </select>
+      <div ClassName="itemsHolder">
       {data.map(product => <ProductCard key={product.id} productData={product} />)}
       {isError && <div className="errormessage">{errorMessage}</div>}
+      </div>
     </div>
   )
 }
