@@ -14,26 +14,118 @@
 }
 
 #user_profile_modify_main {
-  width: 900px;
+  width: 1000px;
   background:$light-brown;
   height: 300px;
   padding: 20px;
+  position:relative;
+  left:-24px;
+  
 }
 
 #user_profile_create_main {
-  width: 900px;
+  width: 1000px;
   background:$light-brown;
   height: 300px;
   padding: 20px;
+  position:relative;
+  left:-24px;
+}
+#user_profile_create_input_field{
+  display:flex;
+  flex-direction:column;
+  width:45%;
+  gap:5px;
+  form{
+    justify-self:center;
+  }
+  input{
+    background:#f0ce9f;
+    color:$dark-brown;
+    border-radius:4px;
+  }
+}
+.createSubmit{
+      font-weight: 500;
+      border: 2px solid $light-brown;
+      border-radius:4px;
+      text-transform:uppercase;
+      color:$light-brown-hover;
+        background-color: $dark-brown;
+}
+
+.createSubmit:hover{
+  background-color: $light-brown-hover;
+      border: 2px solid $dark-brown-hover;
+      color:$dark-brown-hover;
 }
 
 #user_profile_password_main {
-  width: 900px;
+  width: 1000px;
   background:$light-brown;
   height: 300px;
   padding: 20px;
+  position:relative;
+  left:-24px;
+}
+#user_profile_modify_input_field {
+  display:flex;
+  flex-direction:column;
+  width:45%;
+  gap:5px;
+  form{
+    justify-self:center;
+  }
+  input{
+    background:#f0ce9f;
+    color:$dark-brown;
+    border-radius:4px;
+  }
 }
 
+.modifyButton {
+  font-weight: 500;
+  border: 2px solid $light-brown;
+  border-radius:4px;
+  text-transform:uppercase;
+  color:$light-brown-hover;
+    background-color: $dark-brown;
+}
+
+.modifyButton:hover {
+  background-color: $light-brown-hover;
+  border: 2px solid $dark-brown-hover;
+  color:$dark-brown-hover;
+}
+
+#change_password_input_field{
+    display:flex;
+  flex-direction:column;
+  width:45%;
+  gap:5px;
+  form{
+    justify-self:center;
+  }
+  input{
+    background:#f0ce9f;
+    color:$dark-brown;
+    border-radius:4px;
+  }
+}
+.changePasswordSubmit{
+  font-weight: 500;
+  border: 2px solid $light-brown;
+  border-radius:4px;
+  text-transform:uppercase;
+  color:$light-brown-hover;
+    background-color: $dark-brown;
+}
+
+.changePasswordSubmit:hover{
+  background-color: $light-brown-hover;
+  border: 2px solid $dark-brown-hover;
+  color:$dark-brown-hover;
+}
 button#full-width-tab-0.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.Mui-selected.MuiTab-fullWidth {
   background:$dark-brown;
 }

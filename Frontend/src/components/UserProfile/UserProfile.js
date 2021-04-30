@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModifyAddress, CreateAddress, ChangePassword, FullWidthTabs } from '../../components'
+import { FullWidthTabs } from '../../components'
 import '../../styles/UserProfile.css';
 
 export const UserProfile = () => {

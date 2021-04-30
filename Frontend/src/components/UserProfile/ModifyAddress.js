@@ -120,7 +120,7 @@ export const ModifyAddress = () => {
               value={newAddress.house_number}
             />
           </div>
-          <button type="submit">Submit</button>
+          <button className="modifyButton"type="submit">Submit</button>
         </div>
       </form>
   )

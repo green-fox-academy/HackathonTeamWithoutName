@@ -45,13 +45,15 @@ export const CreateAddress = () => {
         <div>Create address:</div>
         <div id="user_profile_create_input_field">
           <input 
+            className="createFirstName"
             type="text"
             name="first_name"
             placeholder="First name" 
             onChange={handleChangeOnAddressValue}
             value={newAddress.first_name}
           />
-          <input 
+          <input
+            className="createLastName"
             type="text" 
             name="last_name"
             placeholder="Last name" 
@@ -59,6 +61,7 @@ export const CreateAddress = () => {
             value={newAddress.last_name}
           />
           <input 
+            className="createPhoneNumber"
             type="text" 
             name="phone"
             placeholder="Phone number" 
@@ -66,6 +69,7 @@ export const CreateAddress = () => {
             value={newAddress.phone}
           />
           <input 
+            className="createCountry"
             type="text" 
             name="country"
             placeholder="Country" 
@@ -73,6 +77,7 @@ export const CreateAddress = () => {
             value={newAddress.country}
           />
           <input 
+            className="createCity"
             type="text" 
             name="city"
             placeholder="City" 
@@ -80,6 +85,7 @@ export const CreateAddress = () => {
               value={newAddress.city}
           />
           <input 
+            className="createPostcode"
             type="text"
             name="zip_code" 
             placeholder="Postcode" 
@@ -87,6 +93,7 @@ export const CreateAddress = () => {
               value={newAddress.zip_code}
           />
           <input 
+            className="createStreet"
             type="text" 
             name="street"
             placeholder="Street" 
@@ -94,6 +101,7 @@ export const CreateAddress = () => {
             value={newAddress.street}
           />
           <input 
+            className="createHouseNumber"
             type="text"
             name="house_number" 
             placeholder="House number" 
@@ -101,7 +109,7 @@ export const CreateAddress = () => {
             value={newAddress.house_number}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button className="createSubmit" type="submit">ADD</button>
       </div>
     </form>
   )

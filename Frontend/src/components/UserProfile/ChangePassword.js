@@ -25,6 +25,7 @@ export const ChangePassword = () => {
     <form onSubmit={handleSubmitOnChangePassword}>
       <div id="user_profile_password_main">
         <div>Change password</div>
+        <div id="change_password_input_field">
         <input
           type="password"
           placeholder="Old password"
@@ -43,7 +44,8 @@ export const ChangePassword = () => {
             setNewPassword(changeEvent.target.value);
           }}
         />
-        <button type="submit">Change password</button>
+        </div>
+        <button className="changePasswordSubmit" type="submit">Change password</button>
       </div>
     </form>
   )

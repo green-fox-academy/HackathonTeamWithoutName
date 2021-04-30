@@ -13,24 +13,144 @@
 }
 
 #user_profile_modify_main {
-  width: 900px;
+  width: 1000px;
   background: #dbc1ac;
   height: 300px;
   padding: 20px;
+  position: relative;
+  left: -24px;
 }
 
 #user_profile_create_main {
-  width: 900px;
+  width: 1000px;
   background: #dbc1ac;
   height: 300px;
   padding: 20px;
+  position: relative;
+  left: -24px;
+}
+
+#user_profile_create_input_field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 45%;
+  gap: 5px;
+}
+
+#user_profile_create_input_field form {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+#user_profile_create_input_field input {
+  background: #f0ce9f;
+  color: #4e3928;
+  border-radius: 4px;
+}
+
+.createSubmit {
+  font-weight: 500;
+  border: 2px solid #dbc1ac;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #eed8c7;
+  background-color: #4e3928;
+}
+
+.createSubmit:hover {
+  background-color: #eed8c7;
+  border: 2px solid #805d41;
+  color: #805d41;
 }
 
 #user_profile_password_main {
-  width: 900px;
+  width: 1000px;
   background: #dbc1ac;
   height: 300px;
   padding: 20px;
+  position: relative;
+  left: -24px;
+}
+
+#user_profile_modify_input_field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 45%;
+  gap: 5px;
+}
+
+#user_profile_modify_input_field form {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+#user_profile_modify_input_field input {
+  background: #f0ce9f;
+  color: #4e3928;
+  border-radius: 4px;
+}
+
+.modifyButton {
+  font-weight: 500;
+  border: 2px solid #dbc1ac;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #eed8c7;
+  background-color: #4e3928;
+}
+
+.modifyButton:hover {
+  background-color: #eed8c7;
+  border: 2px solid #805d41;
+  color: #805d41;
+}
+
+#change_password_input_field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 45%;
+  gap: 5px;
+}
+
+#change_password_input_field form {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+#change_password_input_field input {
+  background: #f0ce9f;
+  color: #4e3928;
+  border-radius: 4px;
+}
+
+.changePasswordSubmit {
+  font-weight: 500;
+  border: 2px solid #dbc1ac;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #eed8c7;
+  background-color: #4e3928;
+}
+
+.changePasswordSubmit:hover {
+  background-color: #eed8c7;
+  border: 2px solid #805d41;
+  color: #805d41;
 }
 
 button#full-width-tab-0.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.Mui-selected.MuiTab-fullWidth {
