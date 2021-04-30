@@ -88,18 +88,21 @@ export const ProductFeed = () => {
 
 
   return (
+    
     <div className="holdingContainer">
-      <select onChange={e => setSortType(e.target.value)}>
+      <select className="itempicker" onChange={e => setSortType(e.target.value)}>
         <option value="priceUp">Price ⯅</option>
         <option value="priceDown">Price ⯆</option>
         <option value="ratingUp">Rating ⯅</option>
         <option value="ratingDown">Rating ⯆</option>
         <option value="titleLeft">Title 🢂</option>
         <option value="titleRight">Title 🢀</option>
-      </select>
-      <div ClassName="itemsHolder">
+      </select><div className="holderbox">
+        <div ClassName="itemsHolder">
       {data.map(product => <ProductCard key={product.id} productData={product} />)}
       </div>
+      </div>
+      
     </div>
   )
 }
