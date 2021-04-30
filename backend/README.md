@@ -68,7 +68,7 @@ This endpoint is waiting for an email address, a username and a password in the 
 and returns with the following JSON in the body:
  ```
 {
-    "id": 1, 
+    "id": 1,
     "username": "user"
 }
  ```

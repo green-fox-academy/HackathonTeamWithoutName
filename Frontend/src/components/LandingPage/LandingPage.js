@@ -13,10 +13,10 @@ import sixthMember from '../../assets/images/mate.jpg';
 import { Link } from 'react-router-dom';
 
 export const LandingPage = () => {
-  FetchProducts()
+  FetchProducts();
   return (
     <div>
-      
+
       <div className="section1">
         <div className="landingTitleBox">
           <div className="landingTitle">
