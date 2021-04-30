@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchService } from '../../services';
-import { loadErrorAction, loadNewAddressDataAction } from '../../actions';
+import { loadMessageAction, setMessageVisibilityAction, loadNewAddressDataAction } from '../../actions';
 import '../../styles/OrderReview.css';
 
 export const CreateAddress = () => {
@@ -35,7 +35,8 @@ export const CreateAddress = () => {
       dispatch(loadNewAddressDataAction([{...newAddress, id: address_id}]));
     } catch (error) {
       console.log(error.message);
-      dispatch(loadErrorAction({ type: 'address', message: error.message }));
+      dispatch(loadMessageAction({ type: 'error', message: error.message}));
+      dispatch(setMessageVisibilityAction());
     }
   }
 

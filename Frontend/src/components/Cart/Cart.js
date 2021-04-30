@@ -1,16 +1,13 @@
 import React from 'react';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { CartItem } from '../';
-import { unloadErrorAction } from '../../actions';
 import '../../styles/Cart.css';
 
 export const Cart = () => {
   const { accessToken } = useSelector(state => state.userData);
   const { orders } = useSelector(state => state.orderData);
-  const { isError, errorMessage } = useSelector((state) => state.error.order);
   const { products } = useSelector(state => state.productData);
-  const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
 
@@ -22,18 +19,8 @@ export const Cart = () => {
     history.push('/main');
   }
 
-  const handleClickOnRemoveError = () => {
-    dispatch(unloadErrorAction());
-  }
-
   return (
     <div id="cart">
-      {isError && 
-        <div className="errormessage">
-          {errorMessage}
-          <button onClick={handleClickOnRemoveError}>OK</button>
-        </div>
-      }
       <h1>Shopping Cart</h1>
       <div id="cart_main">
         { orders.length > 0 

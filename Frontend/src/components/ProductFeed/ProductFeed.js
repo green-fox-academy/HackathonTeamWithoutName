@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ProductCard } from '../';
 import { fetchService } from '../../services/';
-import { loadProductDataAction, loadErrorAction } from '../../actions';
 import '../../styles/ProductCard.css';
-
+import { loadProductDataAction, loadMessageAction, setMessageVisibilityAction } from '../../actions';
 export const ProductFeed = () => {
   const { products } = useSelector(state => state.productData);
-  const { isError, errorMessage } = useSelector((state) => state.error.product);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,7 +38,8 @@ export const ProductFeed = () => {
 
     } catch (error) {
       console.log(error.message);
-      dispatch(loadErrorAction({ type: 'product', message: error.message }));
+      dispatch(loadMessageAction({ type: 'error', message: error.message}));
+      dispatch(setMessageVisibilityAction());
     }
   };
 
@@ -100,7 +99,6 @@ export const ProductFeed = () => {
       </select>
       <div ClassName="itemsHolder">
       {data.map(product => <ProductCard key={product.id} productData={product} />)}
-      {isError && <div className="errormessage">{errorMessage}</div>}
       </div>
     </div>
   )

@@ -6,7 +6,9 @@ import {
   setProductDetailsVisibilityAction, 
   unloadActualProductDataAction, 
   loadPostedReviewAction, 
-  loadOrderDataAction 
+  loadOrderDataAction,
+  loadMessageAction, 
+  setMessageVisibilityAction
 } from '../../actions';
 import '../../styles/ProductDetails.css'
 
@@ -59,22 +61,31 @@ export const ProductDetails = () => {
         setRating('');
       } catch (error) {
         console.log(error.message);
+        dispatch(loadMessageAction({ type: 'error', message: error.message}));
+        dispatch(setMessageVisibilityAction());
       };
     } else {
-      console.log('tölts ki mindent!');
+      dispatch(loadMessageAction({ type: 'error', message: 'You must give a rating with a review comment.'}));
+      dispatch(setMessageVisibilityAction());
     }
   };
 
   const handleClickOnTakeIntoCart = async () => {
     if (accessToken) {
       try {
-        const { order_id } = await fetchService.fetchData('order', 'POST', { productId: product_id }, accessToken);
+        const { order_id, message } = await fetchService.fetchData('order', 'POST', { productId: product_id }, accessToken);
         dispatch(loadOrderDataAction([{ id: order_id, product_id, quantity: 1 }]));
+        dispatch(loadMessageAction({ type: 'response', message: message}));
+        dispatch(setMessageVisibilityAction());
       } catch (error) {
         console.log(error.message);
+        dispatch(loadMessageAction({ type: 'error', message: error.message}));
+        dispatch(setMessageVisibilityAction());
       };
     } else {
       dispatch(loadOrderDataAction([{ product_id, quantity: 1 }]));
+      dispatch(loadMessageAction({ type: 'response', message: 'Item added to cart'}));
+      dispatch(setMessageVisibilityAction());
     }
   };
 

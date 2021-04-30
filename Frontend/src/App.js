@@ -1,6 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { NotImplementedYet, Header, Main, Login, Register, Prezi, ForgottenPass, ProductDetails } from './components';
+import { 
+  NotImplementedYet, 
+  Header,
+  Main, 
+  Login, 
+  Register, 
+  Prezi, 
+  ForgottenPass, 
+  ProductDetails, 
+  MessageModal 
+} from './components';
 import './styles/App.css';
 
 function App() {
@@ -17,6 +27,7 @@ function App() {
           <Route path="*" component={NotImplementedYet} />
         </Switch>
         <ProductDetails />
+        <MessageModal />
         <Prezi />
       </div>
     </Router>

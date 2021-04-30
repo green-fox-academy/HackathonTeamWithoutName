@@ -11,6 +11,7 @@ export * from './UserProfile/ModifyAddress';
 export * from './UserProfile/CreateAddress';
 export * from './UserProfile/ChangePassword';
 export * from './Prezi/Prezi';
+export * from './MessageModal/MessageModal';
 export * from './Cart/Cart';
 export * from './CartItem/CartItem';
 export * from './ForgottenPass/ForgottenPass';

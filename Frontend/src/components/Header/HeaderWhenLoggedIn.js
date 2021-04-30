@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { HeaderButton } from '../';
 import { Link } from 'react-router-dom';
-import { unloadStoreAction, unloadErrorAction, setPreziVisibilityAction } from '../../actions';
+import { unloadStoreAction, setPreziVisibilityAction } from '../../actions';
 import imageUrl from '../../assets/images/coffeelogo.png';
 
 export const HeaderWhenLoggedIn = () => {
@@ -14,19 +14,20 @@ export const HeaderWhenLoggedIn = () => {
     dispatch(unloadStoreAction());
     history.push('/');
   }
+
   const handleCart= () => {
-    dispatch(unloadErrorAction());
     history.push('/main/cart');
   }
+
   const handleShop = () => {
-    dispatch(unloadErrorAction());
     history.push('/main/shop');
   }
+
   const handleShowPrezi = () => {
     dispatch(setPreziVisibilityAction());
   }
+  
   const handleUserProfile= () => {
-    dispatch(unloadErrorAction());
     history.push('/main/userprofile');
   }
   

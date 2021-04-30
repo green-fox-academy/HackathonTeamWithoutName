@@ -22,13 +22,10 @@ export const orderReducer = (state = initialState, action) => {
     return state;
   }
   if (action.type === LOAD_ALL_ORDER_DATA) {
-    if (action.payload.length) {
-      return {
-        ...state,
-        orders: action.payload,
-      };
-    }
-    return state;
+    return {
+      ...state,
+      orders: action.payload || [],
+    };
   }
   if (action.type === UPDATE_ORDER_QUANTITY) {
     return {

@@ -4,7 +4,8 @@ import { fetchService } from '../../services';
 import { 
   updateOrderQuantityAction,
   removeOrderAction,
-  loadErrorAction,
+  loadMessageAction, 
+  setMessageVisibilityAction,
 } from '../../actions';
 import '../../styles/CartItem.css';
 
@@ -19,7 +20,8 @@ export const CartItem = ({ order: { order_id, title, price, image, quantity } })
       dispatch(updateOrderQuantityAction({ order_id, quantityModifier }));
     } catch (error) {
       console.log(error.message);
-      dispatch(loadErrorAction({ type: 'order', message: error.message }));
+      dispatch(loadMessageAction({ type: 'error', message: error.message}));
+      dispatch(setMessageVisibilityAction());
     }
   }
 
@@ -29,7 +31,8 @@ export const CartItem = ({ order: { order_id, title, price, image, quantity } })
       dispatch(removeOrderAction({ order_id }));
     } catch (error) {
       console.log(error.message);
-      dispatch(loadErrorAction({ type: 'order', message: error.message }));
+      dispatch(loadMessageAction({ type: 'error', message: error.message}));
+      dispatch(setMessageVisibilityAction());
     }
   }
 

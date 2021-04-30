@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchService } from '../../services';
-import { loadErrorAction, unloadErrorAction } from '../../actions';
+import { loadMessageAction, setMessageVisibilityAction } from '../../actions';
 import '../../styles/RegisterForm.css';
 import formImg from '../../assets/images/registerFormImg.jpg'
 
@@ -11,7 +11,6 @@ export const Register = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const { isError, errorMessage } = useSelector(state => state.error.register);
   const dispatch = useDispatch();
   const history = useHistory();
  
@@ -42,7 +41,8 @@ export const Register = () => {
       history.push('/login');
     } catch (error) {
       console.log(error.message);
-      dispatch(loadErrorAction({ type: 'register', message: error.message}));
+      dispatch(loadMessageAction({ type: 'error', message: error.message}));
+      dispatch(setMessageVisibilityAction());
     }
   };
 
@@ -58,7 +58,6 @@ export const Register = () => {
             value={userName}
             onChange={changeEvent => {
               setUserName(changeEvent.target.value);
-              dispatch(unloadErrorAction());
             }}
           />
           <input
@@ -68,7 +67,6 @@ export const Register = () => {
             value={email}
             onChange={changeEvent => {
               setEmail(changeEvent.target.value);
-              dispatch(unloadErrorAction());
             }}
           />
           <div className="passworddiv">
@@ -80,7 +78,6 @@ export const Register = () => {
             value={password}
             onChange={changeEvent => {
               setPassword(changeEvent.target.value);
-              dispatch(unloadErrorAction());
             }}
           />
           {isPasswordVisible 
@@ -88,7 +85,6 @@ export const Register = () => {
             : (<i className="fa fa-eye-slash" aria-hidden="true" onClick={handleChangePasswordVisibility}/>)
           }
           </div>
-          {isError && (<div className="errormessage">{errorMessage}</div>)}
           <button type="submit">SIGN UP</button>
         </form>
     </div>

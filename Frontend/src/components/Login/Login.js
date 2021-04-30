@@ -6,8 +6,8 @@ import {
   loadUserDataAction,
   loadAddressDataAction,
   loadAllOrderDataAction,
-  loadErrorAction,
-  unloadErrorAction,
+  loadMessageAction,
+  setMessageVisibilityAction,
 } from '../../actions';
 import '../../styles/loginForm.css';
 import formImg from '../../assets/images/loginFormImg.jpg'
@@ -16,7 +16,6 @@ export const Login = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const { isError, errorMessage } = useSelector((state) => state.error.login);
   const { orders: ordersInStore } = useSelector((state) => state.orderData);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -46,14 +45,15 @@ export const Login = () => {
     try {
       await validateUserInput();
       const { accessToken, addresses, orders} = await fetchService.fetchData('user/login', 'POST', { userName, password, orders: ordersInStore }, null);
+      location.state === '/main/cart' ? history.push('/main/cart') : history.push('/main');
       history.push('/main');
       dispatch(loadUserDataAction({ accessToken, userName }));
       dispatch(loadAddressDataAction(addresses));
       dispatch(loadAllOrderDataAction(orders));
-      location.state === '/main/cart' ? history.push('/main/cart') : history.push('/main');
     } catch (error) {
       console.log(error.message);
-      dispatch(loadErrorAction({ type: 'login', message: error.message }));
+      dispatch(loadMessageAction({ type: 'error', message: error.message }));
+      dispatch(setMessageVisibilityAction());
     }
   };
   
@@ -69,7 +69,6 @@ export const Login = () => {
           value={userName}
           onChange={(changeEvent) => {
             setUserName(changeEvent.target.value);
-            dispatch(unloadErrorAction());
           }}
         />
         <div className="passworddiv">
@@ -81,7 +80,6 @@ export const Login = () => {
             value={password}
             onChange={(changeEvent) => {
               setPassword(changeEvent.target.value);
-              dispatch(unloadErrorAction());
             }}
           />
           {isPasswordVisible ? (
@@ -98,7 +96,6 @@ export const Login = () => {
             />
           )}
         </div>
-        {isError && <div className="errormessage">{errorMessage}</div>}
         <button type="submit">SIGN IN</button>
         <Link to="/forgottenpass"><p className="forgottenPassword">Forgot your password?</p></Link>
       </form>

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { OrderReviewItem } from '../';
 import { fetchService } from '../../services';
-import { loadErrorAction, placeOrderAction } from '../../actions';
+import { loadMessageAction, setMessageVisibilityAction, placeOrderAction } from '../../actions';
 import '../../styles/OrderReview.css';
 
 export const OrderReview = () => {
@@ -12,7 +11,6 @@ export const OrderReview = () => {
   const { accessToken } = useSelector(state => state.userData);
   const { products } = useSelector(state => state.productData);
   const dispatch = useDispatch();
-  const history = useHistory();
   const [shippingAddress, setShippingAddress] = useState('');
   const [billingAddress, setBillingAddress] = useState('');
   const [payment, setPayment] = useState('');
@@ -44,12 +42,14 @@ export const OrderReview = () => {
   const handleSubmitOnPlaceOrder = async event => {
     event.preventDefault();
     try {
-      await fetchService.fetchData('order', 'PUT', null, accessToken);
+      const response = await fetchService.fetchData('order', 'PUT', null, accessToken);
       dispatch(placeOrderAction());
-      history.push('/main/landingpage');
+      dispatch(loadMessageAction({ type: 'response', message: response.message}));
+      dispatch(setMessageVisibilityAction());
     } catch (error) {
       console.log(error.message);
-      dispatch(loadErrorAction({ type: 'order', message: error.message }));
+      dispatch(loadMessageAction({ type: 'error', message: error.message}));
+      dispatch(setMessageVisibilityAction());
     }
   }
 
