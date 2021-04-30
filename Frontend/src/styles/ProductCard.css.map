@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAA;EACV,OAAO,EAAC,IAAI;EACZ,GAAG,EAAC,IAAI;EACR,UAAU,EAAC,KAAK;EAChB,WAAW,EAAC,MAAM;EAClB,eAAe,EAAC,MAAM;CACzB;;AAED,AAAA,YAAY,CAAA;EACR,OAAO,EAAC,IAAI;CACf;;AAED,AAAA,WAAW,CAAA;EACP,OAAO,EAAC,IAAI;EACZ,WAAW,EAAE,MAAM;EACnB,eAAe,EAAC,MAAM;CACzB",
+    "sources": [
+        "ProductCard.scss"
+    ],
+    "names": [],
+    "file": "ProductCard.css"
+}
