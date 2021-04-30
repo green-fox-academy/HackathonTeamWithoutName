@@ -6,7 +6,6 @@ import {
   loadUserDataAction,
   loadAddressDataAction,
   loadAllOrderDataAction,
-  unloadErrorAction,
   loadMessageAction,
   setMessageVisibilityAction,
 } from '../../actions';
@@ -70,7 +69,6 @@ export const Login = () => {
           value={userName}
           onChange={(changeEvent) => {
             setUserName(changeEvent.target.value);
-            dispatch(unloadErrorAction());
           }}
         />
         <div className="passworddiv">
@@ -82,7 +80,6 @@ export const Login = () => {
             value={password}
             onChange={(changeEvent) => {
               setPassword(changeEvent.target.value);
-              dispatch(unloadErrorAction());
             }}
           />
           {isPasswordVisible ? (
