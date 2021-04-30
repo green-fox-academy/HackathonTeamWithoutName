@@ -48,6 +48,7 @@ func PostReview(c *gin.Context) {
 		}
 
 		db := dbConn.DbConn()
+		defer db.Close()
 
 		var isReviewExists uint8
 		if err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM reviews WHERE user_id = (?) AND product_id = (?));", payload.User_id, reviewData.ProductId).Scan(&isReviewExists); err != nil {

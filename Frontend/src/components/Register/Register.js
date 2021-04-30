@@ -38,7 +38,7 @@ export const Register = () => {
     submitEvent.preventDefault();
     try {
       await validateUserInput();
-      await fetchService.fetchData('register', 'POST', { userName, password, email }, null);
+      await fetchService.fetchData('user/register', 'POST', { userName, password, email }, null);
       history.push('/login');
     } catch (error) {
       console.log(error.message);

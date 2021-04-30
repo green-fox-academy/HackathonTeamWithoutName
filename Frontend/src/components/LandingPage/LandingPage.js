@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/LandingPage.css';
-import { CoffeeAnimation, FetchProducts } from '../';
+import { CoffeeAnimation,FetchProducts } from '../';
 import firstItem from '../../assets/images/firstitem.png';
 import secondItem from '../../assets/images/seconditem.png';
 import thirdItem from '../../assets/images/thirditem.png';
@@ -16,7 +16,7 @@ export const LandingPage = () => {
   FetchProducts();
   return (
     <div>
-      
+
       <div className="section1">
         <div className="landingTitleBox">
           <div className="landingTitle">

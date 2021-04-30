@@ -1,0 +1,35 @@
+@import './presets';
+@import './variables';
+
+#user_profile {
+  padding: 80px;
+  background-color:#D2A970;
+  min-height: 500px;
+  h1{
+    text-shadow:$text-shadow-light;
+    color:black;
+    filter: drop-shadow(0px 1px 0.5px rgb(180, 180, 180));
+    margin: 0 0 20px 0;
+  }
+}
+
+#user_profile_modify_main {
+  width: 900px;
+  background:$light-brown;
+  height: 300px;
+  padding: 20px;
+}
+
+#user_profile_create_main {
+  width: 900px;
+  background:$light-brown;
+  height: 300px;
+  padding: 20px;
+}
+
+#user_profile_password_main {
+  width: 900px;
+  background:$light-brown;
+  height: 300px;
+  padding: 20px;
+}

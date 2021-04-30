@@ -119,6 +119,12 @@
   align-self: flex-end;
 }
 
+i.fa.fa-trash {
+  position:relative;
+  top:-11px;
+  left:-5px;
+}
+
 @media screen and (max-width: 1390px) {
   #cart{
     height:fit-content;

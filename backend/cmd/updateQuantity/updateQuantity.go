@@ -34,6 +34,7 @@ func UpdateQuantity(c *gin.Context) {
 		}
 
 		db := dbConn.DbConn()
+		defer db.Close()
 
 		var isOrderExists uint8
 		if err := db.QueryRow(`SELECT EXISTS(SELECT 1 FROM orders WHERE user_id = (?) AND id= (?) AND status = 'in_cart');`, payload.User_id, newQuantity.OrderId).Scan(&isOrderExists); err != nil {

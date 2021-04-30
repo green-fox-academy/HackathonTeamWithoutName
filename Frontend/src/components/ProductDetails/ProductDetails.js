@@ -114,7 +114,7 @@ export const ProductDetails = () => {
                 <div id="product_details_price">
                   $ {price}
                 </div>
-                <button onClick={handleClickOnTakeIntoCart}>Take into the cart</button>
+                <button onClick={handleClickOnTakeIntoCart}>Add to cart</button>
                 <button onClick={handleClickOnGoIntoCart}>Go to my cart</button>
               </div>
               <div id="product_details_text_box">

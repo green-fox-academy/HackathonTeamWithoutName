@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchService } from '../../services/';
 import { loadProductDataAction, loadErrorAction } from '../../actions';
@@ -21,4 +21,9 @@ export const FetchProducts = () => {
       dispatch(loadErrorAction({ type: 'product', message: error.message }));
     }
   };
+
+  return (
+    <div>
+    </div>
+  )
 }

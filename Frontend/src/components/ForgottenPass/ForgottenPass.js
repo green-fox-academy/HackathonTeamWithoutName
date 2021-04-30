@@ -21,7 +21,7 @@ export const ForgottenPass = () => {
     submitEvent.preventDefault();
     try {
       await validateUserInput();
-      await fetchService.fetchData('forgottenpass', 'POST', { email }, null);
+      await fetchService.fetchData('user/forgottenpass', 'POST', { email }, null);
       history.push('/login');
     } catch (error) {
       console.log(error.message);

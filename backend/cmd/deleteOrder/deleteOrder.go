@@ -34,6 +34,7 @@ func DeleteOrder(c *gin.Context) {
 	var productID uint64
 
 	db := dbConn.DbConn()
+	defer db.Close()
 
 	if err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM orders WHERE id = (?));", requestBody.OrderID).Scan(&orderExists); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"database - order does not exist - check": err})

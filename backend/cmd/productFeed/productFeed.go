@@ -28,6 +28,7 @@ type ProductData struct {
 
 func GetAllProducts(c *gin.Context) {
 	db := dbConn.DbConn()
+	defer db.Close()
 
 	rowsForReviews, err := db.Query("SELECT reviews.id, product_id, rating, text, users.username FROM reviews JOIN users ON reviews.user_id=users.id;")
 	if err != nil {
