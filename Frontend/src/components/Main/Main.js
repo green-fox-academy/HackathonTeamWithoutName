@@ -1,15 +1,17 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { Main1, Upload } from '../';
+import { Cart, OrderReview, LandingPage, ProductFeed, UserProfile } from '../';
 
 export const Main = () => {
-
   return (
-    <div>
+    <div id="main">
       <Switch>
-        <Redirect exact from="/main" to="/main/main1" />
-        <Route path="/main/main1" component={Main1} />
-        <Route path="/main/upload" component={Upload} />
+        <Redirect exact from="/main" to="/main/landingpage" />
+        <Route path="/main/landingpage" component={LandingPage} />
+        <Route path="/main/shop" component={ProductFeed} />
+        <Route path="/main/userprofile" component={UserProfile} />
+        <Route path="/main/cart" component={Cart} />
+        <Route path="/main/orderreview" component={OrderReview} />
       </Switch>
     </div>
   );

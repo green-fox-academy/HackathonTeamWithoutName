@@ -1,0 +1,105 @@
+@import './presets';
+@import './variables';
+
+.order_review_item {
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.order_review_item_image_box {
+  height: 70px;
+  border: 3px solid $dark-brown;
+}
+
+.order_review_item_image_box img {
+  height: 100%;
+}
+
+.order_review_item_datas {
+  width: 100%;
+}
+
+.order_review_item_title {
+  height: 70px;
+  color: $dark-brown;
+  font-weight: bold;
+}
+
+.order_review_item_price {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div:nth-child(2) {
+    color: $dark-brown;
+    font-weight: bold;
+  }
+}
+
+.order_review_item_quantity {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div:nth-child(2) {
+    color: $dark-brown;
+    font-weight: bold;
+  }
+}
+
+.order_review_item_total_price {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div:nth-child(2) {
+    color: $dark-brown;
+    font-weight: bold;
+  }
+}
+input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: $dark-brown;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+.reviewtext {
+  font-weight: 600;
+}
+
+div#order_review_shipping_address {
+  input {
+    border-radius: 6px;
+    background: rgb(255, 255, 255);
+  }
+}
+div#order_review_billing_address {
+  input {
+    border-radius: 6px;
+    background: rgb(255, 255, 255);
+  }
+}

@@ -2,20 +2,28 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { HeaderButton } from '../';
-import { unloadErrorAction, setPreziVisibilityAction } from '../../actions';
+import { Link } from 'react-router-dom';
+import { setPreziVisibilityAction } from '../../actions';
+import imageUrl from '../../assets/images/coffeelogo.png';
 
 export const HeaderWhenNotLoggedIn = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleSignIn = () => {
-    dispatch(unloadErrorAction());
     history.push('/login');
   }
   
   const handleSignUp = () => {
-    dispatch(unloadErrorAction());
     history.push('/register');
+  }
+
+  const handleShop = () => {
+    history.push('/main/shop');
+  }
+  
+  const handleCart= () => {
+    history.push('/main/cart');
   }
 
   const handleShowPrezi = () => {
@@ -24,9 +32,17 @@ export const HeaderWhenNotLoggedIn = () => {
   
   return(
     <div>
-      <HeaderButton innerText="Show Prezi" onClickEvent={handleShowPrezi}/>
-      <HeaderButton innerText="Sign in!" onClickEvent={handleSignIn}/>
-      <HeaderButton innerText="Sign up!" onClickEvent={handleSignUp}/>
+      
+      <div className="header">
+      <div className="navbarholder">
+      <div className="showprezibutton"><HeaderButton innerText="Show Prezi" onClickEvent={handleShowPrezi}/></div>
+      <HeaderButton innerText="Sign in" onClickEvent={handleSignIn}/>
+      <HeaderButton innerText="Sign up" onClickEvent={handleSignUp}/>
+      <HeaderButton innerText="Shop" onClickEvent={handleShop}/>
+      <HeaderButton innerText="Cart" onClickEvent={handleCart}/>
+      </div>
+      </div>
+      <div className="logoholder"><Link to="/main/landingpage"><img className="logo" src={imageUrl} height="160px"alt="logo"/></Link><p className="logotext">Coffee to Go</p></div>
     </div>
   )
 };

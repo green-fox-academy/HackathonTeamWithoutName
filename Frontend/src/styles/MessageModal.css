@@ -1,0 +1,49 @@
+#message_modal_background {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+}
+
+#message_modal {
+  width: 300px;
+  height: 200px;
+  background-color: #dbc1ac;
+  border-radius: 25px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#message_modal button {
+  height: 40px;
+  color: #dbc1ac;
+  font-weight: 600;
+  background-color: #4e3928;
+}
+
+#message_modal button:hover {
+  background-color: #805d41;
+}
+/*# sourceMappingURL=MessageModal.css.map */

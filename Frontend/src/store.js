@@ -4,18 +4,21 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 import { combineReducers } from 'redux';
-import { userReducer, errorReducer, preziReducer } from './reducers';
+import { userReducer, preziReducer, orderReducer, addressReducer, productReducer, messageReducer } from './reducers';
 
 export const rootReducer = combineReducers({
   userData: userReducer,
-  error: errorReducer,
+  orderData: orderReducer,
+  addressData: addressReducer,
+  message: messageReducer,
   prezi: preziReducer,
+  productData: productReducer,
 });
 
 export const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['userData'],
+  whitelist: ['userData', 'orderData', 'addressData' ],
 };
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -1,0 +1,321 @@
+#order_review {
+  padding: 80px;
+  background-color: #D2A970;
+  min-height: 100vh;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
+
+#order_review h1 {
+  text-shadow: 1px 1px 0px #424242;
+  color: black;
+  -webkit-filter: drop-shadow(0px 1px 0.5px #b4b4b4);
+          filter: drop-shadow(0px 1px 0.5px #b4b4b4);
+  margin: 0 0 20px 0;
+}
+
+.order_review_required {
+  color: #ee4b4b;
+  font-weight: bold;
+}
+
+#order_review_main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+#order_review_inner_main {
+  min-width: 900px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
+#order_review_settings {
+  background: #dbc1ac;
+  height: 300px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+}
+
+#order_review_shipping_address {
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  color: black;
+  font-weight: bold;
+}
+
+#order_review_shipping_address div:nth-child(3) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+#order_review_shipping_address div:nth-child(3) div input {
+  width: 125px;
+}
+
+#order_review_billing_address {
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  color: black;
+  font-weight: bold;
+}
+
+#order_review_billing_address div:nth-child(3) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+#order_review_billing_address div:nth-child(3) div input {
+  width: 125px;
+}
+
+#order_review_payment {
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
+#order_review_payment div:nth-child(1) {
+  color: black;
+  font-weight: bold;
+}
+
+#order_review_items {
+  padding: 20px;
+  background: #dbc1ac;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#order_review_items_list {
+  width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
+#order_review_items_list_title {
+  color: black;
+  font-weight: bold;
+}
+
+#order_review_delivery_option {
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
+#order_review_delivery_option_title {
+  color: black;
+  font-weight: bold;
+}
+
+#order_review_aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
+#order_review_checkout {
+  padding: 20px;
+  min-width: 300px;
+  background: #dbc1ac;
+  color: #4e3928;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+#order_review_checkout button {
+  height: 40px;
+  color: #dbc1ac;
+  font-weight: 600;
+  background-color: #4e3928;
+}
+
+#order_review_checkout button:hover {
+  background-color: #805d41;
+}
+
+#order_review_checkout div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#order_review_checkout div:first-child {
+  color: black;
+  font-weight: bold;
+}
+
+#order_review_checkout div:last-child {
+  color: #4e3928;
+  font-weight: bold;
+}
+
+#order_review_checkout_summary {
+  font-size: 22px;
+  padding-bottom: 20px;
+  border-bottom: black solid 2px;
+}
+
+#order_review_checkout_total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 20px;
+  border-top: black solid 2px;
+}
+
+#order_review_checkout_total div:first-child {
+  color: #ee4b4b;
+  font-size: 22px;
+}
+
+#order_review_checkout_total div:last-child {
+  color: #ee4b4b;
+}
+
+@media screen and (max-width: 1390px) {
+  #order_review_main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    max-width: 900px;
+  }
+  #order_review_inner_main {
+    min-width: 100%;
+  }
+  #order_review_checkout {
+    min-width: 350px;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  #order_review {
+    padding: 20px;
+  }
+  #order_review_settings {
+    min-width: 350px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  #order_review_items {
+    min-width: 350px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  #order_review_payment {
+    padding-top: 20px;
+  }
+}
+
+@media screen and (max-width: 845px) {
+  #order_review_items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #order_review_items_list {
+    width: 100%;
+  }
+  #order_review_delivery_option {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 596px) {
+  #order_review_billing_address {
+    padding-top: 20px;
+  }
+}
+/*# sourceMappingURL=OrderReview.css.map */

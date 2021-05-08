@@ -10,9 +10,11 @@ export const NotImplementedYet = () => {
 
   return (
     <div>
-        <h2>Sorry</h2>
-        <p>Not implemented yet</p>
-        <button type="button" onClick={handleClick}>Go Home!</button>
+      <h2>Sorry</h2>
+      <p>Not implemented yet</p>
+      <button type="button" onClick={handleClick}>
+        Go Home!
+      </button>
     </div>
   );
 };
