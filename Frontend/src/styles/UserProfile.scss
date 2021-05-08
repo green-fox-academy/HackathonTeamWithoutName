@@ -3,11 +3,11 @@
 
 #user_profile {
   padding: 80px;
-  background-color:#D2A970;
+  background-color: $mocha-brown;
   min-height: 500px;
-  h1{
-    text-shadow:$text-shadow-light;
-    color:black;
+  h1 {
+    text-shadow: $text-shadow-light;
+    color: black;
     filter: drop-shadow(0px 1px 0.5px rgb(180, 180, 180));
     margin: 0 0 20px 0;
   }
@@ -15,136 +15,135 @@
 
 #user_profile_modify_main {
   width: 1000px;
-  background:$light-brown;
+  background: $light-brown;
   height: 300px;
   padding: 20px;
-  position:relative;
-  left:-24px;
-  
+  position: relative;
+  left: -24px;
 }
 
 #user_profile_create_main {
   width: 1000px;
-  background:$light-brown;
+  background: $light-brown;
   height: 300px;
   padding: 20px;
-  position:relative;
-  left:-24px;
+  position: relative;
+  left: -24px;
 }
-#user_profile_create_input_field{
-  display:flex;
-  flex-direction:column;
-  width:45%;
-  gap:5px;
-  form{
-    justify-self:center;
+#user_profile_create_input_field {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  gap: 5px;
+  form {
+    justify-self: center;
   }
-  input{
-    background:#f0ce9f;
-    color:$dark-brown;
-    border-radius:4px;
+  input {
+    background: #f0ce9f;
+    color: $dark-brown;
+    border-radius: 4px;
   }
 }
-.createSubmit{
-      font-weight: 500;
-      border: 2px solid $light-brown;
-      border-radius:4px;
-      text-transform:uppercase;
-      color:$light-brown-hover;
-        background-color: $dark-brown;
+.createSubmit {
+  font-weight: 500;
+  border: 2px solid $light-brown;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: $light-brown-hover;
+  background-color: $dark-brown;
 }
 
-.createSubmit:hover{
+.createSubmit:hover {
   background-color: $light-brown-hover;
-      border: 2px solid $dark-brown-hover;
-      color:$dark-brown-hover;
+  border: 2px solid $dark-brown-hover;
+  color: $dark-brown-hover;
 }
 
 #user_profile_password_main {
   width: 1000px;
-  background:$light-brown;
+  background: $light-brown;
   height: 300px;
   padding: 20px;
-  position:relative;
-  left:-24px;
+  position: relative;
+  left: -24px;
 }
 #user_profile_modify_input_field {
-  display:flex;
-  flex-direction:column;
-  width:45%;
-  gap:5px;
-  form{
-    justify-self:center;
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  gap: 5px;
+  form {
+    justify-self: center;
   }
-  input{
-    background:#f0ce9f;
-    color:$dark-brown;
-    border-radius:4px;
+  input {
+    background: #f0ce9f;
+    color: $dark-brown;
+    border-radius: 4px;
   }
 }
 
 .modifyButton {
   font-weight: 500;
   border: 2px solid $light-brown;
-  border-radius:4px;
-  text-transform:uppercase;
-  color:$light-brown-hover;
-    background-color: $dark-brown;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: $light-brown-hover;
+  background-color: $dark-brown;
 }
 
 .modifyButton:hover {
   background-color: $light-brown-hover;
   border: 2px solid $dark-brown-hover;
-  color:$dark-brown-hover;
+  color: $dark-brown-hover;
 }
 
-#change_password_input_field{
-    display:flex;
-  flex-direction:column;
-  width:45%;
-  gap:5px;
-  form{
-    justify-self:center;
+#change_password_input_field {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  gap: 5px;
+  form {
+    justify-self: center;
   }
-  input{
-    background:#f0ce9f;
-    color:$dark-brown;
-    border-radius:4px;
+  input {
+    background: #f0ce9f;
+    color: $dark-brown;
+    border-radius: 4px;
   }
 }
-.changePasswordSubmit{
+.changePasswordSubmit {
   font-weight: 500;
   border: 2px solid $light-brown;
-  border-radius:4px;
-  text-transform:uppercase;
-  color:$light-brown-hover;
-    background-color: $dark-brown;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: $light-brown-hover;
+  background-color: $dark-brown;
 }
 
-.changePasswordSubmit:hover{
+.changePasswordSubmit:hover {
   background-color: $light-brown-hover;
   border: 2px solid $dark-brown-hover;
-  color:$dark-brown-hover;
+  color: $dark-brown-hover;
 }
 button#full-width-tab-0.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.Mui-selected.MuiTab-fullWidth {
-  background:$dark-brown;
+  background: $dark-brown;
 }
 
-button#full-width-tab-1.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.MuiTab-fullWidth{
-  background:$dark-brown;
+button#full-width-tab-1.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.MuiTab-fullWidth {
+  background: $dark-brown;
 }
 
 button#full-width-tab-2.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.MuiTab-fullWidth {
-background:$dark-brown;
+  background: $dark-brown;
 }
 
 span.MuiTab-wrapper {
-  color:$light-brown;
-  font-weight:600;
+  color: $light-brown;
+  font-weight: 600;
 }
-button#full-width-tab-0.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.MuiTab-fullWidth{
-  background:$dark-brown;
+button#full-width-tab-0.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.MuiTab-fullWidth {
+  background: $dark-brown;
 }
-span.PrivateTabIndicator-root-2.PrivateTabIndicator-colorPrimary-3.MuiTabs-indicator{
-  background:#cc7e11;
+span.PrivateTabIndicator-root-2.PrivateTabIndicator-colorPrimary-3.MuiTabs-indicator {
+  background: #cc7e11;
 }

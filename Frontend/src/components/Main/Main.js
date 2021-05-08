@@ -1,9 +1,8 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { Cart, OrderReview,LandingPage, ProductFeed, UserProfile } from '../';
+import { Cart, OrderReview, LandingPage, ProductFeed, UserProfile } from '../';
 
 export const Main = () => {
-
   return (
     <div id="main">
       <Switch>

@@ -15,8 +15,8 @@
   width: 1000px;
   height: 600px;
   min-height: 500px;
-  background-color: #D2A970;
-  border-radius:25px;
+  background-color: $mocha-brown;
+  border-radius: 25px;
   padding: 40px;
   display: flex;
   gap: 20px;
@@ -44,14 +44,14 @@
   img {
     height: 100%;
   }
-  button{
+  button {
     color: $light-brown;
     font-weight: 600;
     font-size: 20px;
     padding: 10px;
     background-color: $dark-brown;
   }
-  button:hover{
+  button:hover {
     background-color: $dark-brown-hover;
   }
 }
@@ -89,12 +89,12 @@
   flex-direction: column;
   gap: 30px;
   overflow: scroll;
-  overflow-y:auto;
-  overflow-x:auto;
-  min-width:4px;
+  overflow-y: auto;
+  overflow-x: auto;
+  min-width: 4px;
   overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 #product_details_text_box_title {
@@ -111,7 +111,7 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-  min-width:250px;
+  min-width: 250px;
 }
 
 #number_of_reviews {
@@ -121,17 +121,17 @@
 #reviews_box {
   height: 300px;
   background-color: rgb(255, 255, 255);
-  box-shadow:$box-shadow-strong;
+  box-shadow: $box-shadow-strong;
   overflow: scroll;
   padding: 10px;
-  overflow-y:auto;
-  overflow-x:auto;
-  border-radius:5px;
-  min-width:4px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border-radius: 5px;
+  min-width: 4px;
   overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
-    //display:flex;
+  word-wrap: break-word;
+  hyphens: auto;
+  //display:flex;
   //flex-direction: column-reverse;
 }
 
@@ -139,23 +139,23 @@
   background-color: rgb(228, 228, 228);
   border: solid 1px rgb(179, 179, 179);
   padding: 5px;
-  border-radius:8px;
+  border-radius: 8px;
   overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 #review_form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  button{
+  button {
     height: 30px;
     color: $light-brown;
     font-weight: 600;
     background-color: $dark-brown;
   }
-  button:hover{
+  button:hover {
     background-color: $dark-brown-hover;
   }
 }
@@ -163,8 +163,8 @@
 #reviewinput {
   height: 70px;
   resize: none;
-  outline:none;
-  position:relative;
+  outline: none;
+  position: relative;
   border-radius: 5px;
   box-shadow: $box-shadow-strong;
 }
@@ -215,21 +215,21 @@ $checked-color: #e52;
       }
     }
     &:checked ~ label:before,
-      & + label:hover ~ label:before,
-      & + label:hover:before {
+    & + label:hover ~ label:before,
+    & + label:hover:before {
       content: $checked-star;
       color: #e52;
       text-shadow: 0 0 1px #333;
     }
   }
-  
+
   & > .star-cb-clear + label {
     text-indent: -9999px;
-    width: .5em;
-    margin-left: -.5em;
+    width: 0.5em;
+    margin-left: -0.5em;
   }
   & > .star-cb-clear + label:before {
-    width: .5em;
+    width: 0.5em;
   }
 
   &:hover > input + label:before {

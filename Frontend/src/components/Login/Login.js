@@ -10,7 +10,7 @@ import {
   setMessageVisibilityAction,
 } from '../../actions';
 import '../../styles/loginForm.css';
-import formImg from '../../assets/images/loginFormImg.jpg'
+import formImg from '../../assets/images/loginFormImg.jpg';
 
 export const Login = () => {
   const [userName, setUserName] = useState('');
@@ -44,8 +44,15 @@ export const Login = () => {
     submitEvent.preventDefault();
     try {
       await validateUserInput();
-      const { accessToken, addresses, orders} = await fetchService.fetchData('user/login', 'POST', { userName, password, orders: ordersInStore }, null);
-      location.state === '/main/cart' ? history.push('/main/cart') : history.push('/main');
+      const { accessToken, addresses, orders } = await fetchService.fetchData(
+        'user/login',
+        'POST',
+        { userName, password, orders: ordersInStore },
+        null
+      );
+      location.state === '/main/cart'
+        ? history.push('/main/cart')
+        : history.push('/main');
       history.push('/main');
       dispatch(loadUserDataAction({ accessToken, userName }));
       dispatch(loadAddressDataAction(addresses));
@@ -56,7 +63,7 @@ export const Login = () => {
       dispatch(setMessageVisibilityAction());
     }
   };
-  
+
   return (
     <div className="loginBox">
       <form className="loginForm" onSubmit={handleSubmit}>
@@ -97,9 +104,13 @@ export const Login = () => {
           )}
         </div>
         <button type="submit">SIGN IN</button>
-        <Link to="/forgottenpass"><p className="forgottenPassword">Forgot your password?</p></Link>
+        <Link to="/forgottenpass">
+          <p className="forgottenPassword">Forgot your password?</p>
+        </Link>
       </form>
-      <div className="formImgBox"><img src={formImg} alt="login"/></div>
+      <div className="formImgBox">
+        <img src={formImg} alt="login" />
+      </div>
     </div>
   );
 };
