@@ -10,7 +10,7 @@
 
 .order_review_item_image_box {
   height: 70px;
-  border:3px solid $dark-brown;
+  border: 3px solid $dark-brown;
 }
 
 .order_review_item_image_box img {
@@ -23,7 +23,7 @@
 
 .order_review_item_title {
   height: 70px;
-  color:$dark-brown;
+  color: $dark-brown;
   font-weight: bold;
 }
 
@@ -33,7 +33,7 @@
   justify-content: space-between;
   align-items: center;
   div:nth-child(2) {
-    color:$dark-brown;
+    color: $dark-brown;
     font-weight: bold;
   }
 }
@@ -44,7 +44,7 @@
   justify-content: space-between;
   align-items: center;
   div:nth-child(2) {
-    color:$dark-brown;
+    color: $dark-brown;
     font-weight: bold;
   }
 }
@@ -55,7 +55,7 @@
   justify-content: space-between;
   align-items: center;
   div:nth-child(2) {
-    color:$dark-brown;
+    color: $dark-brown;
     font-weight: bold;
   }
 }
@@ -87,19 +87,19 @@ input[type='radio']:checked:after {
   border: 2px solid white;
 }
 
-.reviewtext{
-  font-weight:600;
+.reviewtext {
+  font-weight: 600;
 }
 
-div#order_review_shipping_address{
-  input{
-    border-radius:6px;
-    background:rgb(255, 255, 255);
+div#order_review_shipping_address {
+  input {
+    border-radius: 6px;
+    background: rgb(255, 255, 255);
   }
 }
-div#order_review_billing_address{
-  input{
-    border-radius:6px;
-    background:rgb(255, 255, 255);
+div#order_review_billing_address {
+  input {
+    border-radius: 6px;
+    background: rgb(255, 255, 255);
   }
 }

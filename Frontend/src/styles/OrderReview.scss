@@ -3,12 +3,12 @@
 
 #order_review {
   padding: 80px;
-  background-color:#D2A970;
+  background-color: $mocha-brown;
   min-height: 100vh;
   max-height: fit-content;
-  h1{
-    text-shadow:$text-shadow-light;
-    color:black;
+  h1 {
+    text-shadow: $text-shadow-light;
+    color: black;
     filter: drop-shadow(0px 1px 0.5px rgb(180, 180, 180));
     margin: 0 0 20px 0;
   }
@@ -32,7 +32,7 @@
 }
 
 #order_review_settings {
-  background:$light-brown;
+  background: $light-brown;
   height: 300px;
   padding: 20px;
   display: flex;
@@ -87,7 +87,7 @@
 
 #order_review_items {
   padding: 20px;
-  background:$light-brown;
+  background: $light-brown;
   display: flex;
   justify-content: space-between;
 }
@@ -126,18 +126,18 @@
   padding: 20px;
   min-width: 300px;
   background: $light-brown;
-  color:$dark-brown;
+  color: $dark-brown;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  box-shadow:$box-shadow-light;
-  button{
+  box-shadow: $box-shadow-light;
+  button {
     height: 40px;
-    color:$light-brown;
-    font-weight:600;
+    color: $light-brown;
+    font-weight: 600;
     background-color: $dark-brown;
   }
-  button:hover{
+  button:hover {
     background-color: $dark-brown-hover;
   }
   div {
@@ -149,7 +149,7 @@
     font-weight: bold;
   }
   div:last-child {
-    color:$dark-brown;
+    color: $dark-brown;
     font-weight: bold;
   }
 }

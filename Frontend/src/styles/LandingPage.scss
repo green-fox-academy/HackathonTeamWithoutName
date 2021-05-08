@@ -3,371 +3,372 @@
 @import './globals';
 
 .section1 {
-    background: url('../assets/images/landingbackground4.jpg');
-    background-size:cover;
-    border-radius:12px 12px 0px 0px;
-    height:77vh;
-    width:97vw;
-    margin-top:2vh;
-    margin-left:1vw;
-    margin-right:1vw;
+  background: url('../assets/images/landingbackground4.jpg');
+  background-size: cover;
+  border-radius: 12px 12px 0px 0px;
+  height: 77vh;
+  width: 97vw;
+  margin-top: 2vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
 
-.landingTitleBox{
-    display:flex;
-    flex-direction:column;
-    width:500px;
-    margin-left:50px;
+.landingTitleBox {
+  @include flexColumn;
+  width: 500px;
+  margin-left: 50px;
 
-    .landingTitle{
-        font-family: 'New Tegomin', serif;
-        color:white;
-        font-size:70px;
-        height:250px;
-        margin-top:50px;
-        text-shadow: 2px 2px 0px $background-brown;
-    }
-    .landingText{
-        font-family: 'New Tegomin', serif;
-        color:white;
-        font-size:20px;
-        text-shadow: 1px 1px 0px $background-brown;
-    }
-}
-
-.section2{
-    display:flex;
-    background:$light-brown;
-    max-width:97vw;
-    margin-left:1vw;
-    margin-right:1vw;
-    .animationHolder{
-        width:30%;
-        margin-left:50px;
-        position:relative;
-        top:-70px;
-    }
-
-    .section2Text{
-        font-family: 'New Tegomin', serif;
-        color:$dark-brown;
-        font-size:50px;
-        width:800px;
-        height:250px;
-        margin-top:50px;
-        margin-left:30px;
-        text-shadow: 0.5px 0.5px 0px white;
-        .landingImgHolder{
-            display:flex;
-            margin-top:120px;
-            width:800px;
-            gap:30px;
-            height:300px;
-        }
-    }
-    .goToShop {
-        margin-left:250px;
-        font-size:60%;
-        font-weight: 500;
-      border: 3px solid $background-brown;
-      border-radius:6px;
-      text-transform:uppercase;
-      color:$light-brown-hover;
-        background-color: $dark-brown;
-        text-decoration: none;
-      color: $light-brown;
-      width:fit-content;
-      padding:5px;
-    }
-    .goToShop:hover {
-        background-color: $background-brown;
-        border: 3px solid $dark-brown;
-        color:$dark-brown;
-    }
-    a, a:hover, a:focus, a:active {
-        text-decoration: none;
-        color: inherit;
+  .landingTitle {
+    font-family: 'New Tegomin', serif;
+    color: white;
+    font-size: 70px;
+    height: 250px;
+    margin-top: 50px;
+    text-shadow: 2px 2px 0px $background-brown;
+  }
+  .landingText {
+    font-family: 'New Tegomin', serif;
+    color: white;
+    font-size: 20px;
+    text-shadow: 1px 1px 0px $background-brown;
   }
 }
-[class*='landImg']{
-    filter: drop-shadow(0px 8px 4px #000000);
+
+.section2 {
+  display: flex;
+  background: $light-brown;
+  max-width: 97vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  .animationHolder {
+    width: 30%;
+    margin-left: 50px;
+    position: relative;
+    top: -70px;
+  }
+
+  .section2Text {
+    font-family: 'New Tegomin', serif;
+    color: $dark-brown;
+    font-size: 50px;
+    width: 800px;
+    height: 250px;
+    margin-top: 50px;
+    margin-left: 30px;
+    text-shadow: 0.5px 0.5px 0px white;
+    .landingImgHolder {
+      display: flex;
+      margin-top: 120px;
+      width: 800px;
+      gap: 30px;
+      height: 300px;
+    }
+  }
+  .goToShop {
+    margin-left: 250px;
+    font-size: 60%;
+    font-weight: 500;
+    border: 3px solid $background-brown;
+    border-radius: 6px;
+    text-transform: uppercase;
+    color: $light-brown-hover;
+    background-color: $dark-brown;
+    text-decoration: none;
+    color: $light-brown;
+    width: fit-content;
+    padding: 5px;
+  }
+  .goToShop:hover {
+    background-color: $background-brown;
+    border: 3px solid $dark-brown;
+    color: $dark-brown;
+  }
+  a,
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: none;
+    color: inherit;
+  }
 }
-.landImg1:hover{
-    -webkit-animation: vibrate-1 0.3s linear infinite both;
-	        animation: vibrate-1 0.3s linear infinite both;
+[class*='landImg'] {
+  filter: drop-shadow(0px 8px 4px #000000);
 }
-.landImg2:hover{
-    -webkit-animation: vibrate-1 0.3s linear infinite both;
-	        animation: vibrate-1 0.3s linear infinite both;
+.landImg1:hover {
+  -webkit-animation: vibrate-1 0.3s linear infinite both;
+  animation: vibrate-1 0.3s linear infinite both;
 }
-.landImg3:hover{
-    -webkit-animation: vibrate-1 0.3s linear infinite both;
-	        animation: vibrate-1 0.3s linear infinite both;
+.landImg2:hover {
+  -webkit-animation: vibrate-1 0.3s linear infinite both;
+  animation: vibrate-1 0.3s linear infinite both;
+}
+.landImg3:hover {
+  -webkit-animation: vibrate-1 0.3s linear infinite both;
+  animation: vibrate-1 0.3s linear infinite both;
 }
 
 .section3 {
-    background:#D2A970;
-    height:110vh;
-    margin-top:0px;
-    width:97vw;
-    margin-left:1vw;
-    margin-right:1vw;
-    padding-top:2vh;
-    padding-bottom:2vh;
-    padding-left:2vw;
-    padding-right:2vw;
-    border-radius:0px 0px 12px 12px;
+  background: $mocha-brown;
+  height: 110vh;
+  margin-top: 0px;
+  width: 97vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  border-radius: 0px 0px 12px 12px;
 }
-.teamholder{
-    margin-top:0px;
-    display:flex;
-    width:90vw;
-    height:fit-content;
-   padding:10px;
-    gap:120px;
-    justify-content:center;
-    border:none;
-  }
-.teamcard{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+.teamholder {
+  margin-top: 0px;
+  display: flex;
+  width: 90vw;
+  height: fit-content;
+  padding: 10px;
+  gap: 120px;
+  justify-content: center;
+  border: none;
 }
-[class*='teammate']{
-    background:black;
-    width:200px;
-    height:200px;
-    clip-path: circle(50% at 50% 50%);
-    -webkit-animation: swirl-in-fwd 0.6s ease-out both;
-	        animation: swirl-in-fwd 0.6s ease-out both;
+.teamcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.teamtitle{
-    margin-left:auto;
-    margin-right:auto;
-    width:400px;
-    font-family: 'New Tegomin', serif;
-        color:$dark-brown;
-        font-size:55px;
-        margin-top:0px;
-        text-shadow: 2px 2px 0px $background-brown;
-        margin-bottom:0px;
+[class*='teammate'] {
+  background: black;
+  width: 200px;
+  height: 200px;
+  clip-path: circle(50% at 50% 50%);
+  -webkit-animation: swirl-in-fwd 0.6s ease-out both;
+  animation: swirl-in-fwd 0.6s ease-out both;
 }
-.nameTag{
-    font-family: 'New Tegomin', serif;
-        color:white;
-        font-size:34px;
-        text-shadow: 2px 2px 0px $background-brown;
-        margin:0px;
+.teamtitle {
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  font-family: 'New Tegomin', serif;
+  color: $dark-brown;
+  font-size: 55px;
+  margin-top: 0px;
+  text-shadow: 2px 2px 0px $background-brown;
+  margin-bottom: 0px;
+}
+.nameTag {
+  font-family: 'New Tegomin', serif;
+  color: white;
+  font-size: 34px;
+  text-shadow: 2px 2px 0px $background-brown;
+  margin: 0px;
 }
 
 @media screen and (max-width: 1150px) {
-
-.landingTitleBox {
-    width:300px;
-    margin-left:30px;
+  .landingTitleBox {
+    width: 300px;
+    margin-left: 30px;
 
     .landingTitle {
-        font-size:50px;
+      font-size: 50px;
     }
     .landingText {
-        font-size:15px;
+      font-size: 15px;
     }
-}
+  }
 
-.section2{
-
-    .animationHolder{
-        margin-left:30px;
+  .section2 {
+    .animationHolder {
+      margin-left: 30px;
     }
 
-    .section2Text{
-        font-size:25px;
-        width:500px;
-        height:250px;
-        .landingImgHolder{
-            display:flex;
-            margin-top:80px;
-            width:400px;
-            gap:0px;
-            height:200px;
-        }
-        .landImg3{
-          display:none;
-        }
+    .section2Text {
+      font-size: 25px;
+      width: 500px;
+      height: 250px;
+      .landingImgHolder {
+        display: flex;
+        margin-top: 80px;
+        width: 400px;
+        gap: 0px;
+        height: 200px;
+      }
+      .landImg3 {
+        display: none;
+      }
     }
     .goToShop {
-        margin-left:170px;
-        font-size:60%;
-        font-weight: 500;
+      margin-left: 170px;
+      font-size: 60%;
+      font-weight: 500;
       border: 3px solid $background-brown;
-      border-radius:6px;
-      text-transform:uppercase;
-      color:$light-brown-hover;
-        background-color: $dark-brown;
-        text-decoration: none;
+      border-radius: 6px;
+      text-transform: uppercase;
+      color: $light-brown-hover;
+      background-color: $dark-brown;
+      text-decoration: none;
       color: $light-brown;
-      width:fit-content;
-      padding:5px;
+      width: fit-content;
+      padding: 5px;
     }
     .goToShop:hover {
-        background-color: $background-brown;
-        border: 3px solid $dark-brown;
-        color:$dark-brown;
+      background-color: $background-brown;
+      border: 3px solid $dark-brown;
+      color: $dark-brown;
     }
-    a, a:hover, a:focus, a:active {
-        text-decoration: none;
-        color: inherit;
+    a,
+    a:hover,
+    a:focus,
+    a:active {
+      text-decoration: none;
+      color: inherit;
+    }
   }
-}
-[class*='landImg']{
+  [class*='landImg'] {
     filter: drop-shadow(0px 8px 4px #000000);
-}
-.landImg1:hover{
-    -webkit-animation: vibrate-1 0.3s linear infinite both;
-	        animation: vibrate-1 0.3s linear infinite both;
-}
-.landImg2:hover{
-    -webkit-animation: vibrate-1 0.3s linear infinite both;
-	        animation: vibrate-1 0.3s linear infinite both;
-}
-.landImg3:hover{
-    -webkit-animation: vibrate-1 0.3s linear infinite both;
-	        animation: vibrate-1 0.3s linear infinite both;
-}
-
-.section3 {
-    background:#D2A970;
-    height:110vh;
-    margin-top:0px;
-    width:97vw;
-    margin-left:1vw;
-    margin-right:1vw;
-    padding-top:2vh;
-    padding-bottom:2vh;
-    padding-left:2vw;
-    padding-right:2vw;
-    border-radius:0px 0px 12px 12px;
-}
-.teamholder{
-    margin-top:0px;
-    display:flex;
-    width:90vw;
-    height:fit-content;
-   padding:10px;
-    gap:120px;
-    justify-content:center;
-    border:none;
   }
-.teamcard{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
-[class*='teammate']{
-    background:black;
-    width:200px;
-    height:200px;
+  .landImg1:hover {
+    -webkit-animation: vibrate-1 0.3s linear infinite both;
+    animation: vibrate-1 0.3s linear infinite both;
+  }
+  .landImg2:hover {
+    -webkit-animation: vibrate-1 0.3s linear infinite both;
+    animation: vibrate-1 0.3s linear infinite both;
+  }
+  .landImg3:hover {
+    -webkit-animation: vibrate-1 0.3s linear infinite both;
+    animation: vibrate-1 0.3s linear infinite both;
+  }
+
+  .section3 {
+    background: $mocha-brown;
+    height: 110vh;
+    margin-top: 0px;
+    width: 97vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-radius: 0px 0px 12px 12px;
+  }
+  .teamholder {
+    margin-top: 0px;
+    display: flex;
+    width: 90vw;
+    height: fit-content;
+    padding: 10px;
+    gap: 120px;
+    justify-content: center;
+    border: none;
+  }
+  .teamcard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  [class*='teammate'] {
+    background: black;
+    width: 200px;
+    height: 200px;
     clip-path: circle(50% at 50% 50%);
     -webkit-animation: swirl-in-fwd 0.6s ease-out both;
-	        animation: swirl-in-fwd 0.6s ease-out both;
-}
-.teamtitle{
-    margin-left:auto;
-    margin-right:auto;
-    width:400px;
+    animation: swirl-in-fwd 0.6s ease-out both;
+  }
+  .teamtitle {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
     font-family: 'New Tegomin', serif;
-        color:$dark-brown;
-        font-size:55px;
-        margin-top:0px;
-        text-shadow: 2px 2px 0px $background-brown;
-        margin-bottom:0px;
-}
-.nameTag{
+    color: $dark-brown;
+    font-size: 55px;
+    margin-top: 0px;
+    text-shadow: 2px 2px 0px $background-brown;
+    margin-bottom: 0px;
+  }
+  .nameTag {
     font-family: 'New Tegomin', serif;
-        color:white;
-        font-size:34px;
-        text-shadow: 2px 2px 0px $background-brown;
-        margin:0px;
-}
+    color: white;
+    font-size: 34px;
+    text-shadow: 2px 2px 0px $background-brown;
+    margin: 0px;
+  }
 }
 //Animations
 
 @-webkit-keyframes swirl-in-fwd {
-    0% {
-      -webkit-transform: rotate(-540deg) scale(0);
-              transform: rotate(-540deg) scale(0);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: rotate(0) scale(1);
-              transform: rotate(0) scale(1);
-      opacity: 1;
-    }
+  0% {
+    -webkit-transform: rotate(-540deg) scale(0);
+    transform: rotate(-540deg) scale(0);
+    opacity: 0;
   }
-  @keyframes swirl-in-fwd {
-    0% {
-      -webkit-transform: rotate(-540deg) scale(0);
-              transform: rotate(-540deg) scale(0);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: rotate(0) scale(1);
-              transform: rotate(0) scale(1);
-      opacity: 1;
-    }
+  100% {
+    -webkit-transform: rotate(0) scale(1);
+    transform: rotate(0) scale(1);
+    opacity: 1;
   }
+}
+@keyframes swirl-in-fwd {
+  0% {
+    -webkit-transform: rotate(-540deg) scale(0);
+    transform: rotate(-540deg) scale(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0) scale(1);
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
 
-
-  @-webkit-keyframes vibrate-1 {
-    0% {
-      -webkit-transform: translate(0);
-              transform: translate(0);
-    }
-    20% {
-      -webkit-transform: translate(-2px, 2px);
-              transform: translate(-2px, 2px);
-    }
-    40% {
-      -webkit-transform: translate(-2px, -2px);
-              transform: translate(-2px, -2px);
-    }
-    60% {
-      -webkit-transform: translate(2px, 2px);
-              transform: translate(2px, 2px);
-    }
-    80% {
-      -webkit-transform: translate(2px, -2px);
-              transform: translate(2px, -2px);
-    }
-    100% {
-      -webkit-transform: translate(0);
-              transform: translate(0);
-    }
+@-webkit-keyframes vibrate-1 {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
   }
-  @keyframes vibrate-1 {
-    0% {
-      -webkit-transform: translate(0);
-              transform: translate(0);
-    }
-    20% {
-      -webkit-transform: translate(-2px, 2px);
-              transform: translate(-2px, 2px);
-    }
-    40% {
-      -webkit-transform: translate(-2px, -2px);
-              transform: translate(-2px, -2px);
-    }
-    60% {
-      -webkit-transform: translate(2px, 2px);
-              transform: translate(2px, 2px);
-    }
-    80% {
-      -webkit-transform: translate(2px, -2px);
-              transform: translate(2px, -2px);
-    }
-    100% {
-      -webkit-transform: translate(0);
-              transform: translate(0);
-    }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
   }
-  
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}
+@keyframes vibrate-1 {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}

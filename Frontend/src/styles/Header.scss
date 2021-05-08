@@ -83,19 +83,11 @@ box-shadow: 0 3px 5px rgba(57, 63, 72, 0.5);
 
 @media screen and (max-width: 940px) {
   .header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    align-items: center;
-    height: 160px;
     .navbarholder {
       margin-right: 30px;
-      display: flex;
       gap: 10px;
       button {
         font-size: 110%;
-        font-weight: 500;
-        text-transform:uppercase;
       }
       .showprezibutton {
         display: none;
@@ -114,20 +106,12 @@ box-shadow: 0 3px 5px rgba(57, 63, 72, 0.5);
 
 @media screen and (max-width: 740px) {
   .header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    align-items: center;
-    height: 160px;
     .navbarholder {
       margin-right: 20px;
-      display: flex;
       flex-direction:column;
       gap: 5px;
       button {
         font-size: 130%;
-        font-weight: 500;
-        text-transform:uppercase;
       }
       .showprezibutton {
         display: none;
@@ -149,19 +133,9 @@ box-shadow: 0 3px 5px rgba(57, 63, 72, 0.5);
   }
   .logotext {
     position:absolute;
-    font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 15px;
-    letter-spacing: 2px;
-    word-spacing: 2px;
-    color: $light-brown;
-    font-weight: 700;
-    text-decoration: underline solid rgb(68, 68, 68);
-    font-style: italic;
-    font-variant: normal;
-    text-transform: capitalize;
     top:90px;
     left:12px;
-    text-shadow: 1px 1px 3px #DBC1AC;
     -webkit-animation: bounce-top 0.9s both;
             animation: bounce-top 0.9s both;
   }

@@ -1,43 +1,42 @@
-
 @import './presets';
 @import './variables';
 
-.detailsHolder{
-    display:flex;
-    gap:15px;
-    background:#D2A970;
-    align-items:center;
-    justify-content:center;
-    border-radius:8px;
-    border:2px solid $dark-brown;
-    margin-bottom:15px;
-    color:$dark-brown;
-    font-weight:500;
+.detailsHolder {
+  display: flex;
+  gap: 15px;
+  background: $mocha-brown;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 2px solid $dark-brown;
+  margin-bottom: 15px;
+  color: $dark-brown;
+  font-weight: 500;
 }
 
-.itemsHolder{
-    display:flex;
+.itemsHolder {
+  display: flex;
 }
 
-.cardHolder{
-    display:flex;
-    align-items: center;
-    justify-content:center;
+.cardHolder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.holdingContainer{
-    display:flex;
-    flex-direction:column;
-    width:max-content;
+.holdingContainer {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
 }
 
-.cardtitle{
-    font-size:150%;
-    font-family: 'New Tegomin', serif;
-    text-shadow: 1px 1px 0px $background-brown;
-    font-weight:500;
+.cardtitle {
+  font-size: 150%;
+  font-family: 'New Tegomin', serif;
+  text-shadow: 1px 1px 0px $background-brown;
+  font-weight: 500;
 }
 
-.itempicker{
-    margin-bottom:20px;
+.itempicker {
+  margin-bottom: 20px;
 }
